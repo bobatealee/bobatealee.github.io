@@ -12,6 +12,7 @@ html, body {
 }
 
 #boba-titleanim{
+    white-space: nowrap;
 	padding-top: 10px;
 	font-size: 52px;
 	font-family: 'Quicksand', sans-serif;
@@ -33,18 +34,19 @@ html, body {
 }
 
 .boba-stroke {
-  position: relative;
-  background: transparent;
-  z-index: 0;
+	position: relative;
+	background: transparent;
+	z-index: 0;
 }
 
 .boba-stroke:before {
-  content: attr(title);
-  position: absolute;
-  -webkit-text-stroke: 4px #390066;
-  left: 0;
-  top: 0;
-  z-index: -1;
+	content: attr(title);
+	position: absolute;
+	-webkit-text-stroke: 4px #390066;
+    white-space: nowrap;
+	left: 0;
+	top: 0;
+	z-index: -1;
 }
 
 .boba-marquee {
