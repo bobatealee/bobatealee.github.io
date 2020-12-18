@@ -1,0 +1,29 @@
+.a {
+	padding-top: 10px;
+	text-align: center;
+	font-size: 32px;	
+}
+
+.title {
+
+}
+
+#title1{
+	width: 100%;
+	position: absolute;
+	animation: title 1s infinite alternate;
+	animation-timing-function: ease-in-out;
+}
+
+@keyframes title {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	100% {
+		transform: translate(0px, 10px);
+	}
+}
+
+body {
+  background: linear-gradient(to bottom, #FFE8F8 20%, #C1FFC8 , #BFDDFF );
+}
