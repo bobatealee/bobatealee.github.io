@@ -1,12 +1,9 @@
-.a {
+.title {
 	padding-top: 10px;
 	text-align: center;
-	font-size: 32px;	
+	font-size: 48px;	
 }
 
-.title {
-
-}
 
 #title1{
 	width: 100%;
@@ -25,5 +22,10 @@
 }
 
 body {
-  background: linear-gradient(to bottom, #FFE8F8 20%, #C1FFC8 , #BFDDFF );
+    margin: 0;
+	background: linear-gradient(to bottom, #FFE8F8 20%, #C1FFC8 , #BFDDFF );
+}
+
+html, body {
+	height: 100%;
 }
