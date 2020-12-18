@@ -1,18 +1,29 @@
-.title {
-	padding-top: 10px;
-	text-align: center;
-	font-size: 48px;	
+body {
+    margin: 0;
+	background: linear-gradient(to bottom, #FFE8F8 30%, #C1FFC8 , #BFDDFF );
 }
 
+html, body {
+	height: 100%;
+}
 
-#title1{
+.boba-title {
+
+}
+
+#boba-titleanim{
+	padding-top: 10px;
+	font-size: 52px;
+	font-family: 'Quicksand', sans-serif;
+	font-style: italic;
+	color: #FFFFFF;
 	width: 100%;
 	position: absolute;
-	animation: title 1s infinite alternate;
+	animation: boba-title 1s infinite alternate;
 	animation-timing-function: ease-in-out;
 }
 
-@keyframes title {
+@keyframes boba-title {
 	0% {
 		transform: translate(0px, 0px);
 	}
@@ -21,11 +32,37 @@
 	}
 }
 
-body {
-    margin: 0;
-	background: linear-gradient(to bottom, #FFE8F8 20%, #C1FFC8 , #BFDDFF );
+.boba-stroke {
+  position: relative;
+  background: transparent;
+  z-index: 0;
 }
 
-html, body {
-	height: 100%;
+.boba-stroke:before {
+  content: attr(title);
+  position: absolute;
+  -webkit-text-stroke: 4px #390066;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.boba-marquee {
+	font-family: 'Source Code Pro', monospace;
+	width: 100%;
+	color: #390066;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+	position: fixed;
+	bottom: 0px;
+}
+.boba-marquee p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: boba-marquee 20s linear infinite;
+}
+@keyframes boba-marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
 }
