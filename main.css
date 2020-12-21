@@ -30,13 +30,14 @@ html, body {
 }
 
 .boba-shaker {
-	width: 0;
-	left: 0; /* make sure absolute behaves */
-	right: 0; /* make sure absolute behaves */
-	margin: auto; /* make sure absolute behaves */
+    display: inline-block;
 }
 
-.boba-shaker:hover {
+#boba-shakeranim {
+
+}
+
+#boba-shakeranim:hover {
 	animation: boba-shake .25s linear infinite alternate
 }
 
