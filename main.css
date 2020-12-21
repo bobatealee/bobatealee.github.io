@@ -1,12 +1,14 @@
+/* body styling */
 body {
     margin: 0;
-	background: linear-gradient(to bottom, #FFE8F8 30%, #C1FFC8 , #BFDDFF );
+	background: linear-gradient(to bottom, #FFE8F8 30%, #C1FFC8 , #BFDDFF )
 }
 
 html, body {
-	height: 100%;
+	height: 100%
 }
 
+/* title styling */
 .boba-title {
 
 }
@@ -18,25 +20,30 @@ html, body {
 	font-family: 'Quicksand', sans-serif;
 	font-style: italic;
 	color: #FFFFFF;
-	width: 100%;
-	position: absolute;
 	animation: boba-title 1s infinite alternate;
-	animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out
 }
 
-@keyframes boba-title {
-	0% {
-		transform: translate(0px, 0px);
-	}
-	100% {
-		transform: translate(0px, 10px);
-	}
+.boba-space {
+	padding-left: 8px;
+	padding-right: 8px
+}
+
+.boba-shaker {
+	width: 0;
+	left: 0; /* make sure absolute behaves */
+	right: 0; /* make sure absolute behaves */
+	margin: auto; /* make sure absolute behaves */
+}
+
+.boba-shaker:hover {
+	animation: boba-shake .25s linear infinite alternate
 }
 
 .boba-stroke {
 	position: relative;
 	background: transparent;
-	z-index: 0;
+	z-index: 0
 }
 
 .boba-stroke:before {
@@ -46,9 +53,10 @@ html, body {
     white-space: nowrap;
 	left: 0;
 	top: 0;
-	z-index: -1;
+	z-index: -1
 }
 
+/* marquee styling */
 .boba-marquee {
 	font-family: 'Source Code Pro', monospace;
 	width: 100%;
@@ -57,14 +65,66 @@ html, body {
     overflow: hidden;
     box-sizing: border-box;
 	position: fixed;
-	bottom: 0px;
+	bottom: 0px
 }
+
 .boba-marquee p {
     display: inline-block;
     padding-left: 100%;
-    animation: boba-marquee 20s linear infinite;
+    animation: boba-marquee 10s linear infinite
 }
+
+/* anims */
+@keyframes boba-shake {
+	0% {
+		transform: translate(1px, 1px)
+	}
+	10% {
+		transform: translate(-1px, -1px)
+	}
+	20% {
+		transform: translate(-1px, 0px)
+	}
+	30% {
+		transform: translate(1px, 1px)
+	}
+	40% {
+		transform: translate(1px, -1px)
+	}
+	50% {
+		transform: translate(-1px, 1px)
+	}
+	60% {
+		transform: translate(-1px, 1px)
+	}
+	70% {
+		transform: translate(1px, 1px)
+	}
+	80% {
+		transform: translate(-1px, -1px)
+	}
+	90% {
+		transform: translate(1px, 1px)
+	}
+	100% {
+		transform: translate(1px, -1px)
+	}
+}
+
+@keyframes boba-title {
+	0% {
+		transform: translate(0px, 0px)
+	}
+	100% {
+		transform: translate(0px, 10px)
+	}
+}
+
 @keyframes boba-marquee {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(-100%, 0); }
+    0% {
+		transform: translate(0, 0)
+	}
+    100% {
+		transform: translate(-100%, 0)
+	}
 }
