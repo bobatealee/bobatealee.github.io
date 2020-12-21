@@ -24,6 +24,7 @@ html, body {
 	animation-timing-function: ease-in-out;
 	user-drag: none;
 	user-select: none;
+	-webkit-touch-callout: none;
 }
 
 .boba-space {
