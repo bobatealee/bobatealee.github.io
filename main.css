@@ -1,7 +1,7 @@
 /* body styling */
 body {
     margin: 0;
-	background: linear-gradient(to bottom, #FFEAF8 30%, #DDFFD6, #CCE5FF);
+	background: linear-gradient(#FFEAF8 30%, #DDFFD6, #CCE5FF);
 }
 
 html, body {
@@ -9,9 +9,6 @@ html, body {
 }
 
 /* title styling */
-.boba-title {
-
-}
 
 #boba-titleanim{
     white-space: nowrap;
@@ -39,10 +36,6 @@ html, body {
     display: inline-block;
 }
 
-#boba-shakeranim {
-
-}
-
 #boba-shakeranim:hover {
 	animation: boba-shake .25s linear infinite alternate;
 }
@@ -65,10 +58,17 @@ html, body {
 }
 
 /* textbox styling */
+.boba-content{
+	max-width: 1000px;
+	margin: auto;
+}
+
 .boba-textbox{
 	margin:30px;
 	box-shadow: 4px 4px #390066;
 	border: solid 2px #390066;
+	width: 100%;
+	animation-timing-function: ease-in-out;
 }
 
 .boba-textboxtext {
@@ -96,12 +96,19 @@ html, body {
 }
 
 #boba-textbox1 {
-	margin-top: 70px;
-	margin-left: 5%;
+	float: right;
+	margin-top: 30px;
 	max-width: 400px;
 	background: white;
-	animation: boba-textbox1 2s infinite alternate;
-	animation-timing-function: ease-in-out;
+	animation: boba-textbox 2s infinite alternate;
+}
+
+#boba-textbox2 {
+	float: left;
+	margin-top: 70px;
+	max-width: 300px;
+	background: white;
+	animation: boba-textbox 2s infinite alternate;
 }
 
 /* marquee styling */
@@ -168,7 +175,7 @@ html, body {
 	}
 }
 
-@keyframes boba-textbox1 {
+@keyframes boba-textbox {
 	0% {
 		transform: translate(0px, 0px);
 	}
