@@ -91,30 +91,20 @@ html, body {
 	display:block;
 	position:absolute;
 	top: 125px;
-	left: 10px;
+	left: 15px;
 	outline: 0;
 }
 
+
+#footerlogo:hover {
+	background-position: bottom;
+}
+
 #footertext {
-	font-family:Arial, Helvetica, sans-serif;
-	font-size: 10px;
-	font-weight: 700;
-	color: #7C7C7C;
-	width: 765px;
+	width: 750px;
 	height: 35px;
 	display:block;
 	position:absolute;
 	top: 125px;
-	left: 125px;
-	line-height: 35px;
-}
-
-#footertext2 {
-	display: inline-block;
-	vertical-align: middle;
-	line-height: normal;
-}
-
-#footerlogo:hover {
-	background-position: bottom;
+	left: 135px;
 }
