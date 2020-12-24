@@ -22,14 +22,85 @@ html, body {
 	margin-right:auto;
 }
 
-#logoLink {
+#logo1 {
 	background-image:url(images/tf2_logo.png);
 	background-position:top;
-	width:587px;
-	height:140px;
+	width:300px;
+	height:75px;
 	display: inline-block;
 	margin-top: 40px;
 }
-#logoLink:hover {
+
+#logo1:hover {
 	background-position:bottom;
+}
+
+#logo2 {
+	background-image:url(images/title.png);
+	background-position:top;
+	width:830px;
+	height:120px;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+#logo2:hover {
+	background-position:bottom;
+}
+
+#logo3 {
+	background-image:url(images/subtitle.png);
+	background-position:top;
+	width:840px;
+	height:87px;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.fadein1 {
+	animation:fadein1 .75s;
+}
+
+@keyframes fadein1{
+	0% {
+		opacity:0
+	}
+	20% {
+		opacity:0
+	}
+	100% {
+		opacity:1
+	}
+}
+
+.fadein2 {
+	animation:fadein2 1.5s;
+}
+
+@keyframes fadein2{
+	0% {
+		opacity:0
+	}
+	40% {
+		opacity:0
+	}
+	100% {
+		opacity:1
+	}
+}
+
+.fadein3 {
+	animation:fadein3 2s;
+}
+
+@keyframes fadein3{
+	0% {
+		opacity:0
+	}
+	40% {
+		opacity:0
+	}
+	100% {
+		opacity:1
+	}
 }
