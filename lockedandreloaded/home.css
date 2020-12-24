@@ -1,0 +1,23 @@
+#bg1 {
+	background-image: url(images/mainbg.jpg);
+	background-position: top center;
+	background-repeat: repeat-y;
+	height: 100%;
+}
+
+#content1 {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#logo2 {
+	background-image: url(images/title.png);
+	background-position: top;
+	width: 830px;
+	height: 120px;
+	display: inline-block;
+	margin-top: 20px;
+}

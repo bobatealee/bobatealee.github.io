@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'TF2secondary';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(../TF2secondary.woff2) format('woff2');
+}
+
+#bg1 {
+	background-image: url(../images/mainbg.jpg);
+	background-position: top center;
+	background-repeat: repeat-y;
+	height: 100%;
+}
+
+#content1 {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#logo2 {
+	background-image: url(../images/title.png);
+	background-position: top;
+	width: 830px;
+	height: 120px;
+	display: inline-block;
+	margin-top: 20px;
+	outline: 0;
+}
+
+#logo2:hover {
+	background-position: bottom;
+}

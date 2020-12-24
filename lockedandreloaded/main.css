@@ -1,7 +1,7 @@
 /* body styling */
 body {
-	margin:0;
-	padding:0;
+	margin: 0;
+	padding: 0;
 }
 
 html, body {
@@ -11,107 +11,98 @@ html, body {
 
 /* header */
 #logo1 {
-	background-image:url(images/tf2_logo.png);
-	background-position:top;
-	width:300px;
-	height:75px;
+	background-image: url(images/tf2_logo.png);
+	background-position: top;
+	width: 300px;
+	height: 75px;
 	display: inline-block;
 	margin-top: 40px;
 	outline: 0;
 }
 
 #logo1:hover {
-	background-position:bottom;
-}
-
-#logo2 {
-	background-image:url(images/title.png);
-	background-position:top;
-	width:830px;
-	height:120px;
-	display: inline-block;
-	margin-top: 20px;
+	background-position: bottom;
 }
 
 #logo3 {
-	background-image:url(images/subtitle.png);
-	background-position:top;
-	width:840px;
-	height:87px;
+	background-image: url(images/subtitle.png);
+	background-position: top;
+	width: 840px;
+	height: 87px;
 	display: inline-block;
 	margin-top: 20px;
 }
 
 #button1 {
-	background-image:url(images/btn_tactics.png);
-	background-position:top;
-	width:250px;
-	height:65px;
+	background-image: url(images/btn_tactics.png);
+	background-position: top;
+	width: 250px;
+	height: 65px;
 	display: inline-block;
 	margin-top: 40px;
 	outline: 0;
 }
 
 #button1:hover {
-	background-position:bottom;
+	background-position: bottom;
 }
 
 #button2 {
-	background-image:url(images/btn_gear.png);
-	background-position:top;
-	width:250px;
-	height:65px;
+	background-image: url(images/btn_gear.png);
+	background-position: top;
+	width: 250px;
+	height: 65px;
 	display: inline-block;
 	margin-top: 40px;
 	outline: 0;
 }
 
 #button2:hover {
-	background-position:bottom;
+	background-position: bottom;
 }
 
 #button3 {
-	background-image:url(images/btn_war.png);
-	background-position:top;
-	width:250px;
-	height:65px;
+	background-image: url(images/btn_war.png);
+	background-position: top;
+	width: 250px;
+	height: 65px;
 	display: inline-block;
 	margin-top: 40px;
 	outline: 0;
 }
 
 #button3:hover {
-	background-position:bottom;
+	background-position: bottom;
 }
 
 #button4 {
-	background-image:url(images/btn_notes.png);
-	background-position:top;
-	width:250px;
-	height:65px;
+	background-image: url(images/btn_notes.png);
+	background-position: top;
+	width: 250px;
+	height: 65px;
 	display: inline-block;
 	outline: 0;
 }
 
 #button4:hover {
-	background-position:bottom;
+	background-position: bottom;
 }
 
 #button5 {
-	background-image:url(images/btn_credits.png);
-	background-position:top;
-	width:250px;
-	height:65px;
+	background-image: url(images/btn_credits.png);
+	background-position: top;
+	width: 250px;
+	height: 65px;
 	display: inline-block;
 	outline: 0;
 }
 
 #button5:hover {
-	background-position:bottom;
+	background-position: bottom;
 }
 
 .fadein1 {
-	animation:fadein1 .75s;
+	animation: fadein1 .75s;
 }
 
 @keyframes fadein1{
@@ -127,7 +118,7 @@ html, body {
 }
 
 .fadein2 {
-	animation:fadein2 1.5s;
+	animation: fadein2 1.5s;
 }
 
 @keyframes fadein2{
@@ -143,7 +134,7 @@ html, body {
 }
 
 .fadein3 {
-	animation:fadein3 2s;
+	animation: fadein3 2s;
 }
 
 @keyframes fadein3{
@@ -159,7 +150,7 @@ html, body {
 }
 
 .fadein4 {
-	animation:fadein4 2s;
+	animation: fadein4 2s;
 }
 
 @keyframes fadein4{
@@ -172,21 +163,4 @@ html, body {
 	100% {
 		opacity:1
 	}
-}
-
-/* content */
-#bg1 {
-	background-image:url(images/mainbg.jpg);
-	background-position:top center;
-	background-repeat:repeat-y;
-	height: 100%;
-}
-
-#content1 {
-	position:relative;
-	margin-left:auto;
-	margin-right:auto;
-	top: 50%;
-	transform: translateY(-50%);
-	min-height: 552px;
 }
