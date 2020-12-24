@@ -1,11 +1,11 @@
 /* body styling */
 body {
     margin: 0;
-	background: linear-gradient(#FFEAF8 30%, #DDFFD6, #CCE5FF);
 }
 
 html, body {
 	height: 100%;
+	background: linear-gradient(to bottom, #FFEAF8 30%, #DDFFD6, #CCE5FF);
 }
 
 /* title styling */
@@ -97,7 +97,7 @@ html, body {
 
 #boba-textbox1 {
 	float: right;
-	margin-top: 30px;
+	margin-top: 50px;
 	max-width: 400px;
 	background: white;
 	animation: boba-textbox 2s infinite alternate;
@@ -105,7 +105,7 @@ html, body {
 
 #boba-textbox2 {
 	float: left;
-	margin-top: 70px;
+	margin-top: 120px;
 	max-width: 300px;
 	background: white;
 	animation: boba-textbox 2s infinite alternate;
