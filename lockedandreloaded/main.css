@@ -1,0 +1,35 @@
+/* body styling */
+body {
+	margin:0;
+	padding:0;
+}
+
+html, body {
+	height: 100%;
+	background: #141313;
+}
+
+#bg1 {
+	background-image:url(images/mainbg.jpg);
+	background-position:top center;
+	background-repeat:repeat-y;
+	height: 100%;
+}
+
+#content1 {
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#logoLink {
+	background-image:url(images/tf2_logo.png);
+	background-position:top;
+	width:587px;
+	height:140px;
+	display: inline-block;
+	margin-top: 40px;
+}
+#logoLink:hover {
+	background-position:bottom;
+}
