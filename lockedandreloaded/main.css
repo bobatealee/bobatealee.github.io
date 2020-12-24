@@ -167,3 +167,43 @@ html, body {
 		opacity:1
 	}
 }
+
+#footer {
+	background-image: url(images/footer.png);
+	width: 100%;
+	height: 200px;
+}
+
+#footercontent {
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	width:900px;
+	height: 200px;
+}
+
+#footerlogo {
+	background-image: url(images/valve_logo.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	width: 105px;
+	height: 35px;
+	display:block;
+	position:absolute;
+	top: 125px;
+	left: 15px;
+	outline: 0;
+}
+
+#footerlogo:hover {
+	background-position: bottom;
+}
+
+#footertext {
+	width: 750px;
+	height: 35px;
+	display:block;
+	position:absolute;
+	top: 125px;
+	left: 135px;
+}
