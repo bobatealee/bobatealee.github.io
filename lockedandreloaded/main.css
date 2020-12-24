@@ -9,19 +9,7 @@ html, body {
 	background: #141313;
 }
 
-#bg1 {
-	background-image:url(images/mainbg.jpg);
-	background-position:top center;
-	background-repeat:repeat-y;
-	height: 100%;
-}
-
-#content1 {
-	position:relative;
-	margin-left:auto;
-	margin-right:auto;
-}
-
+/* header */
 #logo1 {
 	background-image:url(images/tf2_logo.png);
 	background-position:top;
@@ -29,6 +17,7 @@ html, body {
 	height:75px;
 	display: inline-block;
 	margin-top: 40px;
+	outline: 0;
 }
 
 #logo1:hover {
@@ -44,10 +33,6 @@ html, body {
 	margin-top: 20px;
 }
 
-#logo2:hover {
-	background-position:bottom;
-}
-
 #logo3 {
 	background-image:url(images/subtitle.png);
 	background-position:top;
@@ -55,6 +40,74 @@ html, body {
 	height:87px;
 	display: inline-block;
 	margin-top: 20px;
+}
+
+#button1 {
+	background-image:url(images/btn_tactics.png);
+	background-position:top;
+	width:250px;
+	height:65px;
+	display: inline-block;
+	margin-top: 40px;
+	outline: 0;
+}
+
+#button1:hover {
+	background-position:bottom;
+}
+
+#button2 {
+	background-image:url(images/btn_gear.png);
+	background-position:top;
+	width:250px;
+	height:65px;
+	display: inline-block;
+	margin-top: 40px;
+	outline: 0;
+}
+
+#button2:hover {
+	background-position:bottom;
+}
+
+#button3 {
+	background-image:url(images/btn_war.png);
+	background-position:top;
+	width:250px;
+	height:65px;
+	display: inline-block;
+	margin-top: 40px;
+	outline: 0;
+}
+
+#button3:hover {
+	background-position:bottom;
+}
+
+#button4 {
+	background-image:url(images/btn_notes.png);
+	background-position:top;
+	width:250px;
+	height:65px;
+	display: inline-block;
+	outline: 0;
+}
+
+#button4:hover {
+	background-position:bottom;
+}
+
+#button5 {
+	background-image:url(images/btn_credits.png);
+	background-position:top;
+	width:250px;
+	height:65px;
+	display: inline-block;
+	outline: 0;
+}
+
+#button5:hover {
+	background-position:bottom;
 }
 
 .fadein1 {
@@ -103,4 +156,36 @@ html, body {
 	100% {
 		opacity:1
 	}
+}
+
+.fadein4 {
+	animation:fadein4 2s;
+}
+
+@keyframes fadein4{
+	0% {
+		opacity:0
+	}
+	50% {
+		opacity:0
+	}
+	100% {
+		opacity:1
+	}
+}
+
+/* content */
+#bg1 {
+	background-image:url(images/mainbg.jpg);
+	background-position:top center;
+	background-repeat:repeat-y;
+	height: 100%;
+}
+
+#content1 {
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	top: 50%;
+	transform: translateY(-50%);
 }
