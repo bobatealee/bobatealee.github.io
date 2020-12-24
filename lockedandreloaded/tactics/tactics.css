@@ -1,22 +1,17 @@
+html, body {
+	height: 100%;
+	background: #141313;
+	background-image: url(../images/mainbg.jpg);
+	background-position: top center;
+	background-repeat: repeat-y;
+}
+
 @font-face {
   font-family: 'TF2secondary';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
   src: url(../TF2secondary.woff2) format('woff2');
-}
-
-#bg1 {
-	background-image: url(../images/mainbg.jpg);
-	background-position: top center;
-	background-repeat: repeat-y;
-	height: 100%;
-}
-
-#content1 {
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 #logo2 {
@@ -31,4 +26,43 @@
 
 #logo2:hover {
 	background-position: bottom;
+}
+
+#bg1 {
+	background-image: url(images/tactics1.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	height: 852px;
+}
+
+#content1 {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#bg2 {
+	background-image: url(images/tactics2.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	height: 700px;
+}
+
+#content2 {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#bg3 {
+	background-image: url(images/tactics3.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	height: 979px;
+}
+
+#content3 {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
 }
