@@ -86,3 +86,17 @@ html, body {
 	width:900px;
 	height: 979px;
 }
+
+#text3 {
+	display:block;
+	position:absolute;
+	font-family:TF2Secondary, sans-serif;
+	font-size: 32px;
+	color: #F4E7DE;
+	text-shadow: 0 2px 2px #000000;
+	width: 620px;
+	height: 340px;
+	left: 140px;
+	top: 140px;
+	text-align: center;
+}
