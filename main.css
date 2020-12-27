@@ -10,7 +10,12 @@ html, body {
 
 /* title styling */
 
-#boba-titleanim{
+a {
+	color: #FFFFFF;
+	text-decoration: none;
+} 
+
+#boba-titleanim {
     white-space: nowrap;
 	padding-top: 10px;
 	font-size: 52px;
@@ -41,14 +46,13 @@ html, body {
 }
 
 .boba-stroke {
-	pointer-events: none;
 	position: relative;
 	background: transparent;
 	z-index: 0;
 }
 
 .boba-stroke:before {
-	content: attr(title);
+	content: attr(dummy);
 	position: absolute;
 	-webkit-text-stroke: 4px #390066;
     white-space: nowrap;
