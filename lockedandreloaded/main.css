@@ -207,3 +207,25 @@ html, body {
 	top: 125px;
 	left: 135px;
 }
+
+#bordertop {
+	background-image: url(images/border_top.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 333px;
+	margin-top: -73px;
+	z-index: 2;
+    position: absolute;
+}
+
+#borderbottom {
+	background-image: url(images/border_bottom.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 23px;
+	margin-top: -20px;
+	z-index: 20;
+    position: absolute;
+}
