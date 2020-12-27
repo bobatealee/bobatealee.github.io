@@ -47,6 +47,7 @@
 	height: 600px;
 	left: 440px;
 	top: 570px;
+	z-index: 30;
 }
 	
 #bg2 {
@@ -91,6 +92,7 @@
 	left: 140px;
 	top: 140px;
 	text-align: center;
+	z-index: 30;
 }
 
 #borderloop {
