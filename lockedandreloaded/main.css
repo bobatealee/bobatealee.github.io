@@ -220,6 +220,7 @@ html, body {
 	margin-top: -73px;
 	z-index: 20;
     position: absolute;
+	pointer-events: none;
 }
 
 #borderbottom {
@@ -231,6 +232,7 @@ html, body {
 	margin-top: -298px;
 	z-index: 20;
     position: absolute;
+	pointer-events: none;
 }
 
 #bobabutton {

@@ -96,6 +96,23 @@
 	z-index: 30;
 }
 
+#balloonicorn {
+	background-image: url(images/balloonicorn.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	left: 781px;
+	top: 583px;
+	position: absolute;
+	display: block;
+	width: 53px;
+	height: 73px;
+	outline: 0;
+}
+
+#balloonicorn:hover {
+	background-position: bottom;
+}
+
 #bg3 {
 	background-image: url(images/gear3.png);
 	background-position: top center;
@@ -150,6 +167,7 @@
 	margin-top: 260px;
 	z-index: 20;
     position: absolute;
+	pointer-events: none;
 }
 
 #bg4 {

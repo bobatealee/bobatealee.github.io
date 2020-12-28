@@ -104,4 +104,5 @@
 	margin-top: 260px;
 	z-index: 20;
     position: absolute;
+	pointer-events: none;
 }
