@@ -30,6 +30,7 @@ a {
 	-webkit-user-select: none; /* safari */
 	-moz-user-select: none; /* mobile firefox */
 	-ms-user-select: none; /* ie/edge */
+	outline: 0;
 }
 
 .boba-space {
@@ -49,6 +50,7 @@ a {
 	position: relative;
 	background: transparent;
 	z-index: 0;
+	outline: 0;
 }
 
 .boba-stroke:before {
