@@ -151,3 +151,71 @@
 	z-index: 20;
     position: absolute;
 }
+
+#bg4 {
+	background-image: url(../images/contracker_overlay.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+    position: absolute;
+	width: 100%;
+	height: 609px;
+	margin-top: -610px;
+	z-index: 30;
+	pointer-events: none;
+}
+
+#content4 {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 818px;
+	height: 580px;
+}
+
+#gear_slider {
+	width: 818px;
+	height: 460px;
+	z-index: 20;
+	position: absolute;
+	user-select: none;
+	-webkit-touch-callout: none; /* ios */
+	-webkit-user-select: none; /* safari */
+	-moz-user-select: none; /* mobile firefox */
+	-ms-user-select: none; /* ie/edge */
+}
+
+#gear_slider_prev {
+	background-image: url(../images/button_prev.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 40;
+	width: 105px;
+	height: 60px;
+	margin-top: 476px;
+	margin-left: 5px;
+}
+
+#gear_slider_prev:hover {
+	background-position: bottom;
+}
+
+#gear_slider_next {
+	background-image: url(../images/button_next.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 40;
+	width: 105px;
+	height: 60px;
+	margin-top: 476px;
+	margin-left: 132px;
+}
+
+#gear_slider_next:hover {
+	background-position: bottom;
+}
+
+.slidercontrols {
+	cursor: pointer;
+}
