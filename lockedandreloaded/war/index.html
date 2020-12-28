@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="https://steamcdn-a.akamaihd.net/apps/tf2/blog/images/favicon.ico" />
+		<title>Locked and Reloaded - War</title>
+
+		<link rel="stylesheet" href="../main.css">
+		<link rel="stylesheet" href="war.css">
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script src="https://bobatealee.com/javascript/jquery.cycle.all.js" type="text/javascript"></script>
+	</head>
+
+	<script>	
+		$(document).ready(function() {
+			$('#war_slider').cycle({
+				fx:     'scrollHorz', 
+				speed:   200, 
+				next:   '#war_slider_next', 
+				prev:   '#war_slider_prev', 
+				pause:   1,
+				pager:   0,
+				timeout: 6000
+			});
+		});
+	</script>
+
+	<body>
+		<div style="text-align: center;">
+			<a href="https://www.teamfortress.com/" target="_blank" class="fadein1" id="logo1"></a><br>
+			<a href="../" id="logo2" class="fadein2"></a><br>
+			<span id="logo3" class="fadein3"></span><br>
+			<a href="../tactics" id="button1" class="fadein4"></a><!--
+			--><a href="../gear" id="button2" class="fadein4"></a><!--
+			--><span id="button3" class="fadein4" style="background-position: bottom;"></span><br><!--
+			--><a href="../notes" id="button4" class="fadein4"></a><!--
+			--><a href="../credits" id="button5" class="fadein4"></a>
+		</div>
+		<div>
+			<div id="bordertop"></div><div id="borderloop"></div>
+			<div id="bg1">
+				<div id="content1"></div>
+			</div>
+			<div id="bg2">
+				<div id="content2"><span id="text1">We don't have much time, I'll make this quick -- Carrier Tanks have been spotted roaming around everywhere, and it's impossible to cover up the situation now. Mann Co. is burning anything that mentions, alludes, or even looks like an evil machine. Someone even burned down their company refrigerator.<br><br><br>What I've managed to scavenge is brief, but it could help us finally end this invasion. Locations of Bot Deployment Stations are now marked down for us. We can use the scraps of Gray's machines to make some robot troops of our own.</span><span id="text2">Carrier Tanks have been seen approaching these locations:</span></div>
+			</div>
+			<div id="content3">
+					<div id="war_slider">
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=512422248" target="_blank"><img src="images/area52.png" width="818" height="460"/></a>
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1231287299" target="_blank"><img src="images/coastrock.png" width="818" height="460"/></a>
+						<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=580052046" target="_blank"><img src="images/powerplant.png" width="818" height="460"/></a>
+					</div>
+					<div class="slidercontrols" id="war_slider_next" href=""></div>
+					<div class="slidercontrols" id="war_slider_prev" href=""></div>
+                </div>
+			<div id="bg3"></div>
+			<div id="bg4">
+				<div id="content4"><span id="text3">Memorize them, grab your gear, and get going. If we want to take out what's left of Gray's army, we <i>need</i> to defend these areas.<br><br>I'm counting on you.<br>- Pauling</span></div>
+			</div>
+			<div id="borderbottom"></div>
+		</div>
+		<div id="footer"><div id="footercontent"><a href="https://www.valvesoftware.com/" target="_blank" id="footerlogo"></a><div id="footertext">© 2020 Valve Corporation, all rights reserved. Valve, the Valve logo, Team Fortress, and the Team Fortress logo are trademarks and/or registered trademarks of Valve Corporation. Locked and Reloaded and the Locked and Reloaded logo are not affiliated with Valve Corporation.<br><br>Website built by Boba <a href="https://bobatealee.com" id="bobabutton"></a></div></div></div>
+	</body>
+</html>
