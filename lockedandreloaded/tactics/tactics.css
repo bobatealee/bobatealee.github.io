@@ -6,6 +6,11 @@
   src: url(../TF2secondary.woff2) format('woff2');
 }
 
+#footerend {
+	background: #000000;
+	min-height: calc(100vh - 3363px);
+}
+
 #logo2 {
 	background-image: url(../images/title.png);
 	background-position: top;
