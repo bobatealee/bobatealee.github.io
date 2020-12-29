@@ -8,9 +8,13 @@ html, body {
 	background: linear-gradient(to bottom, #FFEAF8 30%, #DDFFD6, #CCE5FF);
 }
 
+a {
+	color: #F7A0ED;
+} 
+
 /* title styling */
 
-a {
+a #boba-titleanim {
 	color: #FFFFFF;
 	text-decoration: none;
 } 
