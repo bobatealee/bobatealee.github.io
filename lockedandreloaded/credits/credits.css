@@ -269,6 +269,7 @@
 }
 
 #text4 {
+	display: block;
 	position: absolute;
 	font-family: TF2Secondary, sans-serif;
 	font-size: 34px;
@@ -277,7 +278,7 @@
 	width: 700px;
 	height: 40px;
 	left: 100px;
-	top: 445px;
+	top: 450px;
 	text-align: center;
 	z-index: 30;
 }
