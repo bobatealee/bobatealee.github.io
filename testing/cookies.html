@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Everybody Edits - Cookie Policy</title>
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<meta charset="UTF-8">
+		<meta name="description" content="Everybody Edits is a live, multiplayer platform game, where you can build levels for your friends, or with them!">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
+		
+		<link rel="stylesheet" href="main.css">
+	</head>
+
+	<body>
+		<div id="bg0">
+			<center>
+				<div>
+					<a href="../"><img id="logo" src="logo.png" draggable="false"/></a>
+				</div>
+			</center>
+		</div>
+		
+		<section class="light padded shadow footer" style="border-top:1px solid #555; text-align: left;">
+			<div class="container">
+				<div class="row">
+					<div>
+						<h1>Cookie Policy</h1>
+							<p>Our website uses certain services to improve user experience. Some of these services require the use of cookies to function properly.</p><br>
+						<h2>What are cookies?</h2>
+							<p>A "cookie" is a small text file that a website saves on your computer or mobile device when you visit the site. The information stored can be used to "remember" your actions or preferences, to identify you as a unique visitor, and so on.</p><br>
+						<h2>How we use cookies</h2>
+							<p>All cookies currently saved when using our website are from the services that we use. These include:</p>
+							<ul>
+								<p><li><strong>Cloudflare</strong>, for web service reliability.<br>You can read their policy here: <a href="https://www.cloudflare.com/cookie-policy/" target="_blank">https://www.cloudflare.com/cookie-policy/</a></li></p>
+							</ul>
+							<p>We do not have direct control over the way these services use the cookies they save.</p><br>
+						<h2>How to delete/control cookies</h2>
+							<p>You can delete any cookies already on your computer yourself, and most browsers allow you to prevent them from being saved at all. If you do that, however, many services will not work as intended. You can learn more about cookies at <a href="https://www.aboutcookies.org/" target="_blank">aboutcookies.org</a>.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+		<section class="dark">
+			<div class="container">
+				<div id="footertext">&copy; GGRID 2021</div>
+			</div>
+		</section>
+		
+		<div id="cn"><div id="cn-head">Our website uses cookies</div><div id="cn-body">We use services that require the use of cookies to improve user experience. By using our website, you consent to all cookies used in accordance with our policy.</div><a href="cookies" class="cn-button"><div id="cn-more">Learn More</div></a><a href="#" class="cn-button"><div id="cn-accept" onclick="localStorage.setItem('hide-cn', '1'); document.getElementById('cn').style.display = 'none'; return false;">Close</div></a></div>
+		<script>addEventListener("load", function() { if (!localStorage.getItem("hide-cn")) document.getElementById("cn").style.display = "block"; })</script>
+	</body>
+</html>
