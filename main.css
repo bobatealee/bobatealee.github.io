@@ -5,8 +5,12 @@ body {
 	height: 100%;
 }
 
-#boba-footer {
-	min-height: calc(100vh - 975px);
+html {
+	background: #CCE5FF;
+}
+
+body, html {
+	height: 100%;
 }
 
 a {
@@ -76,7 +80,6 @@ a #boba-titleanim {
 .boba-content{
 	max-width: 1000px;
 	margin: auto;
-	height: 900px;
 }
 
 .boba-textbox{
