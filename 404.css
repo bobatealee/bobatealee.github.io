@@ -1,0 +1,158 @@
+/* body styling */
+body {
+    margin: 0;
+	background: linear-gradient(to bottom, #FFEAF8 30%, #DDFFD6, #CCE5FF);
+	height: 100%;
+}
+
+body, html {
+	height: 100%;
+}
+
+a {
+	color: #F7A0ED;
+} 
+
+/* title styling */
+
+a #boba-titleanim {
+	color: #FFFFFF;
+	text-decoration: none;
+} 
+
+#boba-titleanim {
+    white-space: nowrap;
+	font-size: 64px;
+	font-family: 'Quicksand', sans-serif;
+	font-style: italic;
+	color: #FFFFFF;
+	animation: boba-title 1s infinite alternate;
+	animation-timing-function: ease-in-out;
+	user-select: none;
+	-webkit-touch-callout: none; /* ios */
+	outline: 0;
+}
+
+#test {
+	height: 100px;
+	width: 500px;
+	--height1: 100px;
+	--height2: calc(var(--height1) / 2);
+	--width1: 500px;
+	--width2: calc(var(--width1) / 2);
+	position: absolute;
+	display: block;
+	top: calc(50% - var(--height2));
+	left: calc(50% - var(--width2));
+}
+
+.boba-space {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.boba-shaker {
+    display: inline-block;
+}
+
+/* stupid */
+#boba-shakeranim {
+	animation: boba-shake .25s linear infinite alternate;
+}
+
+#boba-shakeranim2 {
+	animation: boba-shake .24s linear infinite alternate;
+}
+
+#boba-shakeranim3 {
+	animation: boba-shake .23s linear infinite alternate;
+}
+
+#boba-shakeranim4 {
+	animation: boba-shake .22s linear infinite alternate;
+}
+
+#boba-shakeranim5 {
+	animation: boba-shake .21s linear infinite alternate;
+}
+
+.boba-stroke {
+	position: relative;
+	background: transparent;
+	z-index: 0;
+	outline: 0;
+}
+
+.boba-stroke:before {
+	content: attr(dummy);
+	position: absolute;
+	-webkit-text-stroke: 4px #390066;
+    white-space: nowrap;
+	left: 0;
+	top: 0;
+	z-index: -1;
+}
+
+/* anims */
+@keyframes boba-shake {
+	0% {
+		transform: translate(1px, 1px);
+	}
+	10% {
+		transform: translate(-1px, -1px);
+	}
+	20% {
+		transform: translate(-1px, 0px);
+	}
+	30% {
+		transform: translate(1px, 1px);
+	}
+	40% {
+		transform: translate(1px, -1px);
+	}
+	50% {
+		transform: translate(-1px, 1px);
+	}
+	60% {
+		transform: translate(-1px, 1px);
+	}
+	70% {
+		transform: translate(1px, 1px);
+	}
+	80% {
+		transform: translate(-1px, -1px);
+	}
+	90% {
+		transform: translate(1px, 1px);
+	}
+	100% {
+		transform: translate(1px, -1px);
+	}
+}
+
+@keyframes boba-title {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	100% {
+		transform: translate(0px, 10px);
+	}
+}
+
+@keyframes boba-textbox {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	100% {
+		transform: translate(0px, 5px);
+	}
+}
+
+@keyframes boba-marquee {
+    0% {
+		transform: translate(0, 0);
+	}
+    100% {
+		transform: translate(-100%, 0);
+	}
+}
