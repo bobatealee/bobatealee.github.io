@@ -33,7 +33,7 @@ a #boba-titleanim {
 	outline: 0;
 }
 
-#404 {
+#boba-content {
 	width: 500px;
 	--width1: 500px;
 	--width2: calc(var(--width1) / 2);
