@@ -22,7 +22,7 @@ a #boba-titleanim {
 
 #boba-titleanim {
     white-space: nowrap;
-	font-size: 64px;
+	font-size: 52px;
 	font-family: 'Quicksand', sans-serif;
 	font-style: italic;
 	color: #FFFFFF;
@@ -34,12 +34,6 @@ a #boba-titleanim {
 }
 
 #test {
-	--width1: 500px;
-	--width2: calc(var(--width1) / 2);
-	left: calc(50% - var(--width2));
-	--height1: 80px;
-	--height2: calc(var(--height1) / 2);
-	top: calc(50% - var(--height2));
 	position: absolute;
 }
 
