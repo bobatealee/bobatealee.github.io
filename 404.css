@@ -13,6 +13,54 @@ a {
 	color: #F7A0ED;
 } 
 
+/* textbox styling */
+.boba-content2{
+	max-width: 1000px;
+	margin: auto;
+	height: 900px;
+}
+
+.boba-textbox{
+	margin:30px;
+	box-shadow: 4px 4px #390066;
+	border: solid 2px #390066;
+	width: 100%;
+	animation-timing-function: ease-in-out;
+}
+
+.boba-textboxtext {
+	padding: 4px;
+	font-size: 18px;
+	line-height: 26px;
+}
+
+.boba-textboxheader{
+	background: #CCE5FF;
+	text-align: left;
+	color: #761ed6;
+	margin: auto;
+	padding-top: 2px;
+	height: 18px;
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: bold;
+	font-family: 'Source Code Pro', monospace;
+	border-bottom: solid 2px #390066;
+}
+
+.boba-textboxspace {
+	padding-left: 4px; /* stupid, but necessary for textbox title */
+}
+
+#boba-textbox1 {
+	float: right;
+	margin-top: 30px;
+	max-width: 200px;
+	background: white;
+	animation: boba-textbox 2s infinite alternate;
+	position: absolute;
+}
+
 /* title styling */
 
 a #boba-titleanim {

@@ -17,6 +17,10 @@
 			$(function(){
 			$('.boba-stroke').attr('dummy', function(){return $(this).html();});
 			});
+			
+			function goBack() {
+			window.history.back();
+			}
 		</script>
 	</head>
 
@@ -60,5 +64,11 @@
 					--><span class="boba-stroke">?</span><!--
 				--></div>
 			</div>
+
+			<span class="boba-textbox" id="boba-textbox1">
+				<div class="boba-textboxheader"><span class="boba-textboxspace"/>:-)</div>
+				<div class="boba-textboxtext"><a onclick="goBack()" href="#">Go Back</a></div>
+			</span>
+
 		</div>
 	</body>
