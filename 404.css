@@ -34,15 +34,11 @@ a #boba-titleanim {
 }
 
 #test {
-	width: 500px;
 	--width1: 500px;
 	--width2: calc(var(--width1) / 2);
-	left: calc(50% - var(--width2));
-	height: 80px;
 	--height1: 80px;
 	--height2: calc(var(--height1) / 2);
 	top: calc(50% - var(--height2));
-	position: absolute;
 }
 
 .boba-space {
