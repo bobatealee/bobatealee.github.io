@@ -75,7 +75,7 @@ a #boba-titleanim {
 	animation: boba-shake .21s linear infinite alternate;
 }
 
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 1000px) {
 
 #boba-shakeranim {
 	animation: none
