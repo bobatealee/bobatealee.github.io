@@ -22,7 +22,7 @@ a #boba-titleanim {
 
 #boba-titleanim {
     white-space: nowrap;
-	font-size: 52px;
+	font-size: 64px;
 	font-family: 'Quicksand', sans-serif;
 	font-style: italic;
 	color: #FFFFFF;
@@ -34,7 +34,15 @@ a #boba-titleanim {
 }
 
 #test {
-
+	width: 500px;
+	--width1: 500px;
+	--width2: calc(var(--width1) / 2);
+	left: calc(50% - var(--width2));
+	height: 80px;
+	--height1: 80px;
+	--height2: calc(var(--height1) / 2);
+	top: calc(50% - var(--height2));
+	position: absolute;
 }
 
 .boba-space {
@@ -49,22 +57,27 @@ a #boba-titleanim {
 /* stupid */
 #boba-shakeranim {
 	animation: boba-shake .25s linear infinite alternate;
+	-webkit-animation: boba-shake .25s linear infinite alternate;
 }
 
 #boba-shakeranim2 {
 	animation: boba-shake .24s linear infinite alternate;
+	-webkit-animation: boba-shake .24s linear infinite alternate;
 }
 
 #boba-shakeranim3 {
 	animation: boba-shake .23s linear infinite alternate;
+	-webkit-animation: boba-shake .23s linear infinite alternate;
 }
 
 #boba-shakeranim4 {
 	animation: boba-shake .22s linear infinite alternate;
+	-webkit-animation: boba-shake .22s linear infinite alternate;
 }
 
 #boba-shakeranim5 {
 	animation: boba-shake .21s linear infinite alternate;
+	-webkit-animation: boba-shake .21s linear infinite alternate;
 }
 
 .boba-stroke {
