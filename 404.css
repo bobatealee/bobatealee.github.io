@@ -78,23 +78,23 @@ a #boba-titleanim {
 @media only screen and (max-width : 768px) {
 
 #boba-shakeranim {
-	animation: boba-shake .25s linear infinite alternate;
+	animation: none
 }
 
 #boba-shakeranim2 {
-	animation: boba-shake .24s linear infinite alternate;
+	animation: none
 }
 
 #boba-shakeranim3 {
-	animation: boba-shake .23s linear infinite alternate;
+	animation: none
 }
 
 #boba-shakeranim4 {
-	animation: boba-shake .22s linear infinite alternate;
+	animation: none
 }
 
 #boba-shakeranim5 {
-	animation: boba-shake .21s linear infinite alternate;
+	animation: none
 }
 
 }
