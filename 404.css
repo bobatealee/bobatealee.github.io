@@ -55,7 +55,49 @@ a #boba-titleanim {
 }
 
 /* stupid */
+#boba-shakeranim {
+	animation: boba-shake .25s linear infinite alternate;
+}
 
+#boba-shakeranim2 {
+	animation: boba-shake .24s linear infinite alternate;
+}
+
+#boba-shakeranim3 {
+	animation: boba-shake .23s linear infinite alternate;
+}
+
+#boba-shakeranim4 {
+	animation: boba-shake .22s linear infinite alternate;
+}
+
+#boba-shakeranim5 {
+	animation: boba-shake .21s linear infinite alternate;
+}
+
+@media only screen and (max-width : 768px) {
+
+#boba-shakeranim {
+	animation: boba-shake .25s linear infinite alternate;
+}
+
+#boba-shakeranim2 {
+	animation: boba-shake .24s linear infinite alternate;
+}
+
+#boba-shakeranim3 {
+	animation: boba-shake .23s linear infinite alternate;
+}
+
+#boba-shakeranim4 {
+	animation: boba-shake .22s linear infinite alternate;
+}
+
+#boba-shakeranim5 {
+	animation: boba-shake .21s linear infinite alternate;
+}
+
+}
 
 .boba-stroke {
 	position: relative;
