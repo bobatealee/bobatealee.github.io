@@ -47,6 +47,14 @@ a #boba-titleanim {
 	animation: boba-shake .25s linear infinite alternate;
 }
 
+@media only screen and (max-width : 1000px) {
+
+#boba-shakeranim:hover {
+	animation: none
+}
+
+}
+
 .boba-stroke {
 	position: relative;
 	background: transparent;
