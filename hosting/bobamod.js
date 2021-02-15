@@ -107,5 +107,6 @@ statsloaded = 1;
 document.addEventListener("keypress", function onEvent(event) {
     if (event.key === "z") {
         document.getElementById("bigCookie").click();
+		document.getElementsByTagName('body')[0].style = 'image-rendering: crisp-edges';
     }
 });
