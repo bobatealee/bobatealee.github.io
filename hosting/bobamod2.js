@@ -1,5 +1,5 @@
-document.addEventListener("keypress", function(event) {
-  if (event.keyCode == 90) {
-    document.getElementById("bigCookie").click();
-  }
+document.addEventListener("keypress", function onEvent(event) {
+    if (event.key === "Z") {
+        document.getElementById("bigCookie").click();
+    }
 });
