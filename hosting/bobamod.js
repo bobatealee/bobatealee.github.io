@@ -103,3 +103,9 @@ if (!("statsloaded" in window)) {
 };
 
 statsloaded = 1;
+
+document.addEventListener("keypress", function onEvent(event) {
+    if (event.key === "z") {
+        document.getElementById("bigCookie").click();
+    }
+});
