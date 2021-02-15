@@ -103,9 +103,3 @@ if (!("statsloaded" in window)) {
 };
 
 statsloaded = 1;
-
-document.addEventListener("keypress", function(event) {
-  if (event.keyCode == 90) {
-    document.getElementById("bigCookie").click();
-  }
-});
