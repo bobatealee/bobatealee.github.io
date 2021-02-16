@@ -6,6 +6,7 @@ document.addEventListener("keypress", function onEvent(event) {
 
 function makeCrispy() {
 	document.getElementsByTagName('body')[0].style = 'image-rendering: crisp-edges';
+	alert('should be working');
 }
 
-window.onload = makeCrispy;
+window.onload = setTimeout(makeCrispy, 3000);
