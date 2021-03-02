@@ -104,28 +104,11 @@ a #boba-titleanim {
 
 .boba-shaker {
     display: inline-block;
-}
-
-/* stupid */
-#boba-shakeranim {
 	animation: boba-shake .25s linear infinite alternate;
 }
 
-#boba-shakeranim2 {
-	animation: boba-shake .24s linear infinite alternate;
-}
+/* stupid */
 
-#boba-shakeranim3 {
-	animation: boba-shake .23s linear infinite alternate;
-}
-
-#boba-shakeranim4 {
-	animation: boba-shake .22s linear infinite alternate;
-}
-
-#boba-shakeranim5 {
-	animation: boba-shake .21s linear infinite alternate;
-}
 
 .boba-stroke {
 	position: relative;
@@ -149,8 +132,35 @@ a #boba-titleanim {
 	0% {
 		transform: translate(1px, 1px);
 	}
-	100% {
+	10% {
 		transform: translate(-1px, -1px);
+	}
+	20% {
+		transform: translate(-1px, 0px);
+	}
+	30% {
+		transform: translate(1px, 1px);
+	}
+	40% {
+		transform: translate(1px, -1px);
+	}
+	50% {
+		transform: translate(-1px, 1px);
+	}
+	60% {
+		transform: translate(-1px, 1px);
+	}
+	70% {
+		transform: translate(1px, 1px);
+	}
+	80% {
+		transform: translate(-1px, -1px);
+	}
+	90% {
+		transform: translate(1px, 1px);
+	}
+	100% {
+		transform: translate(1px, -1px);
 	}
 }
 
