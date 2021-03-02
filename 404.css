@@ -104,11 +104,28 @@ a #boba-titleanim {
 
 .boba-shaker {
     display: inline-block;
-	animation: boba-shake .25s linear infinite alternate;
 }
 
 /* stupid */
+#boba-shakeranim {
+	animation: boba-shake .25s linear infinite alternate;
+}
 
+#boba-shakeranim2 {
+	animation: boba-shake .24s linear infinite alternate;
+}
+
+#boba-shakeranim3 {
+	animation: boba-shake .23s linear infinite alternate;
+}
+
+#boba-shakeranim4 {
+	animation: boba-shake .22s linear infinite alternate;
+}
+
+#boba-shakeranim5 {
+	animation: boba-shake .21s linear infinite alternate;
+}
 
 .boba-stroke {
 	position: relative;
