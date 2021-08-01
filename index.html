@@ -15,65 +15,303 @@
 
 		<script>
 			$(function(){
-			$('.boba-stroke').attr('dummy', function(){return $(this).html();});
+			$('.title-stroke').attr('dummy', function(){return $(this).html();});
 			});
+			
+			function func_dropdown_1() {
+				document.getElementById("dropdown-arrow-1").classList.toggle("dropdown-arrow-active");
+				document.getElementById("dropdown-1").classList.toggle("dropdown-show");
+			}
+			
+			function func_dropdown_2() {
+				document.getElementById("dropdown-arrow-2").classList.toggle("dropdown-arrow-active");
+				document.getElementById("dropdown-2").classList.toggle("dropdown-show");
+			}
 		</script>
 	</head>
 
 	<body>
-		<div style="text-align: center;">
-			<div id="boba-titleanim">
-				<!-- all these comments are necessary. this is my curse. -->
-				<div class="boba-shaker" id="boba-shakeranim"><!--
-					--><span class="boba-stroke">b</span><!--
-				--></div><!--
-				--><div class="boba-shaker" id="boba-shakeranim"><!--
-					--><span class="boba-stroke">o</span><!--
-				--></div><!--
-				--><div class="boba-shaker" id="boba-shakeranim"><!--
-					--><span class="boba-stroke">b</span><!--
-				--></div><!--
-				--><div class="boba-shaker" id="boba-shakeranim"><!--
-					--><span class="boba-stroke">a</span><!--
-				--></div><!--
-				--><span class="boba-stroke">'</span><!--
-				--><div class="boba-shaker" id="boba-shakeranim"><!--
-					--><span class="boba-stroke">s</span><!--
-				--></div><!--
-				--><span class="boba-space"/><!--
-				--><div class="boba-shaker" id="boba-shakeranim"><!--
-					--><span class="boba-stroke">s</span><!--
-				--></div><!--
-				--><div class="boba-shaker" id="boba-shakeranim"><!--
-					--><span class="boba-stroke">i</span><!--
-				--></div><!--
-				--><div class="boba-shaker" id="boba-shakeranim"><!--
-					--><span class="boba-stroke">t</span><!--
-				--></div><!--
-				--><div class="boba-shaker" id="boba-shakeranim"><!--
-					--><span class="boba-stroke">e</span><!--
-				--></div>
+		<div class="content">
+			<div class="content-inner">
+				<div style="text-align: center;">
+					<div id="title-anim">
+						<!-- all these comments are necessary. this is my curse. -->
+						<div class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-stroke">b</span><!--
+						--></div><!--
+						--><div class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-stroke">o</span><!--
+						--></div><!--
+						--><div class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-stroke">b</span><!--
+						--></div><!--
+						--><div class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-stroke">a</span><!--
+						--></div><!--
+						--><span class="title-stroke">'</span><!--
+						--><div class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-stroke">s</span><!--
+						--></div><!--
+						--><span class="title-space"/><!--
+						--><div class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-stroke">s</span><!--
+						--></div><!--
+						--><div class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-stroke">i</span><!--
+						--></div><!--
+						--><div class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-stroke">t</span><!--
+						--></div><!--
+						--><div class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-stroke">e</span><!--
+						--></div>
+					</div>
+				</div>
+			
+				<span class="textbox" id="textbox-1">
+					<div class="textbox-header"><span class="textbox-header-text">bobatealee.com</span></div>
+					<div class="textbox-text">hi, i'm boba! welcome to my website! it's a work-in-progress right now, so please mind the appearance. thanks for visiting!</div>
+				</span>
+			
+				<span class="textbox" id="textbox-2">
+					<div class="textbox-header"><span class="textbox-header-text">info</span></div>
+					<div class="textbox-text">i'm a 2D artist, VFX artist, and web designer. i've done work for Team Fortress 2, and you can find my Steam profile <a href="https://steamcommunity.com/id/bobatealee/" target="_blank">here</a>!</div>
+				</span>
+				
+				<a href="observer" target="_blank">
+					<span class="textbox" id="textbox-3">
+						<div class="textbox-header"><span class="textbox-header-text">observer</span></div>
+					</span>
+				</a>
+				
+				<center>
+					<span class="textbox" id="textbox-4">
+						<div class="textbox-header"><span class="textbox-header-text">Team Fortress 2</span></div>
+						<div class="textbox-text">
+							<div id="textbox-4-padding-big"></div>
+							<!-- MAPS -->
+							<button onclick="func_dropdown_1()" id="dropdown-button" class="dropdown-button-1 pixel"><div id="dropdown-arrow-1" class="pixel"></div></button>
+							<br>
+							<div id="dropdown-1" class="dropdown-content">
+								<div id="textbox-4-padding-small"></div>
+								<span class="textbox-inner" id="textbox-inner-medium">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2411158391" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1760316250999713294/2FD13D8112D340BFC09DC875D931E5494955FAEF/" style="width:300px;height:300px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">GUMP (CTF - Mannpower)</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198000823482" target="_blank">bakscratch</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198045619076" target="_blank">rabscootle</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198011507712" target="_blank">drew</a><br>
+										<a href="https://steamcommunity.com/profiles/76561197999842942" target="_blank">boomsta</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198139139265" target="_blank">Krazy</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198072146551" target="_blank">Diva Dan</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198009093943" target="_blank">Yacan1</a><br>
+										<a href="https://steamcommunity.com/profiles/76561197993926673" target="_blank">DeRosaJ</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198031082906" target="_blank">Tianes</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198006395451" target="_blank">Stachekip</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-medium">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2400136962" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1761441291007366745/559D53E405A6CA16CDC0453EC156D6C2DF9D5106/" style="width:300px;height:300px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">GUMP (PD - Mannpower)</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198000823482" target="_blank">bakscratch</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198045619076" target="_blank">rabscootle</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198011507712" target="_blank">drew</a><br>
+										<a href="https://steamcommunity.com/profiles/76561197999842942" target="_blank">boomsta</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198139139265" target="_blank">Krazy</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198072146551" target="_blank">Diva Dan</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198009093943" target="_blank">Yacan1</a><br>
+										<a href="https://steamcommunity.com/profiles/76561197993926673" target="_blank">DeRosaJ</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198031082906" target="_blank">Tianes</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198006395451" target="_blank">Stachekip</a><br>
+										</span>
+									</div>
+								</span>
+								<div id="textbox-4-padding-small"></div>
+							</div>
+							<br>
+							
+							<!-- UNUSUALS -->
+							<button onclick="func_dropdown_2()" id="dropdown-button" class="dropdown-button-2 pixel"><div id="dropdown-arrow-2" class="pixel"></div></button>
+							<br>
+							<div id="dropdown-2" class="dropdown-content">
+								<div id="textbox-4-padding-small"></div>
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2491937748" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1788471001845241652/C5B84A87200A3ECFB1C2F820B4C6FBC33325C793/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Frozen Fascination</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198043050514" target="_blank">Mr. Light</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2410126424" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1760316188426057699/DE5376264C948EB0B110989369B689BC68698791/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Beach Day</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198043050514" target="_blank">Mr. Light</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2274910172" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1681492482539343308/CDFFBD0502E24925B10E458529D096ED582EEF4A/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Peppermint Portal</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198014131702" target="_blank">Greg</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2264915025" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1682617516496732560/8315E4337EB6505E10C4B916B62F01B108295958/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Blizzardy Backwoods</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198127379171" target="_blank">Feksil</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2251225368" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1653342689579315203/079AC8D95AE4D22BD0E491DF371DECFCF842F5A6/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Absolute Zero</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198045619076" target="_blank">rabscootle</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2236438330" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1545255027297825379/4D8D47599430A7BEE55C9390C54E1FC6E32DB615/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Eternal Life</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198036175673" target="_blank">Lo-fi</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small-selfmade">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2228061874" target="_blank">
+									<div class="img-selfmade img-small"><img src="https://steamuserimages-a.akamaihd.net/ugc/1625193014912934877/A96DB36E7642BEAA9BED8BC3A33040BD321BF786/" style="width:190px;height:190px;"></img></div>
+									<div class="textbox-text" style="margin-top:-5px;">Gravelly Ghoul</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198078856258" target="_blank">Overlord Lettuce</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2222910732" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1625192516000161982/F1C3CCF0F6F768C602F14CFFE6D822FAC5A29721/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Glorious Glow</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198024991627" target="_blank">Square</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198043559853" target="_blank">Spooky Majora</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2222521427" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1625192515998376065/1B01E06175973CBF55958635CB3AD57B551A097C/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Sands of Time</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198060328407" target="_blank">OKIWONT</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2221406951" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1625192302389554731/B9687D2ABA13A255E028839A4544F13FE08751FF/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Jimi-Jammed</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2217629519" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1625192018156114054/D8FACFEC5185E1AF022B7B3EA19A69CC077C2E87/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Head Crumbs</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198072146551" target="_blank">Diva Dan</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198135661969" target="_blank">Spectral Chuck</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2215743318" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1595918438105059916/CC1381C0F56C8689420A6D6C97AA8BC32947922F/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">All-Knowing Star</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198057358637" target="_blank">Tiik</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2203848093" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1490082922031458144/18C943FABC0107501B4842949B62EE775343E81B/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Septic Shock</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2171801132" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1466436074495182519/1B4E79458C21388B1CE2819F545F4946E2525B67/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Aqua Vacuity</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
+										</span>
+									</div>
+								</span>
+
+								<span class="textbox-inner" id="textbox-inner-small">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2158083589" target="_blank">
+									<img src="https://steamuserimages-a.akamaihd.net/ugc/1291920536693051041/D237938C01032BCCB7E6F03D1132508009AE304E/" style="width:190px;height:190px;"></img>
+									<div class="textbox-text" style="margin-top:-5px;">Haunted Storm</a><br>
+										<span class="textbox-text-small">In collaboration with:<br>
+										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
+										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
+										</span>
+									</div>
+								</span>
+								<div id="textbox-4-padding-small"></div>
+							</div>
+							<div id="textbox-4-padding-big"></div>
+						</div>
+					</span>
+				</center>
 			</div>
 		</div>
-
-		<div class="boba-content">
-			<span class="boba-textbox" id="boba-textbox1">
-				<div class="boba-textboxheader"><span class="boba-textboxspace"/>bobatealee.com</div>
-				<div class="boba-textboxtext">hi, i'm boba! welcome to my website! it's a work-in-progress right now, so please mind the appearance. thanks for visiting!</div>
-			</span>
-		
-			<span class="boba-textbox" id="boba-textbox2">
-				<div class="boba-textboxheader"><span class="boba-textboxspace"/>info</div>
-				<div class="boba-textboxtext">i'm a 2D artist, VFX artist, and web designer. i've done work for Team Fortress 2, and you can find my Steam profile <a href=https://steamcommunity.com/id/bobatealee/ target="_blank">here</a>!</div>
-			</span>
-			
-			<span class="boba-textbox" id="boba-textbox3">
-				<div class="boba-textboxheader"><span class="boba-textboxspace"/>observer</div>
-			</span>
-		</div>
-
-		<!--<div class="boba-marquee">
-			<p>COMING SOON ! WORK IN PROGRESS ! CHECK BACK LATER ! UNDER CONSTRUCTION ! I'M WORKIN' ON IT !</p>
-		</div>-->
 	</body>
 </html>

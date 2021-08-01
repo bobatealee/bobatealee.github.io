@@ -1,7 +1,7 @@
-/* body styling */
+/* BASIC STYLING START */
+
 body {
     margin: 0;
-	background: linear-gradient(to bottom, #FFEAF8 30%, #DDFFD6, #CCE5FF);
 	height: 100%;
 }
 
@@ -14,51 +14,68 @@ body, html {
 }
 
 a {
-	color: #F7A0ED;
+	color: #FA70FF;
 } 
 
-/* title styling */
+.content{
+	background: linear-gradient(to bottom, #FFEAF8 20%, #DDFFD6, #CCE5FF);
+	margin: auto;
+}
 
-a #boba-titleanim {
-	color: #FFFFFF;
-	text-decoration: none;
-} 
+.content-inner{
+	max-width: 1000px;
+	margin: auto;
+}
 
-#boba-titleanim {
+.pixel {
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
+
+/* BASIC STYLING END */
+/* === */
+/* TITLE STYLING START */
+
+#title-anim {
     white-space: nowrap;
 	padding-top: 10px;
 	font-size: 52px;
 	font-family: 'Quicksand', sans-serif;
 	font-style: italic;
 	color: #FFFFFF;
-	animation: boba-title 1s infinite alternate;
+	animation: title-hover 1s infinite alternate;
 	animation-timing-function: ease-in-out;
 	user-select: none;
 	-webkit-touch-callout: none; /* ios */
 	outline: 0;
 }
 
-.boba-space {
+a #title-anim {
+	color: #FFFFFF;
+	text-decoration: none;
+} 
+
+.title-space {
 	padding-left: 8px;
 	padding-right: 8px;
 }
 
-.boba-shaker {
+.title-shake {
     display: inline-block;
 }
 
-#boba-shakeranim:hover {
-	animation: boba-shake .25s linear infinite alternate;
+#title-shake-anim:hover {
+	animation: title-shake .25s linear infinite alternate;
 }
 
-.boba-stroke {
+.title-stroke {
 	position: relative;
 	background: transparent;
 	z-index: 0;
 	outline: 0;
 }
 
-.boba-stroke:before {
+.title-stroke:before {
 	content: attr(dummy);
 	position: absolute;
 	-webkit-text-stroke: 4px #390066;
@@ -68,27 +85,26 @@ a #boba-titleanim {
 	z-index: -1;
 }
 
-/* textbox styling */
-.boba-content{
-	max-width: 1000px;
-	margin: auto;
-}
+/* TITLE STYLING END */
+/* === */
+/* TEXTBOX STYLING START */
 
-.boba-textbox{
-	margin:30px;
+.textbox{
+	margin: 20px;
+	display: inline-block;
 	box-shadow: 4px 4px #390066;
 	border: solid 2px #390066;
 	width: 100%;
 	animation-timing-function: ease-in-out;
 }
 
-.boba-textboxtext {
+.textbox-text {
 	padding: 4px;
 	font-size: 18px;
 	line-height: 26px;
 }
 
-.boba-textboxheader{
+.textbox-header{
 	background: #CCE5FF;
 	text-align: left;
 	color: #761ed6;
@@ -102,56 +118,204 @@ a #boba-titleanim {
 	border-bottom: solid 2px #390066;
 }
 
-.boba-textboxspace {
-	padding-left: 4px; /* stupid, but necessary for textbox title */
+.textbox-header-text {
+	padding-left: 4px;
 }
 
-#boba-textbox1 {
+.textbox-text-small {
+	font-size: 14px;
+	line-height: 1px;
+}
+
+.textbox-inner{
+	margin: 5px;
+	vertical-align: top;
+	display: inline-block;
+	border: solid 2px #390066;
+	width: 100%;
+	animation-timing-function: ease-in-out;
+}
+
+#textbox-inner-small {
+	width: 190px;
+	height: auto;
+	background: white;
+}
+
+#textbox-inner-small-selfmade {
+	width: 190px;
+	height: auto;
+	background: #DDFFD6;
+}
+
+.img-small {
+	width: 190px;
+	height: 190px;
+}
+
+#textbox-inner-medium {
+	width: 300px;
+	height: auto;
+	background: white;
+}
+
+#textbox-inner-medium-selfmade {
+	width: 300px;
+	height: auto;
+	background: #DDFFD6;
+}
+
+.img-medium {
+	width: 300px;
+	height: 300px;
+}
+
+.img-selfmade {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.img-selfmade:after {
+	animation: shine 3s ease-in-out infinite;
+	animation-fill-mode: forwards;  
+	content: "";
+	position: absolute;
+	top: -110%;
+	left: -210%;
+	width: 200%;
+	height: 200%;
+	opacity: 0;
+	transform: rotate(30deg);
+	background: rgba(255, 255, 255, 0.13);
+	background: linear-gradient(
+		to right, 
+		rgba(255, 255, 255, 0.13) 0%,
+		rgba(255, 255, 255, 0.13) 75%,
+		rgba(255, 255, 255, 0.5) 90%,
+		rgba(255, 255, 255, 0.0) 100%
+	);
+}
+
+#textbox-1 {
 	float: right;
 	margin-top: 50px;
 	max-width: 400px;
 	background: white;
-	animation: boba-textbox 2s infinite alternate;
+	animation: textbox 2s infinite alternate;
 }
 
-#boba-textbox2 {
+#textbox-2 {
 	float: left;
 	margin-top: 120px;
 	max-width: 430px;
 	background: white;
-	animation: boba-textbox 2s infinite alternate;
+	animation: textbox 2.4s infinite alternate;
 }
 
-#boba-textbox3 {
+#textbox-3 {
 	float: right;
-	margin-top: 100px;
+	margin-right: 80px;
 	width: 150px;
 	height: 170px;
 	background-image: url(images/observer.gif);
 	background-position: 0px 20px;
-	animation: boba-textbox 2s infinite alternate;
+	animation: textbox 1.8s infinite alternate;
 }
 
-/* marquee styling */
-.boba-marquee {
-	font-family: 'Source Code Pro', monospace;
-	width: 100%;
-	color: #390066;
-    white-space: nowrap;
-    overflow: hidden;
-    box-sizing: border-box;
-	position: fixed;
-	bottom: 0px;
+#textbox-4 {
+	margin-top: 25px;
+	width: 900px;
+	height: auto;
+	background: white;
+	animation: textbox 3s infinite alternate;
 }
 
-.boba-marquee p {
-    display: inline-block;
-    padding-left: 100%;
-    animation: boba-marquee 15s linear infinite;
+#textbox-4-padding-big {
+	padding: 15px;
 }
 
-/* anims */
-@keyframes boba-shake {
+#textbox-4-padding-small {
+	padding-bottom: 15px;
+}
+
+/* TEXTBOX STYLING END */
+/* === */
+/* DROPDOWN STYLING START */
+
+.dropdown-content {
+	display: none;
+}
+
+.dropdown-show {
+	display: inline-block;
+}
+
+#dropdown-arrow-1 {
+	margin-top: 110px;
+	vertical-align: top;
+	display: inline-block;
+	width: 40px;
+	height: 25px;
+	background-image: url(images/dropdownarrow.png);
+}
+
+#dropdown-arrow-2 {
+	margin-top: 110px;
+	vertical-align: top;
+	display: inline-block;
+	width: 40px;
+	height: 25px;
+	background-image: url(images/dropdownarrow.png);
+}
+
+.dropdown-arrow-active {
+	transform: scaleY(-1);
+}
+
+#dropdown-button:hover {
+	background-position: bottom;
+}
+
+.dropdown-button-1 {
+	vertical-align: top;
+	display: inline-block;
+	border: solid 2px #390066;
+	width: 804px;
+	height: 154px;
+	background-image: url(images/mapbutton.png);
+	background-position: top;
+	animation-timing-function: ease-in-out;
+	cursor: pointer;
+}
+
+.dropdown-button-2 {
+	vertical-align: top;
+	display: inline-block;
+	border: solid 2px #390066;
+	width: 804px;
+	height: 154px;
+	background-image: url(images/unusualbutton.png);
+	background-position: top;
+	animation-timing-function: ease-in-out;
+	cursor: pointer;
+}
+
+
+/* DROPDOWN STYLING END */
+/* === */
+/* ANIM STYLING START */
+
+@keyframes title-hover {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	100% {
+		transform: translate(0px, 10px);
+	}
+}
+
+@keyframes title-shake {
 	0% {
 		transform: translate(1px, 1px);
 	}
@@ -187,16 +351,7 @@ a #boba-titleanim {
 	}
 }
 
-@keyframes boba-title {
-	0% {
-		transform: translate(0px, 0px);
-	}
-	100% {
-		transform: translate(0px, 10px);
-	}
-}
-
-@keyframes boba-textbox {
+@keyframes textbox {
 	0% {
 		transform: translate(0px, 0px);
 	}
@@ -205,11 +360,23 @@ a #boba-titleanim {
 	}
 }
 
-@keyframes boba-marquee {
-    0% {
-		transform: translate(0, 0);
+@keyframes shine{
+	10% {
+		opacity: 1;
+		top: -30%;
+		left: -30%;
+		transition-property: left, top, opacity;
+		transition-duration: 0.7s, 0.7s, 0.15s;
+		transition-timing-function: ease;
 	}
-    100% {
-		transform: translate(-100%, 0);
+	30% {
+		opacity: 0;
+	}
+	100% {
+		top: -30%;
+		left: -30%;
+		transition-property: left, top, opacity;
 	}
 }
+
+/* ANIM STYLING END */
