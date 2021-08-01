@@ -2,9 +2,11 @@
 
 body {
     margin: 0;
-	background: url(../images/observer.gif) round;
-	background-size: 100%;
+	background: url(../images/observer.gif);
+	background-size: 300px;
 	height: 100%;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
 }
 
 body, html {
