@@ -20,7 +20,7 @@ a {
 .content {
 	background: linear-gradient(to bottom, #FFEAF8 20%, #DDFFD6, #CCE5FF);
 	margin: auto;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .content-inner {
@@ -221,6 +221,7 @@ a #title-anim {
 	margin-top: 50px;
 	max-width: 400px;
 	background: white;
+	animation: textbox 2s infinite alternate;
 }
 
 #textbox-2 {
@@ -229,6 +230,7 @@ a #title-anim {
 	margin-top: 120px;
 	max-width: 430px;
 	background: white;
+	animation: textbox 2.4s infinite alternate;
 }
 
 #textbox-3 {
@@ -237,6 +239,7 @@ a #title-anim {
 	width: 150px;
 	height: auto;
 	background: white;
+	animation: textbox 1.8s infinite alternate;
 }
 
 .observer {
@@ -251,21 +254,7 @@ a #title-anim {
 	width: 900px;
 	height: auto;
 	background: white;
-}
-
-@media (min-width: 801px) {
-	#textbox-1 {
-		animation: textbox 2s infinite alternate;
-	}
-	#textbox-2 {
-		animation: textbox 2.4s infinite alternate;
-	}
-	#textbox-3 {
-		animation: textbox 1.8s infinite alternate;
-	}
-	#textbox-4 {
-		animation: textbox 3s infinite alternate;
-	}
+	animation: textbox 3s infinite alternate;
 }
 
 .textbox-max {
@@ -432,11 +421,15 @@ button {
 /* DROPDOWN STYLING START */
 
 .dropdown-content {
-	display: none;
+	display: inline-block;
+	position: absolute;
+	visibility: hidden;
 }
 
 .dropdown-show {
 	display: inline-block;
+	position: static;
+	visibility: visible;
 }
 
 #dropdown-arrow-1 {
