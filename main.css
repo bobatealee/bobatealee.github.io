@@ -221,7 +221,6 @@ a #title-anim {
 	margin-top: 50px;
 	max-width: 400px;
 	background: white;
-	animation: textbox 2s infinite alternate;
 }
 
 #textbox-2 {
@@ -230,7 +229,6 @@ a #title-anim {
 	margin-top: 120px;
 	max-width: 430px;
 	background: white;
-	animation: textbox 2.4s infinite alternate;
 }
 
 #textbox-3 {
@@ -239,7 +237,6 @@ a #title-anim {
 	width: 150px;
 	height: auto;
 	background: white;
-	animation: textbox 1.8s infinite alternate;
 }
 
 .observer {
@@ -254,7 +251,21 @@ a #title-anim {
 	width: 900px;
 	height: auto;
 	background: white;
-	animation: textbox 3s infinite alternate;
+}
+
+@media (min-width: 801px) {
+	#textbox-1 {
+		animation: textbox 2s infinite alternate;
+	}
+	#textbox-2 {
+		animation: textbox 2.4s infinite alternate;
+	}
+	#textbox-3 {
+		animation: textbox 1.8s infinite alternate;
+	}
+	#textbox-4 {
+		animation: textbox 3s infinite alternate;
+	}
 }
 
 .textbox-max {
@@ -552,11 +563,6 @@ button {
 @keyframes textbox {
 	0% {
 		transform: translate(0px, 0px);
-		-webkit-transform:translateZ(0.1px);
-		-moz-transform:translateZ(0.1px);
-		-o-transform:translateZ(0.1px);
-		-ms-transform:translateZ(0.1px);
-		transform:translateZ(0.1px);
 	}
 	100% {
 		transform: translate(0px, 5px);
