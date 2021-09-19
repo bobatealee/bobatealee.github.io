@@ -17,12 +17,13 @@ a {
 	color: #FA70FF;
 } 
 
-.content{
+.content {
 	background: linear-gradient(to bottom, #FFEAF8 20%, #DDFFD6, #CCE5FF);
 	margin: auto;
+	overflow: auto;
 }
 
-.content-inner{
+.content-inner {
 	max-width: 1000px;
 	margin: auto;
 }
@@ -89,7 +90,7 @@ a #title-anim {
 /* === */
 /* TEXTBOX STYLING START */
 
-.textbox{
+.textbox {
 	margin: 20px;
 	display: inline-block;
 	box-shadow: 4px 4px #390066;
@@ -98,13 +99,22 @@ a #title-anim {
 	animation-timing-function: ease-in-out;
 }
 
+.textbox-show {
+	display: inline-block !important;
+}
+
 .textbox-text {
 	padding: 4px;
 	font-size: 18px;
+	font-family: 'Times New Roman', monospace;
 	line-height: 26px;
 }
 
-.textbox-header{
+.textbox-text-show {
+	display: block !important;
+}
+
+.textbox-header {
 	background: #CCE5FF;
 	text-align: left;
 	color: #761ed6;
@@ -127,7 +137,7 @@ a #title-anim {
 	line-height: 1px;
 }
 
-.textbox-inner{
+.textbox-inner {
 	margin: 5px;
 	vertical-align: top;
 	display: inline-block;
@@ -170,6 +180,23 @@ a #title-anim {
 	height: 300px;
 }
 
+#textbox-inner-big {
+	width: 700px;
+	height: auto;
+	background: white;
+}
+
+#textbox-inner-big-selfmade {
+	width: 700px;
+	height: auto;
+	background: #DDFFD6;
+}
+
+.img-big {
+	width: 700px;
+	height: 250px;
+}
+
 .img-selfmade {
 	position: relative;
 	overflow: hidden;
@@ -181,24 +208,16 @@ a #title-anim {
 	animation-fill-mode: forwards;  
 	content: "";
 	position: absolute;
-	top: -110%;
 	left: -210%;
 	width: 200%;
 	height: 200%;
 	opacity: 0;
-	transform: rotate(30deg);
-	background: rgba(255, 255, 255, 0.13);
-	background: linear-gradient(
-		to right, 
-		rgba(255, 255, 255, 0.13) 0%,
-		rgba(255, 255, 255, 0.13) 75%,
-		rgba(255, 255, 255, 0.5) 90%,
-		rgba(255, 255, 255, 0.0) 100%
-	);
+	background: url(images/shine.png) no-repeat;
 }
 
 #textbox-1 {
 	float: right;
+	display: none;
 	margin-top: 50px;
 	max-width: 400px;
 	background: white;
@@ -207,6 +226,7 @@ a #title-anim {
 
 #textbox-2 {
 	float: left;
+	display: none;
 	margin-top: 120px;
 	max-width: 430px;
 	background: white;
@@ -217,18 +237,31 @@ a #title-anim {
 	float: right;
 	margin-right: 80px;
 	width: 150px;
-	height: 170px;
-	background-image: url(images/observer.gif);
-	background-position: 0px 20px;
+	height: auto;
+	background: white;
 	animation: textbox 1.8s infinite alternate;
+}
+
+.observer {
+	background-image: url(images/observer.gif);
+	width: 150px;
+	height: 150px;
 }
 
 #textbox-4 {
 	margin-top: 25px;
+	display: none;
 	width: 900px;
 	height: auto;
 	background: white;
 	animation: textbox 3s infinite alternate;
+}
+
+.textbox-max {
+	width: 900px !important;
+	float: none !important;
+	max-width: 900px !important;
+	margin-top: 50px !important;
 }
 
 #textbox-4-padding-big {
@@ -240,6 +273,145 @@ a #title-anim {
 }
 
 /* TEXTBOX STYLING END */
+/* === */
+/* WINDOW BUTTON STYLING START */
+
+#window-button {
+	vertical-align: top;
+	margin-right: 2px;
+	float: right;
+	display: inline-block;
+	width: 19px;
+	height: 16px;
+	border: solid 2px #390066;
+	background-image: url(images/windowbuttons.png);
+}
+
+.button-close {
+	background-position-x: 0px;
+}
+
+.button-min {
+	background-position-x: -15px;
+}
+
+.button-maxbig {
+	background-position-x: -30px;
+}
+
+.button-maxsmall {
+	background-position-x: -45px;
+}
+
+.button-question {
+	background-position-x: -60px;
+}
+
+.button-inactive {
+	background-position-y: -36px;
+}
+
+.button-active {
+	cursor: pointer;
+}
+
+.button-active:hover {
+	background-position-y: -12px;
+}
+
+.button-active:active {
+	background-position-y: -24px;
+}
+
+/* WINDOW BUTTON STYLING END */
+/* === */
+/* DESKTOP ICON STYLING START */
+
+.desktop-button {
+	vertical-align: top;
+	display: inline-block;
+	border: none;
+	width: 32px;
+	height: 32px;
+	background-image: url(images/desktopicons.png);
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0);
+	margin-top: 10px;
+}
+
+.desktop-button-show {
+	display: inline-block !important;
+}
+
+.desktop-button-text {
+	background-color: rgba(255, 255, 255, 0.7);
+	text-align: center;
+	display: inline-block;
+	color: #761ed6;
+	border: none;
+	margin-top: 5px;
+	height: 18px;
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	font-family: 'Source Code Pro', monospace;
+}
+
+#desktop-button-span-1 {
+	display: none;
+}
+
+#desktop-button-span-2 {
+	display: none;
+}
+
+#desktop-button-span-4 {
+	display: none;
+}
+
+.desktop-1 {
+	background-position-x: 0px;
+}
+
+.desktop-2 {
+	background-position-x: -32px;
+}
+
+.desktop-4 {
+	background-position-x: -96px;
+}
+
+/* DESKTOP ICON STYLING END */
+/* === */
+/* TOOLTIP STYLING START */
+
+.tooltip {
+	display: inline-block;
+	position: relative;
+}
+
+.tooltip .tooltip-text {
+	display: none;
+	background: #CCE5FF;
+	padding: 5px;
+	font-family: 'Times New Roman', monospace;
+	font-size: 16px;
+	text-align: center;
+	border: solid 2px #390066;
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	margin-bottom: 8px;
+	width: 200px;
+	margin-left: -105px;
+}
+
+.tooltip:hover .tooltip-text {
+	display: inline-block;
+}
+
+/* TOOLTIP STYLING END */
 /* === */
 /* DROPDOWN STYLING START */
 
@@ -269,6 +441,15 @@ a #title-anim {
 	background-image: url(images/dropdownarrow.png);
 }
 
+#dropdown-arrow-3 {
+	margin-top: 110px;
+	vertical-align: top;
+	display: inline-block;
+	width: 40px;
+	height: 25px;
+	background-image: url(images/dropdownarrow.png);
+}
+
 .dropdown-arrow-active {
 	transform: scaleY(-1);
 }
@@ -283,7 +464,7 @@ a #title-anim {
 	border: solid 2px #390066;
 	width: 804px;
 	height: 154px;
-	background-image: url(images/mapbutton.png);
+	background-image: url(images/unusualbutton.png);
 	background-position: top;
 	animation-timing-function: ease-in-out;
 	cursor: pointer;
@@ -295,12 +476,23 @@ a #title-anim {
 	border: solid 2px #390066;
 	width: 804px;
 	height: 154px;
-	background-image: url(images/unusualbutton.png);
+	background-image: url(images/mapbutton.png);
 	background-position: top;
 	animation-timing-function: ease-in-out;
 	cursor: pointer;
 }
 
+.dropdown-button-3 {
+	vertical-align: top;
+	display: inline-block;
+	border: solid 2px #390066;
+	width: 804px;
+	height: 154px;
+	background-image: url(images/projectbutton.png);
+	background-position: top;
+	animation-timing-function: ease-in-out;
+	cursor: pointer;
+}
 
 /* DROPDOWN STYLING END */
 /* === */
@@ -360,22 +552,19 @@ a #title-anim {
 	}
 }
 
-@keyframes shine{
-	10% {
+@keyframes shine {
+	0% {
 		opacity: 1;
-		top: -30%;
-		left: -30%;
-		transition-property: left, top, opacity;
-		transition-duration: 0.7s, 0.7s, 0.15s;
+		transition-property: left, opacity;
+		transition-duration: 0.7s, 0.15s;
+		transform: translate(0px, 0px);
 		transition-timing-function: ease;
 	}
 	30% {
-		opacity: 0;
 	}
 	100% {
-		top: -30%;
-		left: -30%;
-		transition-property: left, top, opacity;
+		transform: translate(200%, 0px);
+		transition-property: left, opacity;
 	}
 }
 
