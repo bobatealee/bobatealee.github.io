@@ -281,8 +281,8 @@ a #title-anim {
 	margin-right: 2px;
 	float: right;
 	display: inline-block;
-	width: 19px !important;
-	-webkit-appearance: none;
+	width: 19px;
+	max-width: 19px;
 	height: 16px;
 	border: solid 2px #390066;
 	background-image: url(images/windowbuttons.png);
