@@ -276,6 +276,10 @@ a #title-anim {
 /* === */
 /* WINDOW BUTTON STYLING START */
 
+button {
+	-webkit-appearance: none;
+}
+
 #window-button {
 	vertical-align: top;
 	margin-right: 2px;
@@ -283,13 +287,9 @@ a #title-anim {
 	display: inline-block;
 	width: 19px;
 	height: 16px;
+	padding: 0px;
 	border: solid 2px #390066;
 	background-image: url(images/windowbuttons.png);
-}
-
-input {
-	-webkit-appearance: none;
-	-webkit-border-radius: 0;
 }
 
 .button-close {
