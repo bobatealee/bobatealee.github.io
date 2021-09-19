@@ -287,10 +287,9 @@ a #title-anim {
 	background-image: url(images/windowbuttons.png);
 }
 
-@media (max-width: 800px) {
-	#window-button {
-		width:14px;
-	}
+input {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 }
 
 .button-close {
