@@ -280,11 +280,9 @@ a #title-anim {
 	vertical-align: top;
 	margin-right: 2px;
 	float: right;
-	display: inline-block;
+	display: block;
 	width: 19px !important;
 	max-width: 19px !important;
-	-webkit-logical-width: 19px;
-	-webkit-max-logical-width: 19px;
 	height: 16px;
 	border: solid 2px #390066;
 	background-image: url(images/windowbuttons.png);
