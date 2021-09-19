@@ -280,12 +280,17 @@ a #title-anim {
 	vertical-align: top;
 	margin-right: 2px;
 	float: right;
-	display: block;
-	width: 19px !important;
-	max-width: 19px !important;
+	display: inline-block;
+	width: 19px;
 	height: 16px;
 	border: solid 2px #390066;
 	background-image: url(images/windowbuttons.png);
+}
+
+@media (max-width: 800px) {
+	#window-button {
+		width:14px;
+	}
 }
 
 .button-close {
