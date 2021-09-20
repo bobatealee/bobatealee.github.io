@@ -143,7 +143,7 @@ a #title-anim {
 }
 
 .textbox-text-small {
-	font-size: 14px;
+	font-size: 14px !important;
 	line-height: 1px;
 }
 
@@ -272,6 +272,7 @@ a #title-anim {
 	float: none !important;
 	max-width: 900px !important;
 	margin-top: 50px !important;
+	margin-left: 48px !important;
 }
 
 #textbox-4-padding-big {
