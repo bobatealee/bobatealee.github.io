@@ -115,10 +115,17 @@ a #title-anim {
 	visibility: visible !important;
 }
 
+.textbox-text-small {
+	padding: 4px;
+	font-family: 'Alata', monospace;
+	font-size: 14px;
+	line-height: 22px;
+}
+
 .textbox-text {
 	padding: 4px;
-	font-size: 18px;
 	font-family: 'Alata', monospace;
+	font-size: 18px;
 	line-height: 26px;
 }
 
@@ -144,11 +151,6 @@ a #title-anim {
 
 .textbox-header-text {
 	padding-left: 4px;
-}
-
-.textbox-text-small {
-	font-size: 14px !important;
-	line-height: 1px;
 }
 
 .textbox-inner {
