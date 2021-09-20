@@ -3,7 +3,7 @@
 body {
     margin: 0;
 	height: 100%;
-	font-family: 'Almarai', monospace;
+	font-family: 'Alata', monospace;
 }
 
 html {
@@ -116,7 +116,7 @@ a #title-anim {
 .textbox-text {
 	padding: 4px;
 	font-size: 18px;
-	font-family: 'Almarai', monospace;
+	font-family: 'Alata', monospace;
 	line-height: 26px;
 }
 
