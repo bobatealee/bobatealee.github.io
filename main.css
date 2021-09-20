@@ -237,7 +237,8 @@ a #title-anim {
 	background: white;
 	animation: textbox 2s infinite alternate;
 	position: absolute;
-	visibility: hidden;	
+	visibility: hidden;
+	overflow: hidden;
 }
 
 #textbox-2 {
@@ -248,7 +249,8 @@ a #title-anim {
 	background: white;
 	animation: textbox 2.4s infinite alternate;
 	position: absolute;
-	visibility: hidden;	
+	visibility: hidden;
+	overflow: hidden;
 }
 
 #textbox-3 {
@@ -259,6 +261,7 @@ a #title-anim {
 	height: auto;
 	background: white;
 	animation: textbox 1.8s infinite alternate;
+	overflow: hidden;
 }
 
 .observer {
@@ -274,7 +277,8 @@ a #title-anim {
 	background: white;
 	animation: textbox 3s infinite alternate;
 	position: absolute;
-	visibility: hidden;	
+	visibility: hidden;
+	overflow: hidden;
 }
 
 .textbox-max {
