@@ -114,6 +114,7 @@ a #title-anim {
 	display: inline-block !important;
 	position: static !important;
 	visibility: visible !important;
+	overflow: visible !important;
 }
 
 .textbox-text {
@@ -319,6 +320,7 @@ button {
 	display: inline-block;
 	width: 19px;
 	height: 16px;
+	background-size: 75px 48px;
 	padding: 0px;
 	border: solid 2px #390066;
 	background-image: url(images/windowbuttons.png);
@@ -329,19 +331,19 @@ button {
 }
 
 .button-min {
-	background-position-x: -15px;
+	background-position-x: -90px;
 }
 
 .button-maxbig {
-	background-position-x: -30px;
+	background-position-x: -180px;
 }
 
 .button-maxsmall {
-	background-position-x: -45px;
+	background-position-x: -270px;
 }
 
 .button-question {
-	background-position-x: -60px;
+	background-position-x: -360px;
 }
 
 .button-inactive {
