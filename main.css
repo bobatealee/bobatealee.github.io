@@ -55,10 +55,8 @@ a {
 	font-family: 'Quicksand', sans-serif;
 	font-style: italic;
 	color: #FFFFFF;
-	animation: title-hover 1s infinite alternate;
 	animation-timing-function: ease-in-out;
 	user-select: none;
-	-webkit-touch-callout: none; /* ios */
 	outline: 0;
 }
 
