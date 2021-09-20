@@ -4,6 +4,7 @@ body {
     margin: 0;
 	height: 100%;
 	font-family: 'Alata', monospace;
+	-webkit-text-size-adjust: none;
 }
 
 html {
