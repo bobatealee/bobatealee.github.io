@@ -4,6 +4,8 @@ body {
     margin: 0;
 	background: linear-gradient(to bottom, #FFEAF8 20%, #DDFFD6, #CCE5FF);
 	height: 100%;
+	font-family: 'Alata', monospace;
+	-webkit-text-size-adjust: none;
 }
 
 #content-404 {
