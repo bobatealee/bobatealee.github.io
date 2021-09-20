@@ -3,6 +3,7 @@
 body {
     margin: 0;
 	height: 100%;
+	font-family: 'Almarai', monospace;
 }
 
 html {
@@ -31,6 +32,15 @@ a {
 .pixel {
 	image-rendering: pixelated;
 	image-rendering: crisp-edges;
+}
+
+#footer {
+	margin-top:20px;
+	margin-bottom:30px;
+}
+
+#footer-version {
+	font-size: 12px;
 }
 
 /* BASIC STYLING END */
@@ -106,7 +116,7 @@ a #title-anim {
 .textbox-text {
 	padding: 4px;
 	font-size: 18px;
-	font-family: 'Times New Roman', monospace;
+	font-family: 'Almarai', monospace;
 	line-height: 26px;
 }
 
