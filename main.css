@@ -57,9 +57,13 @@ a {
 	font-size: 12px;
 }
 
+#mobile-check {
+	display: none;
+}
+	
 @media (hover: hover) {
 	#mobile-check {
-		display: none;
+		display: block;
 	}
 }
 

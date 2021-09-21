@@ -33,46 +33,48 @@
 			}
 
 			// mobile check
-			$( document ).ready(function() {      
-				var is_mobile = false;
-				if(!$('#mobile-check').css('display')=='none') {
-					is_mobile = true; 
-					alert("test");
-				}
-				if (is_mobile == true) {
-					//Conditional script here
-				}
-			});
+			var is_mobile = false;
+			if($('#mobile-check').css('display')=='none') {
+				is_mobile = true; 
+			}
 
 			// rainbow toy
 			function func_title1() {
 				for (const element of document.getElementsByClassName("title-char")) {
 					element.classList.toggle("rainbow");
 				}
-				var audio = document.getElementById("sound-electro");
-				audio.currentTime=0;
-				audio.play();
+				if (is_mobile == false) {
+					var audio = document.getElementById("sound-electro");
+					audio.currentTime=0;
+					audio.play();
+				}
 			}
 			
 			// ??? toy
 			function func_title2() {
-				var audio = document.getElementById("sound-dingdong");
-				audio.currentTime=0;
-				audio.play();
+				if (is_mobile == false) {
+					var audio = document.getElementById("sound-dingdong");
+					audio.currentTime=0;
+					audio.play();
+				}
 			}
 			
 			// ??? toy
 			function func_title3() {
-				var audio = document.getElementById("sound-baby");
-				audio.currentTime=0;
-				audio.play();
+				if (is_mobile == false) {
+					var audio = document.getElementById("sound-baby");
+					audio.currentTime=0;
+					audio.play();
+				}
 			}
 			
 			// particle toy
 			function func_title4() {
-				var audio = document.getElementById("sound-pop");
-				audio.currentTime=0;
-				audio.play();
+				if (is_mobile == false) {
+					var audio = document.getElementById("sound-pop");
+					audio.currentTime=0;
+					audio.play();
+				}
 			}
 
 			// particle toy particles
@@ -132,24 +134,30 @@
 			function func_title5() {
 				document.getElementById("html").classList.toggle("title-observer");
 				document.getElementById("content").classList.toggle("title-observer-content");
-				var audio = document.getElementById("sound-cat");
-				audio.currentTime=0;
-				audio.play();
+				if (is_mobile == false) {
+					var audio = document.getElementById("sound-cat");
+					audio.currentTime=0;
+					audio.play();
+				}
 			}
 			
 			// ??? toy
 			function func_title6() {
-				var audio = document.getElementById("sound-horn");
-				audio.currentTime=0;
-				audio.play();
+				if (is_mobile == false) {
+					var audio = document.getElementById("sound-horn");
+					audio.currentTime=0;
+					audio.play();
+				}
 			}
 			
 			// death toy
 			function func_title7(element) {
 				element.classList.toggle("title-hide");
-				var audio = document.getElementById("sound-scream");
-				audio.currentTime=0;
-				audio.play();
+				if (is_mobile == false) {
+					var audio = document.getElementById("sound-scream");
+					audio.currentTime=0;
+					audio.play();
+				}
 			}
 			
 			// observer close toy
@@ -157,18 +165,22 @@
 				document.getElementById("textbox-3").classList.toggle("textbox-show");
 				document.getElementById("observer").classList.toggle("textbox-text-show");
 				document.getElementById("desktop-button-span-3").classList.toggle("desktop-button-show");
-				var audio = document.getElementById("sound-bump");
-				audio.currentTime=0;
-				audio.play();
+				if (is_mobile == false) {
+					var audio = document.getElementById("sound-bump");
+					audio.currentTime=0;
+					audio.play();
+				}
 			}
 			
 			// flip toy
 			function func_title9() {
 				document.getElementById("html").classList.toggle("title-flip");
 				document.getElementById("content").classList.toggle("title-flip-content");
-				var audio = document.getElementById("sound-funny");
-				audio.currentTime=0;
-				audio.play();
+				if (is_mobile == false) {
+					var audio = document.getElementById("sound-funny");
+					audio.currentTime=0;
+					audio.play();
+				}
 			}
 			
 			// close textboxes
@@ -637,7 +649,7 @@
 						</div>
 					</span>
 				</center>
-				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.055</span></div></center>
+				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.056</span></div></center>
 			</div>
 		</div>
 	</body>
