@@ -7,6 +7,16 @@ body {
 	-webkit-text-size-adjust: none;
 }
 
+button {
+	background: transparent;
+	border: none;
+	color: inherit;
+	font-family: inherit;
+	font-size: 100%;
+	padding: inherit;
+	margin: inherit;
+}
+
 html {
 	background: #CCE5FF;
 }
@@ -58,6 +68,10 @@ a {
 	animation-timing-function: ease-in-out;
 	user-select: none;
 	outline: 0;
+}
+
+.rainbow {
+	animation: rainbow 2s infinite;
 }
 
 a #title-anim {
@@ -435,6 +449,7 @@ button {
 	padding: 5px;
 	font-family: 'Alata', monospace;
 	font-size: 14px;
+	color: #000000;
 	text-align: center;
 	border: solid 2px #390066;
 	position: absolute;
@@ -608,6 +623,33 @@ button {
 	100% {
 		transform: translate(200%, 0px);
 		transition-property: left, opacity;
+	}
+}
+
+@keyframes rainbow {
+	0% {
+		color: #FF0000;
+	}
+	14% {
+		color: #FF6A00;
+	}
+	28% {
+		color: #FFD800;
+	}
+	42% {
+		color: #00FF21;
+	}
+	56% {
+		color: #0026FF;
+	}
+	70% {
+		color: #B200FF;
+	}
+	84% {
+		color: #FF00DC;
+	}
+	100% {
+		color: #FF0000;
 	}
 }
 

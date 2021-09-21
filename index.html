@@ -21,6 +21,15 @@
 			$('.title-stroke').attr('dummy', function(){return $(this).html();});
 			});
 
+			// minimize textboxes
+			function func_rainbow() {
+				for (const element of document.getElementsByClassName("title-char")) {
+					element.classList.toggle("rainbow");
+				}
+				var audio = document.getElementById("sound-cat");
+				audio.play();
+			}
+
 			// close textboxes
 			function func_hidetextbox(element, num) {
 				document.getElementById("textbox-".concat(num)).classList.toggle("textbox-show");
@@ -87,37 +96,37 @@
 				<div style="text-align: center;">
 					<div id="title-anim">
 						<!-- all these comments are necessary. this is my curse. -->
-						<div class="title-shake" id="title-shake-anim"><!--
-							--><span class="title-stroke">b</span><!--
-						--></div><!--
-						--><div class="title-shake" id="title-shake-anim"><!--
-							--><span class="title-stroke">o</span><!--
-						--></div><!--
-						--><div class="title-shake" id="title-shake-anim"><!--
-							--><span class="title-stroke">b</span><!--
-						--></div><!--
-						--><div class="title-shake" id="title-shake-anim"><!--
-							--><span class="title-stroke">a</span><!--
-						--></div><!--
+						<button class="title-shake" id="title-shake-anim" onclick="func_rainbow()"><!--
+							--><span class="title-char"><span class="title-stroke">b</span></span><!--
+						--></button><audio id="sound-cat" src="sounds/cat.mp3"></audio><!--
+						--><button class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-char"><span class="title-stroke">o</span></span><!--
+						--></button><!--
+						--><button class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-char"><span class="title-stroke">b</span></span><!--
+						--></button><!--
+						--><button class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-char"><span class="title-stroke">a</span></span><!--
+						--></button><!--
 						--><div class="title-shake"><!--
-							--><span class="title-stroke">'</span><!--
+							--><span class="title-char"><span class="title-stroke">'</span></span><!--
 						--></div><!--
-						--><div class="title-shake" id="title-shake-anim"><!--
-							--><span class="title-stroke">s</span><!--
-						--></div><!--
+						--><button class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-char"><span class="title-stroke">s</span></span><!--
+						--></button><!--
 						--><span class="title-space"></span><!--
-						--><div class="title-shake" id="title-shake-anim"><!--
-							--><span class="title-stroke">s</span><!--
-						--></div><!--
-						--><div class="title-shake" id="title-shake-anim"><!--
-							--><span class="title-stroke">i</span><!--
-						--></div><!--
-						--><div class="title-shake" id="title-shake-anim"><!--
-							--><span class="title-stroke">t</span><!--
-						--></div><!--
-						--><div class="title-shake" id="title-shake-anim"><!--
-							--><span class="title-stroke">e</span><!--
-						--></div>
+						--><button class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-char"><span class="title-stroke">s</span></span><!--
+						--></button><!--
+						--><button class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-char"><span class="title-stroke">i</span></span><!--
+						--></button><!--
+						--><button class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-char"><span class="title-stroke">t</span></span><!--
+						--></button><!--
+						--><button class="title-shake" id="title-shake-anim"><!--
+							--><span class="title-char"><span class="title-stroke">e</span></span><!--
+						--></button>
 					</div>
 
 					<span id="desktop-button-span-1">
@@ -475,7 +484,7 @@
 						</div>
 					</span>
 				</center>
-				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.038</span></div></center>
+				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.039</span></div></center>
 			</div>
 		</div>
 	</body>
