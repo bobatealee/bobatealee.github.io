@@ -88,7 +88,6 @@ a #title-anim {
 .title-stroke:before {
 	content: attr(dummy);
 	position: absolute;
-	-webkit-text-stroke: 4px #390066;
     white-space: nowrap;
 	left: 0;
 	top: 0;
