@@ -70,7 +70,9 @@
 			}
 			
 			function func_title8() {
-				func_closeobserver()
+				document.getElementById("textbox-3").classList.toggle("textbox-show");
+				document.getElementById("observer").classList.toggle("textbox-text-show");
+				document.getElementById("desktop-button-span-3").classList.toggle("desktop-button-show");
 				var audio = document.getElementById("sound-bump");
 				audio.currentTime=0;
 				audio.play();
@@ -547,7 +549,7 @@
 						</div>
 					</span>
 				</center>
-				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.045</span></div></center>
+				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.046</span></div></center>
 			</div>
 		</div>
 	</body>
