@@ -21,16 +21,64 @@
 			$('.title-stroke').attr('dummy', function(){return $(this).html();});
 			});
 
-			// minimize textboxes
-			function func_rainbow() {
+			// title toys
+			function func_title1() {
 				for (const element of document.getElementsByClassName("title-char")) {
 					element.classList.toggle("rainbow");
 				}
+				var audio = document.getElementById("sound-electro");
+				audio.currentTime=0;
+				audio.play();
+			}
+			
+			function func_title2() {
+				var audio = document.getElementById("sound-dingdong");
+				audio.currentTime=0;
+				audio.play();
+			}
+			
+			function func_title3() {
+				var audio = document.getElementById("sound-baby");
+				audio.currentTime=0;
+				audio.play();
+			}
+			
+			function func_title4() {
+				var audio = document.getElementById("sound-pop");
+				audio.currentTime=0;
+				audio.play();
+			}
+			
+			function func_title5() {
 				var audio = document.getElementById("sound-cat");
 				audio.currentTime=0;
 				audio.play();
 			}
-
+			
+			function func_title6() {
+				var audio = document.getElementById("sound-horn");
+				audio.currentTime=0;
+				audio.play();
+			}
+			
+			function func_title7() {
+				var audio = document.getElementById("sound-scream");
+				audio.currentTime=0;
+				audio.play();
+			}
+			
+			function func_title8() {
+				var audio = document.getElementById("sound-bump");
+				audio.currentTime=0;
+				audio.play();
+			}
+			
+			function func_title9() {
+				var audio = document.getElementById("sound-funny");
+				audio.currentTime=0;
+				audio.play();
+			}
+			
 			// close textboxes
 			function func_hidetextbox(element, num) {
 				document.getElementById("textbox-".concat(num)).classList.toggle("textbox-show");
@@ -97,37 +145,37 @@
 				<div style="text-align: center;">
 					<div id="title-anim">
 						<!-- all these comments are necessary. this is my curse. -->
-						<button class="title-shake" id="title-shake-anim" onclick="func_rainbow()"><!--
+						<button class="title-shake" id="title-shake-anim" onclick="func_title1()"><!--
 							--><span class="title-char"><span class="title-stroke">b</span></span><!--
-						--></button><audio id="sound-cat" src="sounds/paper_2.mp3"></audio><!--
-						--><button class="title-shake" id="title-shake-anim"><!--
+						--></button><audio id="sound-electro" src="sounds/electro.mp3"></audio><!--
+						--><button class="title-shake" id="title-shake-anim" onclick="func_title2()"><!--
 							--><span class="title-char"><span class="title-stroke">o</span></span><!--
-						--></button><!--
-						--><button class="title-shake" id="title-shake-anim"><!--
+						--></button><audio id="sound-dingdong" src="sounds/dingdong.mp3"></audio><!--
+						--><button class="title-shake" id="title-shake-anim" onclick="func_title3()"><!--
 							--><span class="title-char"><span class="title-stroke">b</span></span><!--
-						--></button><!--
-						--><button class="title-shake" id="title-shake-anim"><!--
+						--></button><audio id="sound-baby" src="sounds/baby.mp3"></audio><!--
+						--><button class="title-shake" id="title-shake-anim" onclick="func_title4()"><!--
 							--><span class="title-char"><span class="title-stroke">a</span></span><!--
-						--></button><!--
+						--></button><audio id="sound-pop" src="sounds/pop.mp3"></audio><!--
 						--><div class="title-shake"><!--
 							--><span class="title-char"><span class="title-stroke">'</span></span><!--
 						--></div><!--
-						--><button class="title-shake" id="title-shake-anim"><!--
+						--><button class="title-shake" id="title-shake-anim" onclick="func_title5()"><!--
 							--><span class="title-char"><span class="title-stroke">s</span></span><!--
-						--></button><!--
+						--></button><audio id="sound-cat" src="sounds/cat.mp3"></audio><!--
 						--><span class="title-space"></span><!--
-						--><button class="title-shake" id="title-shake-anim"><!--
+						--><button class="title-shake" id="title-shake-anim" onclick="func_title6()"><!--
 							--><span class="title-char"><span class="title-stroke">s</span></span><!--
-						--></button><!--
-						--><button class="title-shake" id="title-shake-anim"><!--
+						--></button><audio id="sound-horn" src="sounds/horn.mp3"></audio><!--
+						--><button class="title-shake" id="title-shake-anim" onclick="func_title7()"><!--
 							--><span class="title-char"><span class="title-stroke">i</span></span><!--
-						--></button><!--
-						--><button class="title-shake" id="title-shake-anim"><!--
+						--></button><audio id="sound-scream" src="sounds/scream.mp3"></audio><!--
+						--><button class="title-shake" id="title-shake-anim" onclick="func_title8()"><!--
 							--><span class="title-char"><span class="title-stroke">t</span></span><!--
-						--></button><!--
-						--><button class="title-shake" id="title-shake-anim"><!--
+						--></button><audio id="sound-bump" src="sounds/bump.mp3"></audio><!--
+						--><button class="title-shake" id="title-shake-anim" onclick="func_title9()"><!--
 							--><span class="title-char"><span class="title-stroke">e</span></span><!--
-						--></button>
+						--></button><audio id="sound-funny" src="sounds/funny.mp3"></audio>
 					</div>
 
 					<span id="desktop-button-span-1">
@@ -485,7 +533,7 @@
 						</div>
 					</span>
 				</center>
-				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.043</span></div></center>
+				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.044</span></div></center>
 			</div>
 		</div>
 	</body>
