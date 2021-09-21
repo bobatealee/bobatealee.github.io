@@ -8,6 +8,10 @@ body {
 	-webkit-text-size-adjust: none;
 }
 
+html {
+	background-color: #000000;
+}
+
 #content-404 {
 	width: 500px;
 	--width1: 500px;

@@ -20,7 +20,7 @@ button {
 }
 
 #html {
-	background: #CCE5FF;
+	background-color: #CCE5FF;
 }
 
 body, html {
@@ -82,7 +82,7 @@ a {
 }
 
 .title-flip {
-	background: #FFEAF8 !important;
+	background-color: #FFEAF8 !important;
 }
 
 .title-flip-content {
@@ -90,6 +90,7 @@ a {
 }
 
 .title-observer {
+	background-color: #000000 !important;
     background-image: url(images/observer.gif) !important;
 }
 
@@ -98,7 +99,7 @@ a {
 }
 
 particle {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   border-radius: 50%;

@@ -11,6 +11,10 @@ body, html {
 	height: 100%;
 }
 
+html {
+	background-color: #000000;
+}
+
 .content{
 	margin: auto;
 }
