@@ -120,9 +120,11 @@ a #title-anim {
     display: inline-block;
 }
 
-#title-shake-anim:hover {
-	animation: title-shake .25s linear infinite alternate;
-	cursor: pointer;
+@media (hover: hover) {
+	#title-shake-anim:hover {
+		animation: title-shake .25s linear infinite alternate;
+		cursor: pointer;
+	}
 }
 
 .title-stroke {
