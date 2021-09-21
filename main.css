@@ -50,6 +50,7 @@ a {
 #footer {
 	margin-top:20px;
 	margin-bottom:30px;
+	text-shadow: 0 0 2px #FFFFFF,0 0 2px #FFFFFF,0 0 2px #FFFFFF,0 0 2px #FFFFFF,0 0 2px #FFFFFF;
 }
 
 #footer-version {
@@ -80,12 +81,29 @@ a {
 	visibility: hidden !important;
 }
 
-.observer-bg {
+.title-flip {
+	background: #FFEAF8 !important;
+}
+
+.title-flip-content {
+	transform: scaleY(-1);
+}
+
+.title-observer {
     background-image: url(images/observer.gif) !important;
 }
 
-.observer-bg-clear {
+.title-observer-content {
     background: none !important;
+}
+
+particle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
 }
 
 a #title-anim {
@@ -104,6 +122,7 @@ a #title-anim {
 
 #title-shake-anim:hover {
 	animation: title-shake .25s linear infinite alternate;
+	cursor: pointer;
 }
 
 .title-stroke {

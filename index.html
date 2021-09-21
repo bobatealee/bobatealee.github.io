@@ -16,12 +16,23 @@
 
 		<!-- i apologize to any professional web developer for the following -->
 		<script>
+			// disable certain keys because they mess things up
+			document.onkeydown = function (e) {
+				var keyID = e.keyCode;
+				if (keyID == 32) {
+					return false;
+				}
+				if (keyID == 13) {
+					return false;
+				}
+			}
+
 			// title stroke storage
 			$(function(){
 			$('.title-stroke').attr('dummy', function(){return $(this).html();});
 			});
 
-			// title toys
+			// rainbow toy
 			function func_title1() {
 				for (const element of document.getElementsByClassName("title-char")) {
 					element.classList.toggle("rainbow");
@@ -31,38 +42,89 @@
 				audio.play();
 			}
 			
+			// ??? toy
 			function func_title2() {
 				var audio = document.getElementById("sound-dingdong");
 				audio.currentTime=0;
 				audio.play();
 			}
 			
+			// ??? toy
 			function func_title3() {
 				var audio = document.getElementById("sound-baby");
 				audio.currentTime=0;
 				audio.play();
 			}
 			
+			// particle toy
 			function func_title4() {
 				var audio = document.getElementById("sound-pop");
 				audio.currentTime=0;
 				audio.play();
 			}
-			
+
+			// particle toy particles
+			window.onload = () => {
+				if (document.body.animate) {
+					document.querySelector('.title4').addEventListener('click', particletoy);
+				}
+			}
+
+			function particletoy (e) {
+				for (let i = 0; i < 7; i++) {
+					createParticle(e.clientX, e.clientY);
+				}
+			}
+
+			function createParticle (x, y) {
+				const particle = document.createElement('particle');
+				document.body.appendChild(particle);
+
+				const size = Math.floor(Math.random() * 10 + 5);
+				particle.style.width = `${size}px`;
+				particle.style.height = `${size}px`;
+				particle.style.background = `hsl(${Math.random() * 255 + 255}, 75%, 50%)`;
+
+				const destinationX = x + (Math.random() - 0.5) * 2 * 50;
+				const destinationY = y + (Math.random() - 0.5) * 2 * 50;
+
+				const animation = particle.animate([
+					{
+						transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
+						opacity: 1
+					},
+					{
+						transform: `translate(${destinationX}px, ${destinationY}px)`,
+						opacity: 0
+					}
+				], {
+					duration: Math.random() * 1000 + 750,
+					easing: 'cubic-bezier(0, .9, .57, 1)',
+					delay: Math.random() * 1
+				});
+
+				animation.onfinish = () => {
+					particle.remove();
+				};
+			}
+
+			// observer bg toy
 			function func_title5() {
-				document.getElementById("html").classList.toggle("observer-bg");
-				document.getElementById("content").classList.toggle("observer-bg-clear");
+				document.getElementById("html").classList.toggle("title-observer");
+				document.getElementById("content").classList.toggle("title-observer-content");
 				var audio = document.getElementById("sound-cat");
 				audio.currentTime=0;
 				audio.play();
 			}
 			
+			// ??? toy
 			function func_title6() {
 				var audio = document.getElementById("sound-horn");
 				audio.currentTime=0;
 				audio.play();
 			}
 			
+			// death toy
 			function func_title7(element) {
 				element.classList.toggle("title-hide");
 				var audio = document.getElementById("sound-scream");
@@ -70,6 +132,7 @@
 				audio.play();
 			}
 			
+			// observer close toy
 			function func_title8() {
 				document.getElementById("textbox-3").classList.toggle("textbox-show");
 				document.getElementById("observer").classList.toggle("textbox-text-show");
@@ -79,7 +142,10 @@
 				audio.play();
 			}
 			
+			// flip toy
 			function func_title9() {
+				document.getElementById("html").classList.toggle("title-flip");
+				document.getElementById("content").classList.toggle("title-flip-content");
 				var audio = document.getElementById("sound-funny");
 				audio.currentTime=0;
 				audio.play();
@@ -166,7 +232,7 @@
 						--><button class="title-shake" id="title-shake-anim" onclick="func_title3()"><!--
 							--><span class="title-char"><span class="title-stroke">b</span></span><!--
 						--></button><audio id="sound-baby" src="sounds/baby.mp3"></audio><!--
-						--><button class="title-shake" id="title-shake-anim" onclick="func_title4()"><!--
+						--><button class="title-shake title4" id="title-shake-anim" onclick="func_title4()"><!--
 							--><span class="title-char"><span class="title-stroke">a</span></span><!--
 						--></button><audio id="sound-pop" src="sounds/pop.mp3"></audio><!--
 						--><div class="title-shake"><!--
@@ -550,7 +616,7 @@
 						</div>
 					</span>
 				</center>
-				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.048</span></div></center>
+				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.049</span></div></center>
 			</div>
 		</div>
 	</body>
