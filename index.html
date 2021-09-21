@@ -50,6 +50,7 @@
 			}
 			
 			function func_title5() {
+				document.getElementById("content").classList.toggle("observer-bg");
 				var audio = document.getElementById("sound-cat");
 				audio.currentTime=0;
 				audio.play();
@@ -61,13 +62,15 @@
 				audio.play();
 			}
 			
-			function func_title7() {
+			function func_title7(element) {
+				element.classList.toggle("title-hide");
 				var audio = document.getElementById("sound-scream");
 				audio.currentTime=0;
 				audio.play();
 			}
 			
 			function func_title8() {
+				func_closeobserver()
 				var audio = document.getElementById("sound-bump");
 				audio.currentTime=0;
 				audio.play();
@@ -107,6 +110,12 @@
 				}
 			}
 			
+			function func_closeobserver() {
+				document.getElementById("textbox-3").classList.toggle("textbox-show");
+				document.getElementById("observer").classList.toggle("textbox-text-show");
+				document.getElementById("desktop-button-span-3").classList.toggle("desktop-button-show");
+			}
+			
 			// open textboxes
 			function func_opentextbox(element, num) {
 				document.getElementById("textbox-".concat(num)).classList.toggle("textbox-show");
@@ -140,7 +149,7 @@
 	</head>
 
 	<body>
-		<div class="content">
+		<div id="content" class="content">
 			<div class="content-inner">
 				<div style="text-align: center;">
 					<div id="title-anim">
@@ -167,7 +176,7 @@
 						--><button class="title-shake" id="title-shake-anim" onclick="func_title6()"><!--
 							--><span class="title-char"><span class="title-stroke">s</span></span><!--
 						--></button><audio id="sound-horn" src="sounds/horn.mp3"></audio><!--
-						--><button class="title-shake" id="title-shake-anim" onclick="func_title7()"><!--
+						--><button class="title-shake" id="title-shake-anim" onclick="func_title7(this)"><!--
 							--><span class="title-char"><span class="title-stroke">i</span></span><!--
 						--></button><audio id="sound-scream" src="sounds/scream.mp3"></audio><!--
 						--><button class="title-shake" id="title-shake-anim" onclick="func_title8()"><!--
@@ -187,6 +196,11 @@
 						<button onclick="func_opentextbox(this, 2)" class="pixel desktop-button desktop-2"></button>
 						<br>
 						<button onclick="func_opentextbox(this, 2)" class="desktop-button-text">Info</button>
+					</span>
+					<span id="desktop-button-span-3">
+						<button onclick="func_closeobserver()" class="pixel desktop-button desktop-3"></button>
+						<br>
+						<button onclick="func_closeobserver()" class="desktop-button-text">observer</button>
 					</span>
 					<span id="desktop-button-span-4">
 						<button onclick="func_opentextbox(this, 4)" class="pixel desktop-button desktop-4"></button>
@@ -208,7 +222,7 @@
 
 					<span class="textbox textbox-show" id="textbox-3">
 						<div class="textbox-header"><span class="textbox-header-text">observer</span><button id="window-button" class="pixel button-close button-inactive"></button><button id="window-button" class="pixel button-question button-active tooltip"><span class="tooltip-text">observer</span></button></div>
-						<a href="observer"><div class="textbox-text textbox-text-show" style="padding: 0px;"><div class="observer"></div></div></a>
+						<a href="observer"><div class="textbox-text textbox-text-show" style="padding: 0px;"><div id="observer" class="textbox-text-show"></div></div></a>
 					</span>
 
 					<span class="textbox textbox-show" id="textbox-4">
@@ -533,7 +547,7 @@
 						</div>
 					</span>
 				</center>
-				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.044</span></div></center>
+				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.045</span></div></center>
 			</div>
 		</div>
 	</body>
