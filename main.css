@@ -19,7 +19,7 @@ button {
 	-webkit-border-radius: 0;
 }
 
-html {
+#html {
 	background: #CCE5FF;
 }
 
@@ -81,10 +81,11 @@ a {
 }
 
 .observer-bg {
-    background-image: url(images/observer.gif);
-	background-size: 300px 300px;
-	image-rendering: pixelated;
-	image-rendering: crisp-edges;
+    background-image: url(images/observer.gif) !important;
+}
+
+.observer-bg-clear {
+    background: none !important;
 }
 
 a #title-anim {

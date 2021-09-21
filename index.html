@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="html">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -50,7 +50,8 @@
 			}
 			
 			function func_title5() {
-				document.getElementById("content").classList.toggle("observer-bg");
+				document.getElementById("html").classList.toggle("observer-bg");
+				document.getElementById("content").classList.toggle("observer-bg-clear");
 				var audio = document.getElementById("sound-cat");
 				audio.currentTime=0;
 				audio.play();
@@ -549,7 +550,7 @@
 						</div>
 					</span>
 				</center>
-				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.046</span></div></center>
+				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.047</span></div></center>
 			</div>
 		</div>
 	</body>
