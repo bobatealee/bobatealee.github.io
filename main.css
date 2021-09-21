@@ -57,6 +57,12 @@ a {
 	font-size: 12px;
 }
 
+@media (hover: hover) {
+	#mobile-check {
+		display: none;
+	}
+}
+
 /* BASIC STYLING END */
 /* === */
 /* TITLE STYLING START */

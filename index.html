@@ -16,6 +16,11 @@
 
 		<!-- i apologize to any professional web developer for the following -->
 		<script>
+			// title stroke storage
+			$(function(){
+			$('.title-stroke').attr('dummy', function(){return $(this).html();});
+			});
+
 			// disable certain keys because they mess things up
 			document.onkeydown = function (e) {
 				var keyID = e.keyCode;
@@ -27,9 +32,16 @@
 				}
 			}
 
-			// title stroke storage
-			$(function(){
-			$('.title-stroke').attr('dummy', function(){return $(this).html();});
+			// mobile check
+			$( document ).ready(function() {      
+				var is_mobile = false;
+				if(!$('#mobile-check').css('display')=='none') {
+					is_mobile = true; 
+					alert("test");
+				}
+				if (is_mobile == true) {
+					//Conditional script here
+				}
 			});
 
 			// rainbow toy
@@ -80,7 +92,7 @@
 
 			function particletoy (e) {
 				for (let i = 0; i < 7; i++) {
-					createParticle((getOffset(document.querySelector('.title4')).left)+15, (getOffset(document.querySelector('.title4')).top)+45);
+					createParticle((getOffset(document.querySelector('.title4')).left)+15, (getOffset(document.querySelector('.title4')).top)+37);
 				}
 			}
 
@@ -226,6 +238,7 @@
 	</head>
 
 	<body>
+		<div id="mobile-check"></div>
 		<div id="content" class="content">
 			<div class="content-inner">
 				<div style="text-align: center;">
@@ -624,7 +637,7 @@
 						</div>
 					</span>
 				</center>
-				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.054</span></div></center>
+				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.055</span></div></center>
 			</div>
 		</div>
 	</body>
