@@ -33,10 +33,14 @@
 			}
 
 			// mobile check
-			var is_mobile = false;
-			if($('#mobile-check').css('display')=='none') {
-				is_mobile = true; 
-			}
+			document.addEventListener("DOMContentLoaded", function() {
+				if ($("#mobile-check").css("display") == "none") {
+					is_mobile = true;
+				}
+				else {
+					is_mobile = false;
+				}
+			})
 
 			// rainbow toy
 			function func_title1() {
@@ -648,7 +652,7 @@
 						</div>
 					</span>
 				</center>
-				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.058</span></div></center>
+				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.059</span></div></center>
 			</div>
 		</div>
 		<div id="mobile-check"></div>
