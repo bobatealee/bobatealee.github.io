@@ -64,6 +64,14 @@
 			}
 
 			// particle toy particles
+			function getOffset(el) {
+				const rect = el.getBoundingClientRect();
+				return {
+					left: rect.left + window.scrollX,
+					top: rect.top + window.scrollY
+				};
+			}
+			
 			window.onload = () => {
 				if (document.body.animate) {
 					document.querySelector('.title4').addEventListener('click', particletoy);
@@ -72,7 +80,7 @@
 
 			function particletoy (e) {
 				for (let i = 0; i < 7; i++) {
-					createParticle(e.clientX, e.clientY);
+					createParticle((getOffset(document.querySelector('.title4')).left)+15, (getOffset(document.querySelector('.title4')).top)+45);
 				}
 			}
 
@@ -616,7 +624,7 @@
 						</div>
 					</span>
 				</center>
-				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.053</span></div></center>
+				<center><div id="footer" style="width: 100%; float: left;">© 2021 boba<br><span id="footer-version">v1.054</span></div></center>
 			</div>
 		</div>
 	</body>
