@@ -55,6 +55,7 @@ a {
 	font-family: 'Quicksand', sans-serif;
 	font-style: italic;
 	color: #FFFFFF;
+	animation: title-hover 1s infinite alternate;
 	animation-timing-function: ease-in-out;
 	user-select: none;
 	outline: 0;
@@ -88,6 +89,7 @@ a #title-anim {
 .title-stroke:before {
 	content: attr(dummy);
 	position: absolute;
+	-webkit-text-stroke: 4px #390066;
     white-space: nowrap;
 	left: 0;
 	top: 0;
