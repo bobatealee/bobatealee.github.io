@@ -1,6 +1,6 @@
 Game.registerMod("clairvoyance", {
 	init: function() {
-		// thanks to klattmose for this doodad
+		// snippet from ccse, thanks klattmose: https://klattmose.github.io/CookieClicker/CCSE-POCs/
 		window.GetModPath = (modName) => {
 			let mod = App.mods[modName];
 			let pos = mod.dir.lastIndexOf('\\');
@@ -22,7 +22,7 @@ Game.registerMod("clairvoyance", {
 		
 		Game.registerHook("logic", tryInitializeClairvoyanceMod);
 
-		// some snippets based on this mod by u/klattmose: https://www.reddit.com/r/CookieClicker/comments/au2rsx/ingame_fthof_predictor_mod/
+		// some snippets based on this mod by klattmose: https://www.reddit.com/r/CookieClicker/comments/au2rsx/ingame_fthof_predictor_mod/
 		function ClairvoyanceInit() {
 			if (Clairvoyance === undefined) var Clairvoyance = {};
 			if (!("statsloaded" in window)) {
