@@ -80,7 +80,7 @@ function clairvoyanceInit() {
 	};
 
 	Clairvoyance.spellForecast = function (spell) {
-		var yourFate = '<div width="100%"><div class="line" style="margin-top:8px; margin-bottom:0;"></div><span style="background-image:url(/icons.png); background-size:24px 24px; width:24px; height:24px; display:inline-block; vertical-align:middle; margin-right:4px; filter: drop-shadow(0px 3px 2px #000)"></span><b style="vertical-align:middle;">Your fate:</b>';
+		var yourFate = '<div width="100%"><div class="line" style="margin-top:8px; margin-bottom:0;"></div><span style="background-image:url(https://bobatealee.com/hosting/mods/clairvoyance/icons.png); background-size:24px 24px; width:24px; height:24px; display:inline-block; vertical-align:middle; margin-right:4px; filter: drop-shadow(0px 3px 2px #000)"></span><b style="vertical-align:middle;">Your fate:</b>';
 		var spellsCastSeed = Game.Objects["Wizard tower"].minigame.spellsCastTotal; // player's total spells cast; determines seeded results
 		var failChanceDefault = Game.Objects["Wizard tower"].minigame.getFailChance(spell); // default fail chance
 		var column = Game.season == "valentines" || Game.season == "easter" ? 1 : 0; // column logic - if season is valentines or easter, use right column; otherwise, use left column
