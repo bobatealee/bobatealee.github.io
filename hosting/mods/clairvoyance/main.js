@@ -1,5 +1,7 @@
 Game.registerMod("clairvoyance", {
 	init: function() {
+		if (clairvoyance === undefined) var clairvoyance = {};
+		clairvoyance.version = "1.012";
 		// snippet from ccse, thanks klattmose: https://klattmose.github.io/CookieClicker/CCSE-POCs/
 		window.GetModPath = (modName) => {
 			let mod = App.mods[modName];
@@ -22,8 +24,6 @@ Game.registerMod("clairvoyance", {
 
 		// some snippets based on this mod by klattmose: https://www.reddit.com/r/CookieClicker/comments/au2rsx/ingame_fthof_predictor_mod/
 		function ClairvoyanceInit() {
-			if (clairvoyance === undefined) var clairvoyance = {};
-			clairvoyance.version = "1.1.1";
 			clairvoyance.path = (App ? window.GetModPath('clairvoyance') : 'https://bobatealee.com/hosting/mods/clairvoyance');
 			if (!("statsloaded" in window)) {
 				let minigame = Game.Objects["Wizard tower"].minigame;
@@ -120,7 +120,7 @@ Game.registerMod("clairvoyance", {
 				}
 				return yourFate;
 			};
-			Game.Notify("Clairvoyance loaded!", "Version "+clairvoyance.version, [0, 0, clairvoyance.path+"/icons.png"], 1, 1);
+			Game.Notify("Clairvoyance loaded!", "Version "+clairvoyance.version, [0, 0, clairvoyance.path+"/icons.png"], 2, 1);
 		}
 	}
 });

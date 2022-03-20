@@ -1,12 +1,20 @@
 Game.registerMod("betterHighResSupport",{
 	init:function(){
-		function makeCrispy() {
-			// make the whole game crispy!
-			document.getElementsByTagName('body')[0].style = 'image-rendering: pixelated; image-rendering: crisp-edges';
-			// keep buff icons at the top right the same because they have weird scaling
-			document.getElementById('buffs').style = 'image-rendering: auto';
+		if (betterHighResSupport === undefined) var betterHighResSupport = {};
+		betterHighResSupport.version = "2.0";
+		var style = document.createElement("style");
+		style.innerText =`
+		body {
+			image-rendering: pixelated; image-rendering: crisp-edges; /* make everything crispy, done with 2 different values to cover all browsers */
 		}
+		
+		div.crate.enabled.buff::before {
+			image-rendering: auto; /* exclude buff crate because it's scaled oddly */
+		}
+		`;
 
-		makeCrispy();
+		document.head.appendChild(style);
+		
+		Game.Notify("Better High Res Support loaded!", "Version "+betterHighResSupport.version, [21, 1], 2, 1);
 	}
 });
