@@ -8,8 +8,6 @@ Game.registerMod("clairvoyance", {
 			else return '../mods/' + mod.dir.substring(pos + 1);
 		};
 		
-		clairvoyancePath = (App ? window.GetModPath('clairvoyance') : 'https://bobatealee.com/hosting/mods/clairvoyance');
-		
 		function tryInitializeClairvoyanceMod() {
 			let minigameHasLoaded = Game.Objects["Wizard tower"].minigameLoaded;
 			let modHasInitialized = "statsloaded" in window;
@@ -24,7 +22,9 @@ Game.registerMod("clairvoyance", {
 
 		// some snippets based on this mod by klattmose: https://www.reddit.com/r/CookieClicker/comments/au2rsx/ingame_fthof_predictor_mod/
 		function ClairvoyanceInit() {
-			if (Clairvoyance === undefined) var Clairvoyance = {};
+			if (clairvoyance === undefined) var clairvoyance = {};
+			clairvoyance.version = "1.1";
+			clairvoyance.path = (App ? window.GetModPath('clairvoyance') : 'https://bobatealee.com/hosting/mods/clairvoyance');
 			if (!("statsloaded" in window)) {
 				let minigame = Game.Objects["Wizard tower"].minigame;
 				let originalSpellTooltip = minigame.spellTooltip;
@@ -34,7 +34,7 @@ Game.registerMod("clairvoyance", {
 						let originalString = originalCallback();
 						let ourTooltip = originalString.substring(0, originalString.length - "</div></div>".length);
 						let me = minigame.spellsById[id];
-						ourTooltip += "<div></div>" + Clairvoyance.spellForecast(me);
+						ourTooltip += "<div></div>" + clairvoyance.spellForecast(me);
 						return ourTooltip;
 					};
 				};
@@ -42,9 +42,9 @@ Game.registerMod("clairvoyance", {
 
 			statsloaded = 1;
 
-			Clairvoyance.FateChecker = function (spellCount, column, failChanceDefault, active) {
+			clairvoyance.FateChecker = function (spellCount, column, failChanceDefault, active) {
 				var res = "";
-				var shimmerFate = "";
+				var clairvoyanceChoice = "";
 				Math.seedrandom(Game.seed + "/" + spellCount);
 				roll = Math.random();
 
@@ -58,13 +58,13 @@ Game.registerMod("clairvoyance", {
 					var choices = [];
 					choices.push("Frenzy","Lucky");
 					if (!Game.hasBuff("Dragonflight")) choices.push("Click Frenzy");
-					if (Math.random()<0.1) choices.push("Cookie Storm","Cookie Storm","Blab");
+					if (Math.random()<0.1) choices.push("Cookie Storm","Cookie Storm","<span style=\"color:#CCCCCC;\">Blab</span>");
 					if (Game.BuildingsOwned>=10 && Math.random()<0.25) choices.push("Building Special");
-					if (Math.random()<0.15) choices=["Cookie Storm Drop"];
-					if (Math.random()<0.0001) choices.push("<span style=\"color:#FAEDB9;\">Sweet</span>"); // sweet is pretty important so it gets a special color
+					if (Math.random()<0.15) choices=["Free Cookies"];
+					if (Math.random()<0.0001) choices.push("<span style=\"color:#F9E38B;\">Sweet</span>");
 
-					shimmerFate = choose(choices);
-					res = '<span class="green" style="font-size:11px;"><b>' + shimmerFate + "</b></span><br/>";
+					clairvoyanceChoice = choose(choices);
+					res = '<span class="green" style="font-size:11px;"><b>' + clairvoyanceChoice + "</b></span><br/>";
 				}
 				else {
 					// bad effects
@@ -75,24 +75,24 @@ Game.registerMod("clairvoyance", {
 
 					var choices = [];
 					choices.push("Clot","Ruin");
-					if (Math.random()<0.1) choices.push("Cursed Finger","Elder Frenzy");
-					if (Math.random()<0.003) choices.push("<span style=\"color:#FAEDB9;\">Sweet</span>"); // sweet is pretty important so it gets a special color
-					if (Math.random()<0.1) choices=["Blab"];
+					if (Math.random()<0.1) choices.push("<span style=\"color:#FF89E7;\">Cursed Finger</span>","<span style=\"color:#FF89E7;\">Elder Frenzy</span>");
+					if (Math.random()<0.003) choices.push("<span style=\"color:#F9E38B;\">Sweet</span>");
+					if (Math.random()<0.1) choices=["<span style=\"color:#CCCCCC;\">Blab</span>"];
 
-					shimmerFate = choose(choices);
-					res = '<span class="red" style="font-size:11px;"><b>' + shimmerFate + "</b></span><br/>";
+					clairvoyanceChoice = choose(choices);
+					res = '<span class="red" style="font-size:11px;"><b>' + clairvoyanceChoice + "</b></span><br/>";
 				}
 				return (
 					"<td" + (active ? ' style="text-shadow:0px 0px 6px currentColor;"' : "") + ">" + res + "</td>"
 				);
 			};
 
-			Clairvoyance.spellForecast = function (spell) {
-				var yourFate = '<div width="100%"><div class="line" style="margin-top:8px; margin-bottom:0;"></div><span style="background-image:url(' + clairvoyancePath + '/icons.png' + '); background-size:24px 24px; width:24px; height:24px; display:inline-block; vertical-align:middle; margin-right:4px; filter: drop-shadow(0px 3px 2px #000)"></span><b style="vertical-align:middle;">Your fate:</b>';
-				var spellsCastSeed = Game.Objects["Wizard tower"].minigame.spellsCastTotal; // player's total spells cast; determines seeded results
-				var failChanceDefault = Game.Objects["Wizard tower"].minigame.getFailChance(spell); // default fail chance
+			clairvoyance.spellForecast = function (spell) {
+				var yourFate = '<div width="100%"><div class="line" style="margin-top:8px; margin-bottom:0;"></div><span style="background-image:url(' + clairvoyance.path + '/icons.png' + '); background-size:24px 24px; width:24px; height:24px; display:inline-block; vertical-align:middle; margin-right:4px; filter: drop-shadow(0px 3px 2px #000)"></span><b style="vertical-align:middle;">Your fate:</b>';
+				var spellsSeed = Game.Objects["Wizard tower"].minigame.spellsCastTotal; // player's total spells cast; determines seeded results
+				var failChanceDefault = Game.Objects["Wizard tower"].minigame.getFailChance(spell); // default fail chance per spell
 				var column = Game.season == "valentines" || Game.season == "easter" ? 1 : 0; // column logic - if season is valentines or easter, use right column; otherwise, use left column
-				var resultRange = spellsCastSeed + 10; // result range - only 10 for now, might make this a slider later
+				var resultRange = spellsSeed + 10; // result range - only 10 for now, might make this a slider later
 
 				switch (spell.name) {
 					case loc("Force the Hand of Fate"):
@@ -102,13 +102,13 @@ Game.registerMod("clairvoyance", {
 							yourFate + '<table width="100%"><tr>';
 							for (var i = 0; i < 2; i++) yourFate += "</tr>";
 
-						while (spellsCastSeed < resultRange) { // generate/refresh visual spell list
+						while (spellsSeed < resultRange) { // generate/refresh visual spell list
 							yourFate += "<tr>";
 							for (var i = 0; i < 2; i++)
-							yourFate += Clairvoyance.FateChecker(spellsCastSeed, i, failChanceDefault, column == i);
+							yourFate += clairvoyance.FateChecker(spellsSeed, i, failChanceDefault, column == i);
 							yourFate += "</tr>";
 
-							spellsCastSeed += 1;
+							spellsSeed += 1;
 							Math.seedrandom();
 						}
 
@@ -116,10 +116,11 @@ Game.registerMod("clairvoyance", {
 					break;
 
 					default:
-						yourFate = ""; // prevents "your fate" from appearing on anything not fthof
+						yourFate = ""; // prevents additional info from appearing on anything that isn't fthof
 				}
 				return yourFate;
 			};
+			Game.Notify("Clairvoyance loaded!", "Version "+clairvoyance.version, [0, 0, clairvoyance.path+"/icons.png"], 2, 0);
 		}
 	}
 });
