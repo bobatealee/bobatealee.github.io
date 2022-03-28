@@ -1,7 +1,7 @@
 Game.registerMod("clairvoyance", {
-	init: function() {
+	init:function(){
 		if (clairvoyance === undefined) var clairvoyance = {};
-		clairvoyance.version = "1.012";
+		clairvoyance.version = "1.013";
 		// snippet from ccse, thanks klattmose: https://klattmose.github.io/CookieClicker/CCSE-POCs/
 		window.GetModPath = (modName) => {
 			let mod = App.mods[modName];
@@ -9,6 +9,8 @@ Game.registerMod("clairvoyance", {
 			if(pos == -1) return '../mods/' + (mod.local ? 'local' : 'workshop') + '/' + mod.path;
 			else return '../mods/' + mod.dir.substring(pos + 1);
 		};
+		
+		clairvoyance.path = (App ? window.GetModPath('clairvoyance') : 'https://bobatealee.com/hosting/mods/clairvoyance');
 		
 		function tryInitializeClairvoyanceMod() {
 			let minigameHasLoaded = Game.Objects["Wizard tower"].minigameLoaded;
@@ -21,10 +23,8 @@ Game.registerMod("clairvoyance", {
 		}
 		
 		Game.registerHook("logic", tryInitializeClairvoyanceMod);
-
 		// some snippets based on this mod by klattmose: https://www.reddit.com/r/CookieClicker/comments/au2rsx/ingame_fthof_predictor_mod/
 		function ClairvoyanceInit() {
-			clairvoyance.path = (App ? window.GetModPath('clairvoyance') : 'https://bobatealee.com/hosting/mods/clairvoyance');
 			if (!("statsloaded" in window)) {
 				let minigame = Game.Objects["Wizard tower"].minigame;
 				let originalSpellTooltip = minigame.spellTooltip;
@@ -120,7 +120,7 @@ Game.registerMod("clairvoyance", {
 				}
 				return yourFate;
 			};
-			Game.Notify("Clairvoyance loaded!", "Version "+clairvoyance.version, [0, 0, clairvoyance.path+"/icons.png"], 2, 1);
 		}
+		Game.Notify("Clairvoyance loaded!", "Version "+clairvoyance.version, [0, 0, clairvoyance.path+"/icons.png"], 2, 1);
 	}
 });
