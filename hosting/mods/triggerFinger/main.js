@@ -1,7 +1,7 @@
 Game.registerMod("triggerFinger",{
 	init:function(){
 		if (triggerFinger === undefined) var triggerFinger = {};
-		triggerFinger.version = "1.0";
+		triggerFinger.version = "1.01";
 		triggerFingerMode = 0;
 		triggerFingerModeDebug = 0;
 
@@ -261,7 +261,6 @@ Game.registerMod("triggerFinger",{
 		// new normal upgrades
 		new Game.Upgrade('Wheeled mouse',loc("Toggles the <b>Tigger finger</b> challenge mode, enabling you to use the scroll wheel.")+'<q>Muscle memory is no joke! Billions of people suffer from muscle memory each year. It is a tragedy.</q>',7,[12,0]).order=40001;
 		Game.last.pool='debug';
-		//new Game.Upgrade('Awful-tasting cookie',loc("Enables the <b>debug menu</b>.")+'<q>*spit* *spit* Open sesame!</q>',0,[10,6]).order=40001;
 
 		// new heavenly upgrades
 		new Game.Upgrade('Warped cookies',loc("Cookie production multiplier <b>+%1% permanently</b>.",10)+'<q>Your meddling with the natural order has caused these cookies to take on an otherworldly appearance that\'s classified somewhere between "cosmic beauty" and "Lovecraftian horror".</q>',250000,[28,12]);
@@ -273,8 +272,6 @@ Game.registerMod("triggerFinger",{
 
 		// unlock new upgrades & achievements
 		function triggerFingerCheck() {
-			if (Game.handmadeCookies >= 0) {Game.Unlock('Awful-tasting cookie');}
-
 			if (Game.cookiesEarned >= 1000000000000000 && triggerFingerMode == 1) Game.Win('Till the wheels fall off');
 		}
 
@@ -312,12 +309,6 @@ Game.registerMod("triggerFinger",{
 				triggerFingerMode = 0;
 				triggerFingerModeDebug = 0;
 				Game.Notify(loc("Trigger finger debug disabled"),'','',1,1);
-			}
-
-			// ...debug
-			if (Game.sesame==0 && Game.Has('Awful-tasting cookie')) {
-				Game.OpenSesame();
-				Game.sesame=1;
 			}
 
 			// if in trigger finger run
