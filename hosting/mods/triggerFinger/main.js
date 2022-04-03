@@ -1,7 +1,7 @@
 Game.registerMod("triggerFinger",{
 	init:function(){
 		if (triggerFinger === undefined) var triggerFinger = {};
-		triggerFinger.version = "1.01";
+		triggerFinger.version = "1.02";
 		triggerFingerMode = 0;
 		triggerFingerModeDebug = 0;
 
@@ -63,7 +63,7 @@ Game.registerMod("triggerFinger",{
 		triggerFingerLogicStr = Game.Logic.toString();
 		for(let i of triggerFingerBannedAchievements){
 		  let str = "Game.Win('"+i
-		  logicstr = triggerFingerLogicStr.replace(str,'if(!triggerFingerMode)' + str)
+		  triggerFingerLogicStr = triggerFingerLogicStr.replace(str,'if(!triggerFingerMode)' + str)
 		}
 
 		eval('Game.Logic=' + triggerFingerLogicStr);
@@ -202,7 +202,7 @@ Game.registerMod("triggerFinger",{
 		var eventListenerReplace = document.getElementById('bigCookie'), eventListenerClone = eventListenerReplace.cloneNode(true);
 		eventListenerReplace.parentNode.replaceChild(eventListenerClone, eventListenerReplace);
 
-		// redefine bigCookie events so they can be removed properly
+		// redefine bigCookie events so they can be removed properly (this is horrible)
 		function mousedownBigCookie(event){
 			Game.BigCookieState=1; if (Game.prefs.cookiesound) { Game.playCookieClickSound(); } if (event) event.preventDefault();
 		}
@@ -263,7 +263,7 @@ Game.registerMod("triggerFinger",{
 		Game.last.pool='debug';
 
 		// new heavenly upgrades
-		new Game.Upgrade('Warped cookies',loc("Cookie production multiplier <b>+%1% permanently</b>.",10)+'<q>Your meddling with the natural order has caused these cookies to take on an otherworldly appearance that\'s classified somewhere between "cosmic beauty" and "Lovecraftian horror".</q>',250000,[28,12]);
+		new Game.Upgrade('Warped cookies',loc("Cookie production multiplier <b>+%1% permanently</b>.",10)+'<q>Your meddling with the natural order has caused these cookies to take on an otherworldly appearance that\'s classified as somewhere between "cosmic beauty" and "Lovecraftian horror".</q>',250000,[28,12]);
 		Game.last.pool='prestige';Game.last.parents=[Game.Upgrades['Legacy']];Game.last.posX=-20;Game.last.posY=-150;Game.last.showIf=function(){return (Game.HasAchiev('Till the wheels fall off'));};
 		Game.PrestigeUpgrades.push(Game.last);
 
