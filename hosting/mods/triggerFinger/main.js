@@ -1,23 +1,25 @@
+if (triggerFinger === undefined) var triggerFinger = {};
 Game.registerMod("triggerFinger",{
 	init:function(){
-		if (triggerFinger === undefined) var triggerFinger = {};
-		triggerFinger.version = "1.2";
-		triggerFingerMode = 0;
-		triggerFingerModeDebug = 0;
-		triggerFingerScrollRate = 0;
-		triggerFingerClickGains = 0;
+		triggerFinger.version = "2.0";
+		triggerFinger.mode = 0;
+		triggerFinger.scrollRate = 0;
+		triggerFinger.clickGains = 0;
 
+		window.GetModPath = (modName) => {
+			let mod = App.mods[modName];
+			let pos = mod.dir.lastIndexOf('\\');
+			if(pos == -1) return '../mods/' + (mod.local ? 'local' : 'workshop') + '/' + mod.path;
+			else return '../mods/' + mod.dir.substring(pos + 1);
+		};
+		
+		triggerFinger.path = (App ? window.GetModPath('triggerFinger') : 'https://bobatealee.com/hosting/mods/triggerFinger');
+		
 		Game.registerHook("check", triggerFingerCheck);
 		Game.registerHook("logic", triggerFingerLogic);
 		Game.registerHook("reincarnate", triggerFingerReincarnate);
 		Game.registerHook("reset", triggerFingerReset);
 
-		// ======================================================================================
-		// TODO
-		// ======================================================================================
-		// 1.3 changes:
-		// - more achievements(???)
-		// - maybe re-enable steam achievements based on how things go balance wise?
 		// ======================================================================================
 		// ABOUT
 		// ======================================================================================
@@ -32,23 +34,16 @@ Game.registerMod("triggerFinger",{
 		ModLanguage('EN',{
 			// ModLanguage doesn't support a lot of things so we're kind of just stuck with this for now
 			"Trigger finger [ascension type]": "Trigger finger",
-			//"In this run, scrolling your mouse wheel on the cookie counts as clicking it. Some upgrades introduce new clicking behaviors. No clicking achievements may be obtained in this mode.<div class=\"line\"></div>Reaching 1 quadrillion cookies in this mode unlocks a special heavenly upgrade.": "/",
-			// "Scroll rate:": "/",
-			// "You are in a <b>Trigger finger</b> run, and are not currently benefiting from heralds.": "/",
-			// "You are in a Trigger finger run, and can only click by scrolling!": "/",
-			// "Toggles the <b>Tigger finger</b> challenge mode, enabling you to use the scroll wheel.": "/",
-			"Bake <b>%1</b> in one Trigger finger run.<div class=\"line\"></div>Owning this achievement unlocks a special heavenly upgrade.": "Bake <b>%1</b> in one Trigger finger run.<div class=\"line\"></div>Owning this achievement unlocks a special heavenly upgrade.", // would use "/", but...
-			// "Trigger finger debug disabled": "/",
-			"Since you\'re in a <b>Trigger finger</b> run, this upgrade also increases scrolling rate by <b>+%1%</b>.": "Since you\'re in a <b>Trigger finger</b> run, this upgrade also increases scrolling rate by <b>+%1%</b>.",
+			"Since you\'re in a <b>Trigger finger</b> run, this upgrade also increases scrolling rate by <b>+%1%</b>.": "Since you\'re in a <b>Trigger finger</b> run, this upgrade also increases scrolling rate by <b>+%1%</b>.",  // would use "/", but...
 			"Since you\'re in a <b>Trigger finger</b> run, this upgrade also increases clicking gains by <b>+%1</b> cookies for each cursor owned.": "Since you\'re in a <b>Trigger finger</b> run, this upgrade also increases clicking gains by <b>+%1</b> cookies for each cursor owned.",
-			// "Trigger finger debug enabled": "/",
-			// "[Upgrade name "+Game.Upgrades['Wheeled mouse'].id+"]Wheeled mouse": "Wheeled mouse",
-			// "[Upgrade name "+Game.Upgrades['Warped cookies'].id+"]Warped cookies": "Warped cookies",
-			// "[Upgrade name "+Game.Achievements['Till the wheels fall off'].id+"]Till the wheels fall off": "Till the wheels fall off",
+			"Bake <b>%1</b> in one Trigger finger ascension.": "Bake <b>%1</b> in one Trigger finger ascension.",
+			"Bake <b>%1</b> in one Trigger finger ascension.<div class=\"line\"></div>Owning this achievement unlocks a special heavenly upgrade.": "Bake <b>%1</b> in one Trigger finger ascension.<div class=\"line\"></div>Owning this achievement unlocks a special heavenly upgrade.",
+			"In a Trigger finger run, have a scroll rate of <b>%1%</b>.": "In a Trigger finger run, have a scroll rate of <b>%1%</b>.",
+			"Bake <b>%1</b> in one Trigger finger ascension without owning more than <b>10 cursors</b>.": "Bake <b>%1</b> in one Trigger finger ascension without owning more than <b>10 cursors</b>.",
 		});
 
 		// ======================================================================================
-		// REPLACEMENT
+		// REPLACEMENT + HOOKS
 		// ======================================================================================
 
 		// ported over so it works here
@@ -56,72 +51,71 @@ Game.registerMod("triggerFinger",{
 			return (icon[2]?'background-image:url(\''+icon[2].replace(/'/g,"\\'")+'\');':'')+'background-position:'+(-icon[0]*48)+'px '+(-icon[1]*48)+'px;';
 		}
 
+		// resets the mode upon hard reset
 		function triggerFingerReset(hard) {
 			if (hard) {
-				triggerFingerMode = 0
-				triggerFingerModeDebug = 0
+				triggerFinger.mode = 0
 			}
 		}
 
 		// add additional ascension mode. this uses a decimal value (which is apparently somehow valid) to not interfere with any other potential future modes
-		// the id for this mod uses its steam workshop id (seen in the link for it) so it doesn't conflict with other mods.
-		// if you use this mod as a base for your own challenge mode, NEVER use the same id as another mod. using some big decimal should help prevent overwriting another mod's id
-		// don't worry about updating this number post-launch. at the end of the day this id will never actually save with the game, unless you want to break peoples' saves
-		Game.ascensionModes = Object.assign({1.001:{name:'Trigger finger',dname:loc("Trigger finger [ascension type]"),desc:loc("In this run, scrolling your mouse wheel on the cookie counts as clicking it. Some upgrades introduce new clicking behaviors. No clicking achievements may be obtained in this mode.<div class=\"line\"></div>Reaching 1 quadrillion cookies in this mode unlocks a special heavenly upgrade."),icon:[12,0]}}, Game.ascensionModes)
+		// the id for this mod uses its steam workshop id (2788595456) so it doesn't conflict with other modded modes as well
+		// if you use this mod as a base for your own challenge mode, please use your steam workshop id (to find this id you can publish your mod and copy the number at the end of its link, and then update it to use that number as your ascension mode id) or some kind of big decimal to prevent errors when used with other modded modes. be mindful!
+		Game.ascensionModes = Object.assign({1.2788595456:{name:'Trigger finger',dname:loc("Trigger finger [ascension type]"),desc:loc("In this run, scrolling your mouse wheel on the cookie counts as clicking it. Some upgrades introduce new clicking behaviors. No clicking achievements may be obtained in this mode.<div class=\"line\"></div>Reaching 1 quadrillion cookies in this mode unlocks a special heavenly upgrade."),icon:[12,0]}}, Game.ascensionModes)
 
 		// we're not actually going to be using the modded id, because if we did that would break saves
 		// we're going to immediately set the mode to 1 (Born again) and refresh the game
 		// this gives the added benefit of Born again's rules (no heavenly upgrades, certain achievement unlocks, etc.) as well as not breaking saves
 		function triggerFingerReincarnate() {
-			if (Game.ascensionMode == 1.001) {
-				triggerFingerModeDebug = 0
+			if (Game.ascensionMode == 1.2788595456) {
 				Game.ascensionMode = 1
-				triggerFingerMode = 1
+				triggerFinger.mode = 1
 				Game.Reset(); // required to make sure the game fully registers that we're in a (spoofed) Born again run. apparently breaks something related to sounds
 			}
 			else {
-				triggerFingerMode = 0
+				triggerFinger.mode = 0
 			}
 		}
 
 		// list of achievements to ban only in this mode
 		triggerFingerBannedAchievements = ['Speed baking I', 'Speed baking II', 'Speed baking III', 'Clicktastic', 'Clickathlon', 'Clickolympics', 'Clickorama', 'Clickasmic', 'Clickageddon', 'Clicknarok', 'Clickastrophe', 'Clickataclysm', 'The ultimate clickdown' ,'All the other kids with the pumped up clicks', 'One...more...click...', 'Clickety split']; // list of banned achievements
-		if (Game.version > 2.043) {triggerFingerBannedAchievements.push('Ain\'t that a click in the head')}; // STUPID FUTUREPROOFING
+		if (Game.version > 2.043) {triggerFingerBannedAchievements.push('Ain\'t that a click in the head')}; // stupid futureproofing
 
-		triggerFingerLogicStr = Game.Logic.toString();
+		// injects the achievement bans into game logic
+		triggerFinger.logicStr = Game.Logic.toString();
 		for(let i of triggerFingerBannedAchievements){
 		  let str = "Game.Win('"+i
-		  triggerFingerLogicStr = triggerFingerLogicStr.replace(str,'if(!triggerFingerMode)' + str)
+		  triggerFinger.logicStr = triggerFinger.logicStr.replace(str,'if(!triggerFinger.mode)' + str)
 		}
 
-		eval('Game.Logic=' + triggerFingerLogicStr);
+		eval('Game.Logic=' + triggerFinger.logicStr);
 
 		// spoof the stats menu, and add a new stat
 		function triggerFingerStats(str) {
 			document.getElementById("menu").innerHTML = str;
 			const children = document.getElementById("menu").children;
 
-			if (Game.resets > 0 && triggerFingerMode == 1) {
+			if (Game.resets > 0 && triggerFinger.mode == 1) {
 				// ascension mode inject
 				ascensionModeStr='<span style="cursor:pointer;" '+Game.getTooltip(
-				'<div style="min-width:200px;text-align:center;font-size:11px;">'+Game.ascensionModes[1.001].desc+'</div>'
-				,'top')+'><div class="icon" style="display:inline-block;float:none;transform:scale(0.5);margin:-24px -16px -19px -8px;'+writeIcon(Game.ascensionModes[1.001].icon)+'"></div>'+Game.ascensionModes[1.001].dname+'</span>';
+				'<div style="min-width:200px;text-align:center;font-size:11px;">'+Game.ascensionModes[1.2788595456].desc+'</div>'
+				,'top')+'><div class="icon" style="display:inline-block;float:none;transform:scale(0.5);margin:-24px -16px -19px -8px;'+writeIcon(Game.ascensionModes[1.2788595456].icon)+'"></div>'+Game.ascensionModes[1.2788595456].dname+'</span>';
 				children[3].children[1].innerHTML = '<b>'+loc("Challenge mode:")+'</b>'+ascensionModeStr;
 
 				// scroll rate inject
 				const element = document.createElement("div.listing");
-				element.innerHTML = '<div class="listing"><b>'+loc("Scroll rate:")+'</b> '+Beautify(triggerFingerScrollRate)+'%'+'</div>';
+				element.innerHTML = '<div class="listing"><b>'+loc("Scroll rate:")+'</b> '+Beautify(triggerFinger.scrollRate)+'%'+'</div>';
 				children[3].appendChild(element);
 			}
 		}
 
-		const triggerFingerHandler = {
+		const statsHandler = {
 			get(target, prop, receiver) {
-				let triggerFingerStatsReturn = Reflect.get(...arguments);
-				if (triggerFingerStatsReturn instanceof Function) {
-					triggerFingerStatsReturn = triggerFingerStatsReturn.bind(target);
+				let statsReturn = Reflect.get(...arguments);
+				if (statsReturn instanceof Function) {
+					statsReturn = statsReturn.bind(target);
 				}
-				return triggerFingerStatsReturn;
+				return statsReturn;
 			},
 
 			set(target, prop, value) {
@@ -135,7 +129,7 @@ Game.registerMod("triggerFinger",{
 
 		globalThis["l"] = function (what) {
 			const element = document.getElementById(what);
-			if (what === "menu" && Game.onMenu == 'stats') return new Proxy(element, triggerFingerHandler);
+			if (what === "menu" && Game.onMenu == 'stats') return new Proxy(element, statsHandler);
 			else return element;
 		};
 
@@ -152,7 +146,7 @@ Game.registerMod("triggerFinger",{
 					str+='<b style="color:#bc3aff;text-shadow:0px 1px 0px #6d0096;">'+loc("%1 herald",Game.heralds)+'</b> '+loc("selflessly inspiring a boost in production for everyone, resulting in %1.",'<br><b style="color:#cdaa89;text-shadow:0px 1px 0px #7c4532,0px 0px 6px #7c4532;"><div style="width:16px;height:16px;display:inline-block;vertical-align:middle;background:url(img/money.png);"></div>'+loc("+%1% cookies per second",Game.heralds)+'</b>');
 					str+='<div class="line"></div>';
 					// silly little inject
-					if (triggerFingerMode==1) str+=loc("You are in a <b>Trigger finger</b> run, and are not currently benefiting from heralds.");
+					if (triggerFinger.mode==1) str+=loc("You are in a <b>Trigger finger</b> run, and are not currently benefiting from heralds.");
 					else if (Game.ascensionMode==1) str+=loc("You are in a <b>Born again</b> run, and are not currently benefiting from heralds.");
 					else if (Game.Has('Heralds')) str+=loc("You own the <b>Heralds</b> upgrade, and therefore benefit from the production boost.");
 					else str+=loc("To benefit from the herald bonus, you need a special upgrade you do not yet own. You will permanently unlock it later in the game.");
@@ -175,7 +169,7 @@ Game.registerMod("triggerFinger",{
 			Game.BigCookieState = 1
 			var now = Date.now();
 			if (e) e.preventDefault();
-			if (Game.OnAscend || Game.AscendTimer>0 || Game.T<3 || now-Game.lastClick < 1000 / (triggerFingerScrollRate/4)) {} // custom clicking threshhold, based on the old pre-steam one
+			if (Game.OnAscend || Game.AscendTimer>0 || Game.T<3 || now-Game.lastClick < 1000 / (triggerFinger.scrollRate/4)) {} // custom clicking threshhold, based on the old pre-steam one
 			else
 			{
 				Game.loseShimmeringVeil('click');
@@ -204,16 +198,32 @@ Game.registerMod("triggerFinger",{
 			};
 		}
 
-		triggerFingerLastNotice = Date.now();
+		triggerFinger.lastNotice = Date.now();
+		triggerFinger.noticeCount = 0;
 		function triggerFingerNotice(event){
 			var now = Date.now();
-			if (now - triggerFingerLastNotice < 1000 / 2) {}
+			if (now - triggerFinger.lastNotice < 1000 / 4) {}
 			else {
-				Game.Popup('<div style="font-size:80%;">'+loc("You are in a Trigger finger run, and can only click by scrolling!")+'</div>',Game.mouseX,Game.mouseY);PlaySound('snd/press.mp3');
-				triggerFingerLastNotice=now;
+				if (!Game.HasAchiev('Just this once')){
+					triggerFinger.noticeCount = triggerFinger.noticeCount += 1
+					if (now - triggerFinger.lastNotice < 1000) {}
+					else { // if it's been over a second since the last click, reset streak
+						triggerFinger.noticeCount = 1;
+					}
+				}
+				if (triggerFinger.noticeCount >= 15 && !Game.HasAchiev('Just this once')) {
+					Game.Win('Just this once');
+					triggerFinger.noticeCount = 0;
+					Game.BigCookieState = 1
+					Game.ClickCookie();
+					setTimeout(() => {Game.BigCookieState=2;}, 100)
+				}
+				else {
+					Game.Popup('<div style="font-size:80%;">'+loc("You are in a Trigger finger run, and can only click by scrolling!")+'</div>',Game.mouseX,Game.mouseY);PlaySound('snd/press.mp3');
+				}
+				triggerFinger.lastNotice = now;
 			}
 		}
-
 		// nuke all of bigCookie's events
 		var eventListenerReplace = document.getElementById('bigCookie'), eventListenerClone = eventListenerReplace.cloneNode(true);
 		eventListenerReplace.parentNode.replaceChild(eventListenerClone, eventListenerReplace);
@@ -274,49 +284,57 @@ Game.registerMod("triggerFinger",{
 		// FUNCTIONALITY
 		// ======================================================================================
 
-		// new normal upgrades
-		new Game.Upgrade('Wheeled mouse',loc("Toggles the <b>Tigger finger</b> challenge mode, enabling you to use the scroll wheel.")+'<q>Muscle memory is no joke! Billions of people suffer from muscle memory each year. It is a tragedy.</q>',7,[12,0]).order=40001;
-		Game.last.pool='debug';
-
 		// new heavenly upgrades
-		new Game.Upgrade('Warped cookies',loc("Cookie production multiplier <b>+%1% permanently</b>.",10)+'<q>Your meddling with the natural order has caused these cookies to take on an otherworldly appearance that\'s classified as somewhere between "cosmic beauty" and "Lovecraftian horror".</q>',25,[28,12]);
+		new Game.Upgrade('Warped cookies',loc("Cookie production multiplier <b>+%1% permanently</b>.",10)+'<q>Your meddling with the natural order has caused these cookies to take on an otherworldly appearance that\'s classified as somewhere between "cosmic beauty" and "Lovecraftian horror".</q>',25,[28, 12]);
 		Game.last.pool='prestige';Game.last.parents=[Game.Upgrades['Legacy']];Game.last.posX=-20;Game.last.posY=-150;Game.last.showIf=function(){return (Game.HasAchiev('Till the wheels fall off'));};
 		Game.PrestigeUpgrades.push(Game.last);
 
-		// new achievements
-		new Game.Achievement('Till the wheels fall off',loc("Bake <b>%1</b> in one Trigger finger run.<div class=\"line\"></div>Owning this achievement unlocks a special heavenly upgrade.",loc("%1 cookie",LBeautify(1e15))),[28,12]).order=11011;
+		// new achievements	
+		// bake x in ascension
+		new Game.Achievement('Rolling around',loc("Bake <b>%1</b> in one Trigger finger ascension.",loc("%1 cookie",LBeautify(1e5)))+'<q>(at the speed of sound)</q>',[1, 0, triggerFinger.path+"/icons.png"]).order=9001;
+		new Game.Achievement('Infinite scroll',loc("Bake <b>%1</b> in one Trigger finger ascension.",loc("%1 cookie",LBeautify(1e6))),[2, 0, triggerFinger.path+"/icons.png"]).order=9001;
+		new Game.Achievement('High roller',loc("Bake <b>%1</b> in one Trigger finger ascension.",loc("%1 cookie",LBeautify(1e9))),[3, 0, triggerFinger.path+"/icons.png"]).order=9001;
+		new Game.Achievement('Tenosynovitis',loc("Bake <b>%1</b> in one Trigger finger ascension.",loc("%1 cookie",LBeautify(1e12)))+'<q>You should get that checked out.</q>',[4,0, triggerFinger.path+"/icons.png"]).order=9001;
+		new Game.Achievement('Till the wheels fall off',loc("Bake <b>%1</b> in one Trigger finger ascension.<div class=\"line\"></div>Owning this achievement unlocks a special heavenly upgrade.",loc("%1 cookie",LBeautify(1e15))),[5,0, triggerFinger.path+"/icons.png"]).order=9001;
+		
+		// one-offs
+		new Game.Achievement('Fastest hand in the west',loc("In a Trigger finger run, have a scroll rate of <b>%1%</b>.",500),[0, 2, triggerFinger.path+"/icons.png"]).order=11011;
+		new Game.Achievement('Just this once',loc("In a Trigger finger run, brute force your way into clicking the cookie."),[0, 0, triggerFinger.path+"/icons.png"]).order=11006;
+		new Game.Achievement('Restraint',loc("Bake <b>%1</b> in one Trigger finger ascension without owning more than <b>10 cursors</b>.",loc("%1 cookie",LBeautify(1e12)))+'<q>Muscle memory is no joke! Billions of people suffer from muscle memory each year. It is a tragedy.</q>',[0, 0, triggerFinger.path+"/icons.png"]).order=31001;
+		Game.last.pool='shadow';
 
-		// unlock new upgrades & achievements
+		// plug everything into arrays to be saved
+		triggerFinger.upgrades = [Game.Upgrades['Warped cookies']];
+		triggerFinger.achievements = [Game.Achievements['Rolling around'], Game.Achievements['Infinite scroll'], Game.Achievements['High roller'], Game.Achievements['Tenosynovitis'], Game.Achievements['Till the wheels fall off'], Game.Achievements['Fastest hand in the west'], Game.Achievements['Just this once'], Game.Achievements['Restraint']];
+		
+		// unlock new stuff
 		function triggerFingerCheck() {
-			if (Game.cookiesEarned >= 1000000000000000 && triggerFingerMode == 1) Game.Win('Till the wheels fall off');
+			if (Game.cookiesEarned >= 100000 && triggerFinger.mode == 1) Game.Win('Rolling around');
+			if (Game.cookiesEarned >= 1000000 && triggerFinger.mode == 1) Game.Win('Infinite scroll');
+			if (Game.cookiesEarned >= 1000000000 && triggerFinger.mode == 1) Game.Win('High roller');
+			if (Game.cookiesEarned >= 1000000000000 && triggerFinger.mode == 1) Game.Win('Tenosynovitis');
+			if (Game.cookiesEarned >= 1000000000000000 && triggerFinger.mode == 1) Game.Win('Till the wheels fall off');
+			if (triggerFinger.scrollRate >= 500 && triggerFinger.mode == 1) Game.Win('Fastest hand in the west');
+			if (Game.cookiesEarned >= 1000000000000 && Game.Objects['Cursor'].highest < 11 && triggerFinger.mode == 1) Game.Win('Restraint');
 		}
 
 		Game.registerHook('cps',function(cps){return cps*(Game.Has('Warped cookies')?1.10:1);});
 
 		// this multiplies your clicking gains by +0.05% per cursor. horrible idea? absolutely.
-		Game.registerHook('cookiesPerClick',function(cookiesPerClick){return cookiesPerClick*((Game.Has('Reinforced index finger') && triggerFingerMode == 1)?((Game.Objects['Cursor'].amount)*0.05+1):1);});
+		Game.registerHook('cookiesPerClick',function(cookiesPerClick){return cookiesPerClick*((Game.Has('Reinforced index finger') && triggerFinger.mode == 1)?((Game.Objects['Cursor'].amount)*0.05+1):1);});
 		// ======================================================================================
 		// LOGIC
 		// ======================================================================================
 
 		// list of scroll rate upgrades
-		// main cap is 500, does +25 for each additional upgrade
+		// cap is 500
 		triggerFingerScrollUpgrades = [
 			{name:'Plastic mouse', power:150},
 			{name:'Iron mouse', power:100},
 			{name:'Titanium mouse', power:75},
 			{name:'Adamantium mouse', power:50},
-			{name:'Unobtainium mouse', power:25},
-			{name:'Eludium mouse', power:25},
-			{name:'Wishalloy mouse', power:25},
-			{name:'Fantasteel mouse', power:25},
-			{name:'Nevercrack mouse', power:25},
-			{name:'Armythril mouse', power:25},
-			{name:'Technobsidian mouse', power:25},
-			{name:'Plasmarble mouse', power:25},
-			{name:'Miraculite mouse', power:25}
+			{name:'Unobtainium mouse', power:25}
 		];
-		if (Game.version > 2.043) {triggerFingerScrollUpgrades.push({name:'Aetherice mouse', power:25})}; // STUPID FUTUREPROOFING
 
 		triggerFingerClickUpgrades = [
 			{name:'Reinforced index finger', power:0.05}
@@ -324,27 +342,14 @@ Game.registerMod("triggerFinger",{
 		triggerFingerInit = 0 // start uninitialized
 
 		function triggerFingerLogic() {
-			// mode debug taketh away
-			if (triggerFingerModeDebug == 1 && !Game.Has('Wheeled mouse')) {
-				triggerFingerMode = 0;
-				triggerFingerModeDebug = 0;
-				Game.Notify(loc("Trigger finger debug disabled"),'','',1,1);
-			}
-
 			// if in trigger finger run
-			if (triggerFingerMode == 1) {
+			if (triggerFinger.mode == 1) {
 				// scroll rate addition
 				// this probably doesn't do anything past a certain point
-				triggerFingerScrollRate=100;
+				triggerFinger.scrollRate=100;
 				for (var i in triggerFingerScrollUpgrades) {
-					if (Game.Has(triggerFingerScrollUpgrades[i].name)) triggerFingerScrollRate=triggerFingerScrollRate+(triggerFingerScrollUpgrades[i].power);
+					if (Game.Has(triggerFingerScrollUpgrades[i].name)) triggerFinger.scrollRate=triggerFinger.scrollRate+(triggerFingerScrollUpgrades[i].power);
 				}
-
-				// this originally calculated "+x cookies per cursor" upgrades, but it was siginificantly delayed and i narrowed the upgrades down to just 1 so there's no point in this now huh
-				/*triggerFingerClickGains=0;
-				for (var i in triggerFingerClickUpgrades) {
-					if (Game.Has(triggerFingerClickUpgrades[i].name)) triggerFingerClickGains=triggerFingerClickGains+(triggerFingerClickUpgrades[i].power);
-				}*/
 
 				// if not initialized, start adding everything for trigger finger
 				if (triggerFingerInit == 0) {
@@ -409,33 +414,49 @@ Game.registerMod("triggerFinger",{
 					triggerFingerInit = 0
 				}
 			}
-			// mode debug giveth
-			if (triggerFingerModeDebug == 0 && Game.Has('Wheeled mouse')) {
-				triggerFingerMode = 1;
-				triggerFingerModeDebug = 1;
-				Game.Notify(loc("Trigger finger debug enabled"),'','',1,1);
-			}
 		}
 
 		LocalizeUpgradesAndAchievs(); // make loc strings for upgrades actually work
 
-		Game.Notify("Trigger Finger loaded!", "Version "+triggerFinger.version, [12, 0], 2, 1);
+		Game.Notify("Trigger Finger loaded!", "Version "+triggerFinger.version, [12,0], 2, 1);
 	},
 
 	save:function() {
-		return JSON.stringify([
-			triggerFingerMode,
-			Game.Upgrades['Wheeled mouse'].bought,
-			Game.Upgrades['Warped cookies'].bought,
-			Game.Achievements['Till the wheels fall off'].won
-		])
+		const save = {
+			version: triggerFinger.version,
+			mode: triggerFinger.mode,
+			upgrades: {},
+			achievements: {}
+		}
+		for (const upgrade of triggerFinger.upgrades) {
+			save.upgrades[upgrade.name] = upgrade.bought
+		}
+		for (const achievement of triggerFinger.achievements) {
+			save.achievements[achievement.name] = achievement.won
+		}
+		return JSON.stringify(save)
 	},
 
 	load:function(str) {
-		save = JSON.parse(str)
-		triggerFingerMode = save[0];
-		Game.Upgrades['Wheeled mouse'].bought = save[1];
-		Game.Upgrades['Warped cookies'].bought = save[2];
-		Game.Achievements['Till the wheels fall off'].won = save[3];
+		const save = JSON.parse(str)
+		triggerFinger.mode = save.mode
+		if (save.upgrades !== undefined) {
+			for (const upgrade of triggerFinger.upgrades) {
+				upgrade.bought = save.upgrades[upgrade.name] || false
+			}
+		}
+		if (save.achievements !== undefined) {
+			for (const achievement of triggerFinger.achievements) {
+				achievement.won = save.achievements[achievement.name] || false
+			}
+		}
+		// because this was my first time writing a save system i must atone for my sins and grandfather in old saves
+		if (save.version == undefined) {
+			const save = JSON.parse(str)
+			triggerFinger.mode = save[0];
+			Game.Upgrades['Warped cookies'].bought = save[2];
+			Game.Achievements['Till the wheels fall off'].won = save[3];
+			Game.toSave=true; // save immediately upon loading this info
+		}
 	}
 });
