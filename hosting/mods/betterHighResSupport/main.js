@@ -1,7 +1,8 @@
+if (betterHighResSupport === undefined) var betterHighResSupport = {};
 Game.registerMod("betterHighResSupport",{
 	init:function(){
-		if (betterHighResSupport === undefined) var betterHighResSupport = {};
-		betterHighResSupport.version = "2.0";
+		betterHighResSupport.version = "2.01";
+
 		var style = document.createElement("style");
 		style.innerText =`
 		body {
