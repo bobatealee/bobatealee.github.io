@@ -1,7 +1,7 @@
 if (triggerFinger === undefined) var triggerFinger = {};
 Game.registerMod("triggerFinger",{
 	init:function(){
-		triggerFinger.version = "2.0";
+		triggerFinger.version = "2.1";
 		triggerFinger.mode = 0;
 		triggerFinger.scrollRate = 0;
 		triggerFinger.clickGains = 0;
@@ -17,7 +17,6 @@ Game.registerMod("triggerFinger",{
 		
 		Game.registerHook("check", triggerFingerCheck);
 		Game.registerHook("logic", triggerFingerLogic);
-		Game.registerHook("reincarnate", triggerFingerReincarnate);
 		Game.registerHook("reset", triggerFingerReset);
 
 		// ======================================================================================
@@ -31,7 +30,8 @@ Game.registerMod("triggerFinger",{
 		// LOCALIZATION
 		// ======================================================================================
 
-		ModLanguage('EN',{
+		// replace '*' with 'EN' when localization for mod stuff is actually possible
+		ModLanguage('*',{
 			// ModLanguage doesn't support a lot of things so we're kind of just stuck with this for now
 			"Trigger finger [ascension type]": "Trigger finger",
 			"Since you\'re in a <b>Trigger finger</b> run, this upgrade also increases scrolling rate by <b>+%1%</b>.": "Since you\'re in a <b>Trigger finger</b> run, this upgrade also increases scrolling rate by <b>+%1%</b>.",  // would use "/", but...
@@ -59,23 +59,17 @@ Game.registerMod("triggerFinger",{
 		}
 
 		// add additional ascension mode. this uses a decimal value (which is apparently somehow valid) to not interfere with any other potential future modes
-		// the id for this mod uses its steam workshop id (2788595456) so it doesn't conflict with other modded modes as well
-		// if you use this mod as a base for your own challenge mode, please use your steam workshop id (to find this id you can publish your mod and copy the number at the end of its link, and then update it to use that number as your ascension mode id) or some kind of big decimal to prevent errors when used with other modded modes. be mindful!
-		Game.ascensionModes = Object.assign({1.2788595456:{name:'Trigger finger',dname:loc("Trigger finger [ascension type]"),desc:loc("In this run, scrolling your mouse wheel on the cookie counts as clicking it. Some upgrades introduce new clicking behaviors. No clicking achievements may be obtained in this mode.<div class=\"line\"></div>Reaching 1 quadrillion cookies in this mode unlocks a special heavenly upgrade."),icon:[12,0]}}, Game.ascensionModes)
+		// if you use this mod as a base for your own challenge mode, please use some kind of big decimal to prevent errors when used with other modded modes. be mindful!
+		Game.ascensionModes = Object.assign({1.001:{name:'Trigger finger',dname:loc("Trigger finger [ascension type]"),desc:loc("In this run, scrolling your mouse wheel on the cookie counts as clicking it. Some upgrades introduce new clicking behaviors. No clicking achievements may be obtained in this mode.<div class=\"line\"></div>Reaching 1 quadrillion cookies in this mode unlocks a special heavenly upgrade."),icon:[12,0]}}, Game.ascensionModes)
 
-		// we're not actually going to be using the modded id, because if we did that would break saves
-		// we're going to immediately set the mode to 1 (Born again) and refresh the game
+		// we're not actually going to be using the modded id, because that would break saves
+		// we're going to immediately set the mode to 1 (Born again)
 		// this gives the added benefit of Born again's rules (no heavenly upgrades, certain achievement unlocks, etc.) as well as not breaking saves
-		function triggerFingerReincarnate() {
-			if (Game.ascensionMode == 1.2788595456) {
-				Game.ascensionMode = 1
-				triggerFinger.mode = 1
-				Game.Reset(); // required to make sure the game fully registers that we're in a (spoofed) Born again run. apparently breaks something related to sounds
-			}
-			else {
-				triggerFinger.mode = 0
-			}
-		}
+		triggerFinger.reincarnateStr = Game.Reincarnate.toString();
+		triggerFinger.reincarnateStr = triggerFinger.reincarnateStr.replace('Game.ascensionMode=Game.nextAscensionMode;','Game.ascensionMode=Game.nextAscensionMode;' + `
+				if (Game.ascensionMode == 1.001) {Game.ascensionMode = 1; triggerFinger.mode = 1;} else {triggerFinger.mode = 0}`)
+
+		eval('Game.Reincarnate=' + triggerFinger.reincarnateStr);
 
 		// list of achievements to ban only in this mode
 		triggerFingerBannedAchievements = ['Speed baking I', 'Speed baking II', 'Speed baking III', 'Clicktastic', 'Clickathlon', 'Clickolympics', 'Clickorama', 'Clickasmic', 'Clickageddon', 'Clicknarok', 'Clickastrophe', 'Clickataclysm', 'The ultimate clickdown' ,'All the other kids with the pumped up clicks', 'One...more...click...', 'Clickety split']; // list of banned achievements
@@ -83,9 +77,9 @@ Game.registerMod("triggerFinger",{
 
 		// injects the achievement bans into game logic
 		triggerFinger.logicStr = Game.Logic.toString();
-		for(let i of triggerFingerBannedAchievements){
-		  let str = "Game.Win('"+i
-		  triggerFinger.logicStr = triggerFinger.logicStr.replace(str,'if(!triggerFinger.mode)' + str)
+		for (let i of triggerFingerBannedAchievements) {
+			let str = "Game.Win('"+i
+			triggerFinger.logicStr = triggerFinger.logicStr.replace(str,'if(!triggerFinger.mode)' + str)
 		}
 
 		eval('Game.Logic=' + triggerFinger.logicStr);
@@ -98,8 +92,8 @@ Game.registerMod("triggerFinger",{
 			if (Game.resets > 0 && triggerFinger.mode == 1) {
 				// ascension mode inject
 				ascensionModeStr='<span style="cursor:pointer;" '+Game.getTooltip(
-				'<div style="min-width:200px;text-align:center;font-size:11px;">'+Game.ascensionModes[1.2788595456].desc+'</div>'
-				,'top')+'><div class="icon" style="display:inline-block;float:none;transform:scale(0.5);margin:-24px -16px -19px -8px;'+writeIcon(Game.ascensionModes[1.2788595456].icon)+'"></div>'+Game.ascensionModes[1.2788595456].dname+'</span>';
+				'<div style="min-width:200px;text-align:center;font-size:11px;">'+Game.ascensionModes[1.001].desc+'</div>'
+				,'top')+'><div class="icon" style="display:inline-block;float:none;transform:scale(0.5);margin:-24px -16px -19px -8px;'+writeIcon(Game.ascensionModes[1.001].icon)+'"></div>'+Game.ascensionModes[1.001].dname+'</span>';
 				children[3].children[1].innerHTML = '<b>'+loc("Challenge mode:")+'</b>'+ascensionModeStr;
 
 				// scroll rate inject
@@ -322,6 +316,7 @@ Game.registerMod("triggerFinger",{
 
 		// this multiplies your clicking gains by +0.05% per cursor. horrible idea? absolutely.
 		Game.registerHook('cookiesPerClick',function(cookiesPerClick){return cookiesPerClick*((Game.Has('Reinforced index finger') && triggerFinger.mode == 1)?((Game.Objects['Cursor'].amount)*0.05+1):1);});
+
 		// ======================================================================================
 		// LOGIC
 		// ======================================================================================
@@ -439,24 +434,18 @@ Game.registerMod("triggerFinger",{
 
 	load:function(str) {
 		const save = JSON.parse(str)
-		triggerFinger.mode = save.mode
-		if (save.upgrades !== undefined) {
-			for (const upgrade of triggerFinger.upgrades) {
-				upgrade.bought = save.upgrades[upgrade.name] || false
+		if (save.version !== undefined) {
+			triggerFinger.mode = save.mode
+			if (save.upgrades !== undefined) {
+				for (const upgrade of triggerFinger.upgrades) {
+					upgrade.bought = save.upgrades[upgrade.name] || false
+				}
 			}
-		}
-		if (save.achievements !== undefined) {
-			for (const achievement of triggerFinger.achievements) {
-				achievement.won = save.achievements[achievement.name] || false
+			if (save.achievements !== undefined) {
+				for (const achievement of triggerFinger.achievements) {
+					achievement.won = save.achievements[achievement.name] || false
+				}
 			}
-		}
-		// because this was my first time writing a save system i must atone for my sins and grandfather in old saves
-		if (save.version == undefined) {
-			const save = JSON.parse(str)
-			triggerFinger.mode = save[0];
-			Game.Upgrades['Warped cookies'].bought = save[2];
-			Game.Achievements['Till the wheels fall off'].won = save[3];
-			Game.toSave=true; // save immediately upon loading this info
 		}
 	}
 });
