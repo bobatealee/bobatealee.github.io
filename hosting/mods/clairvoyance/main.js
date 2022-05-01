@@ -1,7 +1,7 @@
 if (clairvoyance === undefined) var clairvoyance = {};
 Game.registerMod("clairvoyance", {
 	init:function(){
-		clairvoyance.version = "2.0";
+		clairvoyance.version = "2.1";
 
 		// snippet from ccse, thanks klattmose: https://klattmose.github.io/CookieClicker/CCSE-POCs/
 		window.GetModPath = (modName) => {
@@ -88,7 +88,7 @@ Game.registerMod("clairvoyance", {
 					res = '<span class="red" style="font-size:11px;"><b>' + clairvoyanceChoice + "</b></span><br/>";
 				}
 				return (
-					"<td" + (active ? ' style="text-shadow: 0px 0px 6px currentColor; width: 50%;"' : ' style="width: 50%;"') + ">" + res + "</td>"
+					"<td" + (active ? ' style="width:50%; text-shadow:0px 0px 6px currentColor;"' : ' style="width:50%; opacity:0.5;"') + ">" + res + "</td>"
 				);
 			};
 
