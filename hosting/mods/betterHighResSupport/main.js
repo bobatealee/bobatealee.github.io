@@ -1,16 +1,18 @@
 if (betterHighResSupport === undefined) var betterHighResSupport = {};
 Game.registerMod("betterHighResSupport",{
 	init:function(){
-		betterHighResSupport.version = "2.01";
+		betterHighResSupport.version = "2.02";
 
 		var style = document.createElement("style");
 		style.innerText =`
+		/* make everything crispy. pixelated should cover basically every browser now */
 		body {
-			image-rendering: pixelated; image-rendering: crisp-edges; /* make everything crispy, done with 2 different values to cover all browsers */
+			image-rendering: pixelated;
 		}
-		
+
+		/* exclude buff crate because it's weirdly scaled */
 		div.crate.enabled.buff::before {
-			image-rendering: auto; /* exclude buff crate because it's scaled oddly */
+			image-rendering: auto;
 		}
 		`;
 

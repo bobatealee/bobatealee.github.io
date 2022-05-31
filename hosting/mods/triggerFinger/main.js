@@ -1,7 +1,7 @@
 if (triggerFinger === undefined) var triggerFinger = {};
 Game.registerMod("triggerFinger",{
 	init:function(){
-		triggerFinger.version = "2.1";
+		triggerFinger.version = "2.2";
 		triggerFinger.mode = 0;
 		triggerFinger.scrollRate = 0;
 		triggerFinger.clickGains = 0;
@@ -60,14 +60,17 @@ Game.registerMod("triggerFinger",{
 
 		// add additional ascension mode. this uses a decimal value (which is apparently somehow valid) to not interfere with any other potential future modes
 		// if you use this mod as a base for your own challenge mode, please use some kind of big decimal to prevent errors when used with other modded modes. be mindful!
-		Game.ascensionModes = Object.assign({1.001:{name:'Trigger finger',dname:loc("Trigger finger [ascension type]"),desc:loc("In this run, scrolling your mouse wheel on the cookie counts as clicking it. Some upgrades introduce new clicking behaviors. No clicking achievements may be obtained in this mode.<div class=\"line\"></div>Reaching 1 quadrillion cookies in this mode unlocks a special heavenly upgrade."),icon:[12,0]}}, Game.ascensionModes)
+		
+		triggerFinger.modeId = Object.keys(Game.ascensionModes).length
+		
+		Game.ascensionModes[triggerFinger.modeId] = {name:'Trigger finger',dname:loc("Trigger finger [ascension type]"),desc:loc("In this run, scrolling your mouse wheel on the cookie counts as clicking it. Some upgrades introduce new clicking behaviors. No clicking achievements may be obtained in this mode.<div class=\"line\"></div>Reaching 1 quadrillion cookies in this mode unlocks a special heavenly upgrade."),icon:[12,0]}, Game.ascensionModes
 
 		// we're not actually going to be using the modded id, because that would break saves
 		// we're going to immediately set the mode to 1 (Born again)
 		// this gives the added benefit of Born again's rules (no heavenly upgrades, certain achievement unlocks, etc.) as well as not breaking saves
 		triggerFinger.reincarnateStr = Game.Reincarnate.toString();
 		triggerFinger.reincarnateStr = triggerFinger.reincarnateStr.replace('Game.ascensionMode=Game.nextAscensionMode;','Game.ascensionMode=Game.nextAscensionMode;' + `
-				if (Game.ascensionMode == 1.001) {Game.ascensionMode = 1; triggerFinger.mode = 1;} else {triggerFinger.mode = 0}`)
+				if (Game.ascensionMode == triggerFinger.modeId) {Game.ascensionMode = 1; triggerFinger.mode = 1;} else {triggerFinger.mode = 0}`)
 
 		eval('Game.Reincarnate=' + triggerFinger.reincarnateStr);
 
@@ -87,19 +90,18 @@ Game.registerMod("triggerFinger",{
 		// spoof the stats menu, and add a new stat
 		function triggerFingerStats(str) {
 			document.getElementById("menu").innerHTML = str;
-			const children = document.getElementById("menu").children;
 
 			if (Game.resets > 0 && triggerFinger.mode == 1) {
 				// ascension mode inject
 				ascensionModeStr='<span style="cursor:pointer;" '+Game.getTooltip(
-				'<div style="min-width:200px;text-align:center;font-size:11px;">'+Game.ascensionModes[1.001].desc+'</div>'
-				,'top')+'><div class="icon" style="display:inline-block;float:none;transform:scale(0.5);margin:-24px -16px -19px -8px;'+writeIcon(Game.ascensionModes[1.001].icon)+'"></div>'+Game.ascensionModes[1.001].dname+'</span>';
-				children[3].children[1].innerHTML = '<b>'+loc("Challenge mode:")+'</b>'+ascensionModeStr;
+				'<div style="min-width:200px;text-align:center;font-size:11px;">'+Game.ascensionModes[triggerFinger.modeId].desc+'</div>'
+				,'top')+'><div class="icon" style="display:inline-block;float:none;transform:scale(0.5);margin:-24px -16px -19px -8px;'+writeIcon(Game.ascensionModes[triggerFinger.modeId].icon)+'"></div>'+Game.ascensionModes[triggerFinger.modeId].dname+'</span>';
+				document.getElementById("statsSpecial").children[0].innerHTML = '<b>'+loc("Challenge mode:")+'</b>'+ascensionModeStr;
 
 				// scroll rate inject
 				const element = document.createElement("div.listing");
 				element.innerHTML = '<div class="listing"><b>'+loc("Scroll rate:")+'</b> '+Beautify(triggerFinger.scrollRate)+'%'+'</div>';
-				children[3].appendChild(element);
+				document.getElementById("statsSpecial").appendChild(element);
 			}
 		}
 
@@ -121,10 +123,11 @@ Game.registerMod("triggerFinger",{
 			}
 		};
 
+		let old = globalThis["l"];
 		globalThis["l"] = function (what) {
 			const element = document.getElementById(what);
 			if (what === "menu" && Game.onMenu == 'stats') return new Proxy(element, statsHandler);
-			else return element;
+			else return old(what);
 		};
 
 		// replace the heralds menu in its entirety (this will inevitably go out of date)
@@ -280,26 +283,25 @@ Game.registerMod("triggerFinger",{
 
 		// new heavenly upgrades
 		new Game.Upgrade('Warped cookies',loc("Cookie production multiplier <b>+%1% permanently</b>.",10)+'<q>Your meddling with the natural order has caused these cookies to take on an otherworldly appearance that\'s classified as somewhere between "cosmic beauty" and "Lovecraftian horror".</q>',25,[28, 12]);
-		Game.last.pool='prestige';Game.last.parents=[Game.Upgrades['Legacy']];Game.last.posX=-20;Game.last.posY=-150;Game.last.showIf=function(){return (Game.HasAchiev('Till the wheels fall off'));};
+		Game.last.pool='prestige';Game.last.parents=[Game.Upgrades['Legacy']];Game.last.posX=-25;Game.last.posY=-145;Game.last.showIf=function(){return (Game.HasAchiev('Till the wheels fall off'));};
 		Game.PrestigeUpgrades.push(Game.last);
 
 		// new achievements	
-		// bake x in ascension
 		new Game.Achievement('Rolling around',loc("Bake <b>%1</b> in one Trigger finger ascension.",loc("%1 cookie",LBeautify(1e5)))+'<q>(at the speed of sound)</q>',[1, 0, triggerFinger.path+"/icons.png"]).order=9001;
 		new Game.Achievement('Infinite scroll',loc("Bake <b>%1</b> in one Trigger finger ascension.",loc("%1 cookie",LBeautify(1e6))),[2, 0, triggerFinger.path+"/icons.png"]).order=9001;
 		new Game.Achievement('High roller',loc("Bake <b>%1</b> in one Trigger finger ascension.",loc("%1 cookie",LBeautify(1e9))),[3, 0, triggerFinger.path+"/icons.png"]).order=9001;
 		new Game.Achievement('Tenosynovitis',loc("Bake <b>%1</b> in one Trigger finger ascension.",loc("%1 cookie",LBeautify(1e12)))+'<q>You should get that checked out.</q>',[4,0, triggerFinger.path+"/icons.png"]).order=9001;
 		new Game.Achievement('Till the wheels fall off',loc("Bake <b>%1</b> in one Trigger finger ascension.<div class=\"line\"></div>Owning this achievement unlocks a special heavenly upgrade.",loc("%1 cookie",LBeautify(1e15))),[5,0, triggerFinger.path+"/icons.png"]).order=9001;
-		
-		// one-offs
 		new Game.Achievement('Fastest hand in the west',loc("In a Trigger finger run, have a scroll rate of <b>%1%</b>.",500),[0, 2, triggerFinger.path+"/icons.png"]).order=11011;
 		new Game.Achievement('Just this once',loc("In a Trigger finger run, brute force your way into clicking the cookie."),[0, 0, triggerFinger.path+"/icons.png"]).order=11006;
 		new Game.Achievement('Restraint',loc("Bake <b>%1</b> in one Trigger finger ascension without owning more than <b>10 cursors</b>.",loc("%1 cookie",LBeautify(1e12)))+'<q>Muscle memory is no joke! Billions of people suffer from muscle memory each year. It is a tragedy.</q>',[0, 0, triggerFinger.path+"/icons.png"]).order=31001;
 		Game.last.pool='shadow';
+		new Game.Achievement('Rollin\'',loc("Bake <b>%1</b> in one Trigger finger ascension.",loc("%1 cookie",LBeautify(1e18)))+'<q>Keep on rollin\', baby.</q>',[6, 0, triggerFinger.path+"/icons.png"]).order=9001;
+		new Game.Achievement('Reinventing the wheel',loc("Bake <b>%1</b> in one Trigger finger ascension.",loc("%1 cookie",LBeautify(1e21))),[12, 1, triggerFinger.path+"/icons.png"]).order=9001;
 
 		// plug everything into arrays to be saved
 		triggerFinger.upgrades = [Game.Upgrades['Warped cookies']];
-		triggerFinger.achievements = [Game.Achievements['Rolling around'], Game.Achievements['Infinite scroll'], Game.Achievements['High roller'], Game.Achievements['Tenosynovitis'], Game.Achievements['Till the wheels fall off'], Game.Achievements['Fastest hand in the west'], Game.Achievements['Just this once'], Game.Achievements['Restraint']];
+		triggerFinger.achievements = [Game.Achievements['Rolling around'], Game.Achievements['Infinite scroll'], Game.Achievements['High roller'], Game.Achievements['Tenosynovitis'], Game.Achievements['Till the wheels fall off'], Game.Achievements['Fastest hand in the west'], Game.Achievements['Just this once'], Game.Achievements['Restraint'], Game.Achievements['Rollin\''], Game.Achievements['Reinventing the wheel']];
 		
 		// unlock new stuff
 		function triggerFingerCheck() {
@@ -310,6 +312,8 @@ Game.registerMod("triggerFinger",{
 			if (Game.cookiesEarned >= 1000000000000000 && triggerFinger.mode == 1) Game.Win('Till the wheels fall off');
 			if (triggerFinger.scrollRate >= 500 && triggerFinger.mode == 1) Game.Win('Fastest hand in the west');
 			if (Game.cookiesEarned >= 1000000000000 && Game.Objects['Cursor'].highest < 11 && triggerFinger.mode == 1) Game.Win('Restraint');
+			if (Game.cookiesEarned >= 1000000000000000000 && triggerFinger.mode == 1) Game.Win('Rollin\'');
+			if (Game.cookiesEarned >= 1000000000000000000000 && triggerFinger.mode == 1) Game.Win('Reinventing the wheel');
 		}
 
 		Game.registerHook('cps',function(cps){return cps*(Game.Has('Warped cookies')?1.10:1);});
