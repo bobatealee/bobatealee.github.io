@@ -194,28 +194,25 @@ button {
 
 @keyframes rainbow {
 	0% {
-		color: #FF0000;
+		color: #FF1D87;
 	}
-	14% {
-		color: #FF6A00;
+	16% {
+		color: #A071FF;
 	}
-	28% {
-		color: #FFD800;
+	33% {
+		color: #40B9FF;
 	}
-	42% {
-		color: #00FF21;
+	50% {
+		color: #15FF57;
 	}
-	56% {
-		color: #0026FF;
+	66% {
+		color: #FFED29;
 	}
-	70% {
-		color: #B200FF;
-	}
-	84% {
-		color: #FF00DC;
+	83% {
+		color: #FF5F2E;
 	}
 	100% {
-		color: #FF0000;
+		color: #FF1D87;
 	}
 }
 
@@ -385,7 +382,7 @@ button {
 }
 
 #textbox5 {
-	width: 400px;
+	width: 450px;
 	text-align: center;
 	animation: textbox 3s infinite alternate ease-in-out;
 }
@@ -426,7 +423,7 @@ button {
 }
 
 .containerBig {
-	width: 328px;
+	width: 400px;
 	height: 150px;
 }
 
@@ -446,8 +443,8 @@ button {
 
 #modalContent {
 	margin: auto;
-	width: 80%;
 	margin-top: 24px;
+	width: calc(100% - 196px);
 	height: calc(100% - 152px);
 }
 
@@ -457,14 +454,19 @@ button {
 	box-shadow: 4px 4px #60318E;
 	border: solid 2px #60318E;
 	animation: modal 0.2s;
+	width: 100%;
 	height: 100%;
+	max-width:512px;
+	max-height:512px;
 }
 
 #modalImage {
 	user-select: none;
 	display: block;
 	margin: 0 auto;
-	height: calc(100% - 22px);
+	width: 100%;
+	height: auto;
+	max-height: calc(100% - 22px);
 }
 
 #modalPrev, #modalNext {
