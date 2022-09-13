@@ -54,10 +54,33 @@
 					</span>
 				</div>
 				
+				<div id="desktopButtons">
+					<button id="desktopButton1" class="hidden" onclick="textboxToggle(1);">
+						<div class="pixel desktopButton"></div><br>
+						<div class="desktopButtonText">bobatealee.com</div>
+					</button>
+					<button id="desktopButton2" class="hidden" onclick="textboxToggle(2);">
+						<div class="pixel desktopButton"></div><br>
+						<div class="desktopButtonText">about me</div>
+					</button>
+					<button id="desktopButton3" class="hidden" onclick="textboxToggle(3);">
+						<div class="pixel desktopButton"></div><br>
+						<div class="desktopButtonText">observer</div>
+					</button>
+					<button id="desktopButton4" class="hidden" onclick="textboxToggle(4);">
+						<div class="pixel desktopButton"></div><br>
+						<div class="desktopButtonText">VFX</div>
+					</button>
+					<button id="desktopButton5" class="hidden" onclick="textboxToggle(5);">
+						<div class="pixel desktopButton"></div><br>
+						<div class="desktopButtonText">web design</div>
+					</button>
+				</div>
+
 				<div id="textbox1" class="textbox">
 					<div class="textboxHeader">
 						<span class="textboxHeaderText">bobatealee.com</span>
-						<button class="pixel windowButton windowButtonClickable windowButtonClose"></button>
+						<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(1);"></button>
 						<button class="pixel windowButton windowButtonClickable windowButtonMax"></button>
 						<button class="pixel windowButton windowButtonClickable windowButtonMin"></button>
 					</div>
@@ -80,7 +103,7 @@
 				<div id="textbox2" class="textbox">
 					<div class="textboxHeader">
 						<span class="textboxHeaderText">about me</span>
-						<button class="pixel windowButton windowButtonClickable windowButtonClose"></button>
+						<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(2);"></button>
 						<button class="pixel windowButton windowButtonClickable windowButtonMax"></button>
 						<button class="pixel windowButton windowButtonClickable windowButtonMin"></button>
 					</div>
@@ -103,7 +126,7 @@
 				<div id="textbox4" class="textbox">
 					<div class="textboxHeader">
 						<span class="textboxHeaderText">VFX</span>
-						<button class="pixel windowButton windowButtonClickable windowButtonClose"></button>
+						<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(4);"></button>
 						<button class="pixel windowButton windowButtonClickable windowButtonMax"></button>
 						<button class="pixel windowButton windowButtonClickable windowButtonQuestion"><div class="tooltip" style="width: 200px;">a few VFX projects of mine, mainly for Team Fortress 2</div></button></button>
 					</div>
@@ -137,15 +160,18 @@
 								<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2637181162" target="_blank"><img class="containerSmall" src="https://steamuserimages-a.akamaihd.net/ugc/1751330580966970910/56604B8DF4CEEAAF0785BC0453B5C41A99420403/"></img></a>
 							</div>
 						</div>
-						(some items may take you out of this site)
+						hope you like TF2
+
+						<div class="textboxFooter">(note: items lead to external sites)</div>
 					</div>
 				</div>
 
 				<div id="textbox5" class="textbox">
 					<div class="textboxHeader">
-						<span class="textboxHeaderText">web development + design</span>
-						<button class="pixel windowButton windowButtonInactive windowButtonClose"></button>
-						<button class="pixel windowButton windowButtonClickable windowButtonQuestion"><div class="tooltip" style="width: 150px;">stuff like what you're viewing right now</div></button></button>
+						<span class="textboxHeaderText">web design</span>
+						<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(5);"></button>
+						<button class="pixel windowButton windowButtonInactive windowButtonMin"></button>
+						<button class="pixel windowButton windowButtonClickable windowButtonQuestion"><div class="tooltip" style="width: 150px;">stuff like what you're viewing right now</div></button>
 					</div>
 					<div class="textboxText">
 						<div class="containerOuter">
@@ -159,11 +185,13 @@
 								<a href="https://omori.wiki/Main_Page" target="_blank"><img class="containerBig" src="images/omoriwiki.png"></img></a>
 							</div>
 						</div>
-						(some items may take you out of this site)
+						some examples of my web development and design projects. done with HTML, CSS, JS, and PHP.
+
+						<div class="textboxFooter">(note: some items lead to external sites)</div>
 					</div>
 				</div>
 
-				<div id="footer">©2022 boba<br><span id="footerVersion">v2.0.5</span></div>
+				<div id="footer">© boba 2022<br><span id="footerVersion">v2.0.7</span></div>
 			</div>
 		</div>
 	</body>

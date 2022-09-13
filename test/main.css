@@ -8,8 +8,8 @@ html {
 body {
     margin: 0;
 	height: 100%;
-	-webkit-text-size-adjust: none;
-	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100% !important;
+	-webkit-font-smoothing: antialiased !important;
 	font-family: 'Alata', monospace;
 }
 
@@ -52,7 +52,7 @@ button {
 
 .pixel {
 	image-rendering: pixelated;
-	image-rendering: crisp-edges;
+	/* image-rendering: crisp-edges; */
 }
 
 #footer {
@@ -241,6 +241,11 @@ button {
 	animation-timing-function: ease-in-out;
 }
 
+.hidden {
+	display: none;
+	position: absolute;
+}
+
 .textboxInner {
 	margin: 8px 4px 4px 8px;
 	box-shadow: 2px 2px #60318E;
@@ -269,6 +274,11 @@ button {
 	padding: 4px 8px 8px;
 	font-size: 18px;
 	line-height: 26px;
+}
+
+.textboxFooter {
+	padding-top: 4px;
+	font-size: 16px;
 }
 
 /* textbox buttons */
@@ -428,4 +438,40 @@ button {
 .containerBig {
 	width: 400px;
 	height: 150px;
+}
+
+/* desktop buttons */
+
+#desktopButtons {
+	margin-top: 10px;
+}
+
+#desktopButtons button:hover {
+	transform: translate(0,-2px);
+}
+
+.desktopButton {
+	display: inline-block;
+	cursor: pointer;
+	width: 32px;
+	height: 32px;
+	transform: scale(2);
+	margin: 16px;
+	background-image: url(images/desktopicons.png);
+}
+
+.desktopButtonText {
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.7);
+	cursor: pointer;
+	text-align: center;
+	color: #60318E;
+	border: none;
+	height: 18px;
+	margin: 5px;
+	padding: 2px;
+	font-size: 18px;
+	line-height: 18px;
+	font-weight: bold;
+	font-family: 'Source Code Pro', monospace;
 }
