@@ -448,6 +448,7 @@ button {
 
 #desktopButtons button:hover {
 	transform: translate(0,-2px);
+	transition: 0.05s;
 }
 
 .desktopButton {
