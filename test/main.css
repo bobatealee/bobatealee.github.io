@@ -468,9 +468,10 @@ button {
 	text-align: center;
 	color: #60318E;
 	border: none;
+	border-radius: 3px;
 	height: 18px;
 	margin: 5px;
-	padding: 2px;
+	padding: 3px;
 	font-size: 18px;
 	line-height: 18px;
 	font-weight: bold;

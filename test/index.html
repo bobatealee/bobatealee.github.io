@@ -21,7 +21,7 @@
 		<div id="content">
 			<div id="contentInner">
 				<div id="title">
-					<span class="titleLetter titleFloat titleFloat1" onclick="title1();">
+					<span class="titleLetter titleFloat titleFloat1" onclick="rainbowToggle();">
 						<span class="titleOutline titleShake">b</span>
 					</span>
 					<span class="titleLetter titleFloat titleFloat2">
@@ -46,14 +46,15 @@
 					<span class="titleLetter titleFloat titleFloat3">
 						<span class="titleOutline titleShake">i</span>
 					</span>
-					<span class="titleLetter titleFloat titleFloat2">
+					<span class="titleLetter titleFloat titleFloat2" onclick="textboxToggle(3);">
 						<span class="titleOutline titleShake">t</span>
 					</span>
-					<span class="titleLetter titleFloat titleFloat1" onclick="title9();">
+					<span class="titleLetter titleFloat titleFloat1" onclick="flipToggle();">
 						<span class="titleOutline titleShake">e</span>
 					</span>
 				</div>
 				
+				<link rel="preload" href="images/desktopicons.png" as="image">
 				<div id="desktopButtons">
 					<button id="desktopButton1" class="hidden" onclick="textboxToggle(1);">
 						<div class="pixel desktopButton"></div><br>
@@ -188,7 +189,7 @@
 					</div>
 				</div>
 
-				<div id="footer">© boba 2022<br><span id="footerVersion">v2.0.8</span></div>
+				<div id="footer">© boba 2022<br><span id="footerVersion">v2.0.9</span></div>
 			</div>
 		</div>
 	</body>
