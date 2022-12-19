@@ -7,800 +7,208 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<title>boba's site</title>
 
-		<link rel="stylesheet" href="main.css">
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&display=swap" rel="stylesheet"> 
-		<link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet"> 
-		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-		<!-- i apologize to any professional web developer for the following -->
-		<script>
-			// title stroke storage
-			$(function(){
-			$('.title-stroke').attr('dummy', function(){return $(this).html();});
-			});
-
-			// disable certain keys because they mess things up
-			document.onkeydown = function (e) {
-				var keyID = e.keyCode;
-				if (keyID == 32) {
-					return false;
-				}
-				if (keyID == 13) {
-					return false;
-				}
-			}
-
-			// mobile check
-			document.addEventListener("DOMContentLoaded", function() {
-				if ($("#mobile-check").css("display") == "none") {
-					is_mobile = true;
-				}
-				else {
-					is_mobile = false;
-				}
-			})
-
-			// rainbow toy
-			function func_title1() {
-				for (const element of document.getElementsByClassName("title-char")) {
-					element.classList.toggle("rainbow");
-				}
-				if (is_mobile == false) {
-					var audio = document.getElementById("sound-electro");
-					audio.currentTime=0;
-					audio.play();
-				}
-			}
-
-			// ??? toy
-			function func_title2() {
-				if (is_mobile == false) {
-					var audio = document.getElementById("sound-dingdong");
-					audio.currentTime=0;
-					audio.play();
-				}
-			}
-			
-			// ??? toy
-			function func_title3() {
-				if (is_mobile == false) {
-					var audio = document.getElementById("sound-baby");
-					audio.currentTime=0;
-					audio.play();
-				}
-			}
-			
-			// particle toy
-			function func_title4() {
-				if (is_mobile == false) {
-					var audio = document.getElementById("sound-pop");
-					audio.currentTime=0;
-					audio.play();
-				}
-			}
-
-			// particle toy particles
-			function getOffset(el) {
-				const rect = el.getBoundingClientRect();
-				return {
-					left: rect.left + window.scrollX,
-					top: rect.top + window.scrollY
-				};
-			}
-			
-			window.onload = () => {
-				if (document.body.animate) {
-					document.querySelector('.title4').addEventListener('click', particletoy);
-				}
-			}
-
-			function particletoy (e) {
-				for (let i = 0; i < 7; i++) {
-					createParticle((getOffset(document.querySelector('.title4')).left)+15, (getOffset(document.querySelector('.title4')).top)+37);
-				}
-			}
-
-			function createParticle (x, y) {
-				const particle = document.createElement('particle');
-				document.body.appendChild(particle);
-
-				const size = Math.floor(Math.random() * 10 + 5);
-				particle.style.width = `${size}px`;
-				particle.style.height = `${size}px`;
-				particle.style.background = `hsl(${Math.random() * 255 + 255}, 75%, 50%)`;
-
-				const destinationX = x + (Math.random() - 0.5) * 2 * 50;
-				const destinationY = y + (Math.random() - 0.5) * 2 * 50;
-
-				const animation = particle.animate([
-					{
-						transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
-						opacity: 1
-					},
-					{
-						transform: `translate(${destinationX}px, ${destinationY}px)`,
-						opacity: 0
-					}
-				], {
-					duration: Math.random() * 1000 + 750,
-					easing: 'cubic-bezier(0, .9, .57, 1)',
-					delay: Math.random() * 1
-				});
-
-				animation.onfinish = () => {
-					particle.remove();
-				};
-			}
-
-			// observer bg toy
-			function func_title5() {
-				document.getElementById("html").classList.toggle("title-observer");
-				document.getElementById("content").classList.toggle("title-observer-content");
-				if (is_mobile == false) {
-					var audio = document.getElementById("sound-cat");
-					audio.currentTime=0;
-					audio.play();
-				}
-			}
-			
-			// ??? toy
-			function func_title6() {
-				if (is_mobile == false) {
-					var audio = document.getElementById("sound-horn");
-					audio.currentTime=0;
-					audio.play();
-				}
-			}
-			
-			// death toy
-			function func_title7(element) {
-				element.classList.toggle("title-hide");
-				if (is_mobile == false) {
-					var audio = document.getElementById("sound-scream");
-					audio.currentTime=0;
-					audio.play();
-				}
-			}
-			
-			// observer close toy
-			function func_title8() {
-				document.getElementById("textbox-3").classList.toggle("textbox-show");
-				document.getElementById("observer").classList.toggle("textbox-text-show");
-				document.getElementById("desktop-button-span-3").classList.toggle("desktop-button-show");
-				if (is_mobile == false) {
-					var audio = document.getElementById("sound-bump");
-					audio.currentTime=0;
-					audio.play();
-				}
-			}
-			
-			// flip toy
-			function func_title9() {
-				document.getElementById("html").classList.toggle("title-flip");
-				document.getElementById("content").classList.toggle("title-flip-content");
-				if (is_mobile == false) {
-					var audio = document.getElementById("sound-funny");
-					audio.currentTime=0;
-					audio.play();
-				}
-			}
-			
-			// close textboxes
-			function func_hidetextbox(element, num) {
-				document.getElementById("textbox-".concat(num)).classList.toggle("textbox-show");
-				document.getElementById("desktop-button-span-".concat(num)).classList.toggle("desktop-button-show");
-				if (document.getElementById("textbox-text-".concat(num)).classList.contains("textbox-text-show")) {
-					document.getElementById("textbox-text-".concat(num)).classList.toggle("textbox-text-show");
-				}
-				if (document.getElementById("textbox-".concat(num)).classList.contains("textbox-max")) {
-					document.getElementById("textbox-".concat(num)).classList.toggle("textbox-max");
-					element.parentNode.childNodes[2].classList.toggle("button-maxbig");
-					element.parentNode.childNodes[2].classList.toggle("button-maxsmall");
-				}
-				if (num == 4) {
-					if (document.getElementById("dropdown-1").classList.contains("dropdown-show")) {
-						document.getElementById("dropdown-1").classList.toggle("dropdown-show");
-						document.getElementById("dropdown-arrow-1").classList.toggle("dropdown-arrow-active");
-					}
-					if (document.getElementById("dropdown-2").classList.contains("dropdown-show")) {
-						document.getElementById("dropdown-2").classList.toggle("dropdown-show");
-						document.getElementById("dropdown-arrow-2").classList.toggle("dropdown-arrow-active");
-					}
-					if (document.getElementById("dropdown-3").classList.contains("dropdown-show")) {
-						document.getElementById("dropdown-3").classList.toggle("dropdown-show");
-						document.getElementById("dropdown-arrow-3").classList.toggle("dropdown-arrow-active");
-					}
-				}
-			}
-			
-			function func_closeobserver() {
-				document.getElementById("textbox-3").classList.toggle("textbox-show");
-				document.getElementById("observer").classList.toggle("textbox-text-show");
-				document.getElementById("desktop-button-span-3").classList.toggle("desktop-button-show");
-			}
-			
-			// open textboxes
-			function func_opentextbox(element, num) {
-				document.getElementById("textbox-".concat(num)).classList.toggle("textbox-show");
-				document.getElementById("desktop-button-span-".concat(num)).classList.toggle("desktop-button-show");
-				document.getElementById("textbox-text-".concat(num)).classList.toggle("textbox-text-show");
-				if (document.getElementById("textbox-".concat(num)).classList.contains("textbox-max")) {
-					document.getElementById("textbox-".concat(num)).classList.toggle("textbox-max");
-					element.parentNode.childNodes[2].classList.toggle("button-maxbig");
-					element.parentNode.childNodes[2].classList.toggle("button-maxsmall");
-				}
-			}
-
-			// minimize textboxes
-			function func_mintextbox(element) {
-				element.parentNode.parentNode.childNodes[3].classList.toggle("textbox-text-show");
-			}
-
-			// maximize textboxes
-			function func_maxtextbox(element) {
-				element.parentNode.parentNode.classList.toggle("textbox-max");
-				element.classList.toggle("button-maxbig");
-				element.classList.toggle("button-maxsmall");
-			}
-
-			// dropdowns
-			function func_dropdown(element, num) {
-				element.childNodes[0].classList.toggle("dropdown-arrow-active");
-				document.getElementById("dropdown-".concat(num)).classList.toggle("dropdown-show");
-			}
-		</script>
+		<link rel="stylesheet" href="styles/main.css">
+		<script src="scripts/main.js"></script>
+		<script src="scripts/jquery-3.6.2.min.js"></script>
+		
+		<meta property="og:title" content="boba's site">
+		<meta property="og:image" content="images/boba.png">
+		<meta property="og:site_name" content="bobatealee.com">
 	</head>
 
-	<body>
-		<div id="content" class="content">
-			<div class="content-inner">
-				<div style="text-align: center;">
-					<div id="title-anim">
-						<!-- all these comments are necessary. this is my curse. -->
-						<button class="title-shake" id="title-shake-anim" onclick="func_title1()"><!--
-							--><span class="title-char"><span class="title-stroke">b</span></span><!--
-						--></button><audio id="sound-electro" src="sounds/electro.mp3"></audio><!--
-						--><button class="title-shake" id="title-shake-anim" onclick="func_title2()"><!--
-							--><span class="title-char"><span class="title-stroke">o</span></span><!--
-						--></button><audio id="sound-dingdong" src="sounds/dingdong.mp3"></audio><!--
-						--><button class="title-shake" id="title-shake-anim" onclick="func_title3()"><!--
-							--><span class="title-char"><span class="title-stroke">b</span></span><!--
-						--></button><audio id="sound-baby" src="sounds/baby.mp3"></audio><!--
-						--><button class="title-shake title4" id="title-shake-anim" onclick="func_title4()"><!--
-							--><span class="title-char"><span class="title-stroke">a</span></span><!--
-						--></button><audio id="sound-pop" src="sounds/pop.mp3"></audio><!--
-						--><div class="title-shake"><!--
-							--><span class="title-char"><span class="title-stroke">'</span></span><!--
-						--></div><!--
-						--><button class="title-shake" id="title-shake-anim" onclick="func_title5()"><!--
-							--><span class="title-char"><span class="title-stroke">s</span></span><!--
-						--></button><audio id="sound-cat" src="sounds/cat.mp3"></audio><!--
-						--><span class="title-space"></span><!--
-						--><button class="title-shake" id="title-shake-anim" onclick="func_title6()"><!--
-							--><span class="title-char"><span class="title-stroke">s</span></span><!--
-						--></button><audio id="sound-horn" src="sounds/horn.mp3"></audio><!--
-						--><button class="title-shake" id="title-shake-anim" onclick="func_title7(this)"><!--
-							--><span class="title-char"><span class="title-stroke">i</span></span><!--
-						--></button><audio id="sound-scream" src="sounds/scream.mp3"></audio><!--
-						--><button class="title-shake" id="title-shake-anim" onclick="func_title8()"><!--
-							--><span class="title-char"><span class="title-stroke">t</span></span><!--
-						--></button><audio id="sound-bump" src="sounds/bump.mp3"></audio><!--
-						--><button class="title-shake" id="title-shake-anim" onclick="func_title9()"><!--
-							--><span class="title-char"><span class="title-stroke">e</span></span><!--
-						--></button><audio id="sound-funny" src="sounds/funny.mp3"></audio>
-					</div>
-
-					<span id="desktop-button-span-1">
-						<button onclick="func_opentextbox(this, 1)" class="pixel desktop-button desktop-1"></button>
-						<br>
-						<button onclick="func_opentextbox(this, 1)" class="desktop-button-text">bobatealee.com</button>
+	<body id="body">
+		<div id="content">
+			<div id="contentInner">
+				<div id="title">
+					<span id="titleLetter1" onclick="toy1Toggle();">
+						<span class="titleLetter titleFloat">
+							<span class="titleOutline titleShake">b</span>
+						</span>
 					</span>
-					<span id="desktop-button-span-2">
-						<button onclick="func_opentextbox(this, 2)" class="pixel desktop-button desktop-2"></button>
-						<br>
-						<button onclick="func_opentextbox(this, 2)" class="desktop-button-text">Info</button>
+					<span id="titleLetter2" onclick="toy2Toggle();">
+						<span class="titleLetter titleFloat" style="animation-delay:0.1s;">
+							<span class="titleOutline titleShake">o</span>
+						</span>
 					</span>
-					<span id="desktop-button-span-3">
-						<button onclick="func_closeobserver()" class="pixel desktop-button desktop-3"></button>
-						<br>
-						<button onclick="func_closeobserver()" class="desktop-button-text">observer</button>
+					<span id="titleLetter3" onclick="toy3Toggle();">
+						<span class="titleLetter titleFloat" style="animation-delay:0.2s;">
+							<span class="titleOutline titleShake">b</span>
+						</span>
 					</span>
-					<span id="desktop-button-span-4">
-						<button onclick="func_opentextbox(this, 4)" class="pixel desktop-button desktop-4"></button>
-						<br>
-						<button onclick="func_opentextbox(this, 4)" class="desktop-button-text">Team Fortress 2</button>
+					<span id="titleLetter4" onclick="toy4Toggle();">
+						<span class="titleLetter titleFloat" style="animation-delay:0.3s;">
+							<span class="titleOutline titleShake">a</span>
+						</span>
+					</span>
+					<span class="titleLetter titleFloat" style="animation-delay:0.4s;">
+						<span class="titleOutline">'</span>
+					</span>
+					<span id="titleLetter5" onclick="toy5Toggle();">
+						<span class="titleLetter titleFloat" style="animation-delay:0.5s;">
+							<span class="titleOutline titleShake">s</span>
+						</span>
+					</span>
+					<span class="titleLetter titleSpace"></span>
+					<span id="titleLetter6" onclick="toy6Toggle();">
+						<span class="titleLetter titleFloat" style="animation-delay:0.6s;">
+							<span class="titleOutline titleShake">s</span>
+						</span>
+					</span>
+					<span id="titleLetter7" onclick="toy7Toggle();">
+						<span class="titleLetter titleFloat" style="animation-delay:0.7s;">
+							<span class="titleOutline titleShake">i</span>
+						</span>
+					</span>
+					<span id="titleLetter8" onclick="toy8Toggle();">
+						<span class="titleLetter titleFloat" style="animation-delay:0.8s;">
+							<span class="titleOutline titleShake">t</span>
+						</span>
+					</span>
+					<span id="titleLetter9" onclick="toy9Toggle();">
+						<span class="titleLetter titleFloat" style="animation-delay:0.9s;">
+							<span class="titleOutline titleShake">e</span>
+						</span>
 					</span>
 				</div>
 
-				<center>
-					<span class="textbox textbox-show" id="textbox-1">
-						<div class="textbox-header"><span class="textbox-header-text">bobatealee.com</span><button onclick="func_hidetextbox(this, 1)" id="window-button" class="pixel button-close button-active"></button><button onclick="func_maxtextbox(this)" id="window-button" class="pixel button-maxbig button-active"></button><button onclick="func_mintextbox(this)" id="window-button" class="pixel button-min button-active"></button></div>
-						<div id="textbox-text-1" class="textbox-text textbox-text-show" style="position: absolute; visibility: hidden;">Hi, I'm Boba! Welcome to my website! Feel free to take a look around and play with my useless junk. You can find me Steam profile <a href="https://steamcommunity.com/profiles/76561198865269690" target="_blank">here</a>. Thanks for visiting!</div>
-					</span>
+				<div id="desktopButtons">
+					<button id="desktopButton1" class="desktopButtonContainer hidden" onclick="textboxToggle(1);">
+						<div class="pixel desktopButton"></div><br>
+						<div class="desktopButtonText">bobatealee.com</div>
+					</button>
+					<button id="desktopButton2" class="desktopButtonContainer hidden" onclick="textboxToggle(2);">
+						<div class="pixel desktopButton"></div><br>
+						<div class="desktopButtonText">about me</div>
+					</button>
+					<button id="desktopButton3" class="desktopButtonContainer hidden" onclick="textboxToggle(3);">
+						<div class="pixel desktopButton"></div><br>
+						<div class="desktopButtonText">observer</div>
+					</button>
+					<button id="desktopButton4" class="desktopButtonContainer hidden" onclick="textboxToggle(4);">
+						<div class="pixel desktopButton"></div><br>
+						<div class="desktopButtonText">VFX</div>
+					</button>
+					<button id="desktopButton5" class="desktopButtonContainer hidden" onclick="textboxToggle(5);">
+						<div class="pixel desktopButton"></div><br>
+						<div class="desktopButtonText">web dev</div>
+					</button>
+				</div>
 
-					<span class="textbox textbox-show" id="textbox-2">
-						<div class="textbox-header"><span class="textbox-header-text">Info</span><button onclick="func_hidetextbox(this, 2)" id="window-button" class="pixel button-close button-active"></button><button onclick="func_maxtextbox(this)" id="window-button" class="pixel button-maxbig button-active"></button><button onclick="func_mintextbox(this)" id="window-button" class="pixel button-min button-active"></button></div>
-						<div id="textbox-text-2" class="textbox-text textbox-text-show" style="position: absolute; visibility: hidden;">I'm an "artist" who specializes in 2D art, video game FX, and web design. Some of my creations have somehow managed to be officially added to <a href="https://en.wikipedia.org/wiki/Team_Fortress_2" target="_blank">Team Fortress 2</a>.</div>
-					</span>
-
-					<span class="textbox textbox-show" id="textbox-3">
-						<div class="textbox-header"><span class="textbox-header-text">observer</span><button id="window-button" class="pixel button-close button-inactive"></button><button id="window-button" class="pixel button-question button-active tooltip"><span class="tooltip-text">observer</span></button></div>
-						<a href="observer"><div class="textbox-text textbox-text-show" style="padding: 0px;"><div id="observer" class="textbox-text-show"></div></div></a>
-					</span>
-
-					<span class="textbox textbox-show" id="textbox-4">
-						<div class="textbox-header"><span class="textbox-header-text">Team Fortress 2</span><button onclick="func_hidetextbox(this, 4)" id="window-button" class="pixel button-close button-active"></button><button id="window-button" class="pixel button-question button-active tooltip"><span class="tooltip-text">Projects, items, and other contributions I've made for Team Fortress 2. The shiny green ones have been officially added!</span></button><button onclick="func_mintextbox(this)" id="window-button" class="pixel button-min button-active"></button></div>
-						<div id="textbox-text-4" class="textbox-text textbox-text-show" style="position: absolute; visibility: hidden;">
-							<div id="textbox-4-padding-big"></div>
-							<!-- UNUSUALS -->
-							<button onclick="func_dropdown(this, 1)" id="dropdown-button" class="dropdown-button-1 pixel"><div id="dropdown-arrow-1" class="pixel"></div></button>
-							<br>
-							<div id="dropdown-1" class="dropdown-content">
-								<div id="textbox-4-padding-small"></div>
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2687891822" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1836903958573252337/E6135C725C900871DC8AB029FB318AAE6E67FCE2/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Fantastical Fireworks</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198027738883" target="_blank">Bonk Nickletoon</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2659931097" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1839152954727301135/3569C7AFBDCFB7F36EB60C17D6F2FA5CD712411E/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Gift Wrapped</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198036175673" target="_blank">Lo-fi</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198027738883" target="_blank">Bonk Nickletoon</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2658050817" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1839152954718345813/652CA152C47FD6C21561FE9778D904A2CAA00752/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Jack The Frost-Bitten</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198437773859" target="_blank">Neavlof</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198118654763" target="_blank">DJB2401</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198027738883" target="_blank">Bonk Nickletoon</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2655832538" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1798620421931639770/BEFEB96645EAB88C2E49ADAF4D8369154C642A43/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Cookie Crumbled</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561197972481083" target="_blank">NeoDement</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198064923424" target="_blank">FloatingLeaf</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2655178248" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1798620360813682037/CF9F3E622819181A051098321FE06187B969FA58/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Pyroland Pop-Up</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198072146551" target="_blank">Diva Dan</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198086475372" target="_blank">philip</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small-selfmade">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2654012769" target="_blank">
-									<div class="img-selfmade img-small"><img src="https://steamuserimages-a.akamaihd.net/ugc/1798620167026648124/FB9B5B14A6A3918B341CFD8D5C215FC47ED85A9B/" style="width:190px;height:190px;"></img></div>
-									<div class="textbox-text" style="margin-top:-5px;">Spires!</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198109111416" target="_blank">Mokky</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198027738883" target="_blank">Bonk Nickletoon</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small-selfmade">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2648734076" target="_blank">
-									<div class="img-selfmade img-small"><img src="https://steamuserimages-a.akamaihd.net/ugc/1798619448273098299/97306B1C6E0D6C8A789D5CBBFADA6E5510541697/" style="width:190px;height:190px;"></img></div>
-									<div class="textbox-text" style="margin-top:-5px;">Festive Fever</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198000624155" target="_blank">Ducksink</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198118654763" target="_blank">DJB2401</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2646767200" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1798619448264550058/C91CAB55F5774AAB32954D98B2DFDE255C51A1CC/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Meteor Shower</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198207171619" target="_blank">VitreousGlassy</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198027738883" target="_blank">Bonk Nickletoon</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2646766438" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1798619448264734294/EC7FED6A6839C2B406A9DE55FAB763D36820B1D0/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">That 50's Shine</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198207171619" target="_blank">VitreousGlassy</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198027738883" target="_blank">Bonk Nickletoon</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2643778997" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1798619103036738741/016CDC83DDBFC3994CB4DEC76B4E59198DA6BB73/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Glacial Grave</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198086475372" target="_blank">philip</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198027738883" target="_blank">Bonk Nickletoon</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2637395342" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1751330767028078264/10506E268D895BE2B71B094078248C5E28FF81FD/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Rolled Cold</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198025185365" target="_blank">medli20</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198011707565" target="_blank">Alaric the Eternal</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198027738883" target="_blank">Bonk Nickletoon</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small-selfmade">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2637181162" target="_blank">
-									<div class="img-selfmade img-small"><img src="https://steamuserimages-a.akamaihd.net/ugc/1751330580966970910/56604B8DF4CEEAAF0785BC0453B5C41A99420403/" style="width:190px;height:190px;"></img></div>
-									<div class="textbox-text" style="margin-top:-5px;">Sublime Snowstorm</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198118654763" target="_blank">DJB2401</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small-selfmade">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2631552221" target="_blank">
-									<div class="img-selfmade img-small"><img src="https://steamuserimages-a.akamaihd.net/ugc/1750203778414479091/8B760F30187615D2A6899838ECCE2637B8328A69/" style="width:190px;height:190px;"></img></div>
-									<div class="textbox-text" style="margin-top:-5px;">Ardent Antlers</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198045916153" target="_blank">S3pirion</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198011507712" target="_blank">drew</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198118654763" target="_blank">DJB2401</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2601516990" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1689402448872391857/3E4E0DBE6CFE16CFBD8B94E3782E8D8ACB8340E2/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Meteor Impact</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198110115600" target="_blank">twotonmoon</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198043050514" target="_blank">Mr. Light</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2601237544" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1689402436879973987/EA4BF3673CE3828E5D1F81A34E15ACB453A2579C/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Controlled Chaos</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198118654763" target="_blank">DJB2401</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2595386808" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1689401550847352627/726C0B95AC1FD22746486709D922408F9466596E/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Solar Eclipse</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198118654763" target="_blank">DJB2401</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2595313639" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1689401550846977431/9A145385B23AF2EEE183ADB6BF333121A5BD6461/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Davy Jones' Gaze</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198258909388" target="_blank">Bryony</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198127379171" target="_blank">Feksil</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198027738883" target="_blank">Bonk Nickletoon</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198000823482" target="_blank">bakscratch</a><br>
-										<a href="https://steamcommunity.com/profiles/76561197999842942" target="_blank">boomsta</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198043855981" target="_blank">Metabolic</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2591884014" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1689401291934900252/F20AF6AEA81814739D128C57EFCAA9842187ABC4/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Boiling Bubbles</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198060328407" target="_blank">OKIWONT</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198011507712" target="_blank">drew</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small-selfmade">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2590487711" target="_blank">
-									<div class="img-selfmade img-small"><img src="https://steamuserimages-a.akamaihd.net/ugc/1689401291925892039/456D3843E7A48EAA2269EE019AB61941502A30A3/" style="width:190px;height:190px;"></img></div>
-									<div class="textbox-text" style="margin-top:-5px;">Spectral Shackles</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198835608254" target="_blank">Tsutsu</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198109111416" target="_blank">Mokky</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2564409353" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1697279942705425517/1399593E5A583DBCABD3B098BAD878A0DA6B5B53/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Quantum Spill</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198348859145" target="_blank">Atom605</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2491937748" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1788471001845241652/C5B84A87200A3ECFB1C2F820B4C6FBC33325C793/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Frozen Fascination</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198043050514" target="_blank">Mr. Light</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2410126424" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1760316188426057699/DE5376264C948EB0B110989369B689BC68698791/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Beach Day</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198043050514" target="_blank">Mr. Light</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2274910172" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1681492482539343308/CDFFBD0502E24925B10E458529D096ED582EEF4A/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Peppermint Portal</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198014131702" target="_blank">Greg</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2264915025" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1682617516496732560/8315E4337EB6505E10C4B916B62F01B108295958/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Blizzardy Backwoods</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198127379171" target="_blank">Feksil</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2251225368" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1653342689579315203/079AC8D95AE4D22BD0E491DF371DECFCF842F5A6/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Absolute Zero</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198045619076" target="_blank">rabscootle</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2236438330" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1545255027297825379/4D8D47599430A7BEE55C9390C54E1FC6E32DB615/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Eternal Life</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198036175673" target="_blank">Lo-fi</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small-selfmade">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2228061874" target="_blank">
-									<div class="img-selfmade img-small"><img src="https://steamuserimages-a.akamaihd.net/ugc/1625193014912934877/A96DB36E7642BEAA9BED8BC3A33040BD321BF786/" style="width:190px;height:190px;"></img></div>
-									<div class="textbox-text" style="margin-top:-5px;">Gravelly Ghoul</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198078856258" target="_blank">Overlord Lettuce</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2222910732" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1625192516000161982/F1C3CCF0F6F768C602F14CFFE6D822FAC5A29721/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Glorious Glow</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198024991627" target="_blank">Square</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198043559853" target="_blank">Spooky Majora</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2222521427" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1625192515998376065/1B01E06175973CBF55958635CB3AD57B551A097C/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Sands of Time</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198060328407" target="_blank">OKIWONT</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2221406951" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1625192302389554731/B9687D2ABA13A255E028839A4544F13FE08751FF/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Jimi-Jammed</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2217629519" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1625192018156114054/D8FACFEC5185E1AF022B7B3EA19A69CC077C2E87/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Head Crumbs</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198072146551" target="_blank">Diva Dan</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198135661969" target="_blank">Spectral Chuck</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2215743318" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1595918438105059916/CC1381C0F56C8689420A6D6C97AA8BC32947922F/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">All-Knowing Star</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198057358637" target="_blank">Tiik</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2203848093" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1490082922031458144/18C943FABC0107501B4842949B62EE775343E81B/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Septic Shock</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-small">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2158083589" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1291920536693051041/D237938C01032BCCB7E6F03D1132508009AE304E/" style="width:190px;height:190px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Haunted Storm</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198040588557" target="_blank">Lazersofa</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198104501269" target="_blank">Phe</a><br>
-										</span>
-									</div>
-								</span>
-								<div id="textbox-4-padding-small"></div>
-							</div>
-							<br>
-							<!-- MAPS -->
-							<button onclick="func_dropdown(this, 2)" id="dropdown-button" class="dropdown-button-2 pixel"><div id="dropdown-arrow-2" class="pixel"></div></button>
-							<br>
-							<div id="dropdown-2" class="dropdown-content">
-								<div id="textbox-4-padding-small"></div>
-								<span class="textbox-inner" id="textbox-inner-medium">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2411158391" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1760316250999713294/2FD13D8112D340BFC09DC875D931E5494955FAEF/" style="width:300px;height:300px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">GUMP (CTF - Mannpower)</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198000823482" target="_blank">bakscratch</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198045619076" target="_blank">rabscootle</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198011507712" target="_blank">drew</a><br>
-										<a href="https://steamcommunity.com/profiles/76561197999842942" target="_blank">boomsta</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198139139265" target="_blank">Krazy</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198072146551" target="_blank">Diva Dan</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198009093943" target="_blank">Yacan1</a><br>
-										<a href="https://steamcommunity.com/profiles/76561197993926673" target="_blank">DeRosaJ</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198031082906" target="_blank">Tianes</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198006395451" target="_blank">Stachekip</a><br>
-										</span>
-									</div>
-								</span>
-
-								<span class="textbox-inner" id="textbox-inner-medium">
-									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2400136962" target="_blank">
-									<img src="https://steamuserimages-a.akamaihd.net/ugc/1761441291007366745/559D53E405A6CA16CDC0453EC156D6C2DF9D5106/" style="width:300px;height:300px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">GUMP (PD - Mannpower)</a><br>
-										<span class="textbox-text-small">In collaboration with:<br>
-										<a href="https://steamcommunity.com/profiles/76561198000823482" target="_blank">bakscratch</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198045619076" target="_blank">rabscootle</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198011507712" target="_blank">drew</a><br>
-										<a href="https://steamcommunity.com/profiles/76561197999842942" target="_blank">boomsta</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198139139265" target="_blank">Krazy</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198072146551" target="_blank">Diva Dan</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198009093943" target="_blank">Yacan1</a><br>
-										<a href="https://steamcommunity.com/profiles/76561197993926673" target="_blank">DeRosaJ</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198031082906" target="_blank">Tianes</a><br>
-										<a href="https://steamcommunity.com/profiles/76561198006395451" target="_blank">Stachekip</a><br>
-										</span>
-									</div>
-								</span>
-								<div id="textbox-4-padding-small"></div>
-							</div>
-							<br>
-							<!-- PROJECTS -->
-							<button onclick="func_dropdown(this, 3)" id="dropdown-button" class="dropdown-button-3 pixel"><div id="dropdown-arrow-3" class="pixel"></div></button>
-							<br>
-							<div id="dropdown-3" class="dropdown-content">
-								<div id="textbox-4-padding-small"></div>
-								<span class="textbox-inner" id="textbox-inner-big">
-									<a href="https://tf2classic.com/" target="_blank">
-									<img src="images/tf2c.png" style="width:700px;height:250px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Team Fortess 2 Classic</a><br>
-										<span class="textbox-text-small">Team Fortress 2 Classic is a TF2 mod created by <a href="https://steamcommunity.com/profiles/76561198046666510" target="_blank">DrudlyClean</a> that re-imagines the 2008 era of the original game, featuring reworked scrapped content such as weapons and gamemodes. I currently work on the mod, maintaining the site and doing particle work.</span>
-									</div>
-								</span>
-								
-								<span class="textbox-inner" id="textbox-inner-big">
-									<a href="lockedandreloaded">
-									<img src="images/lockedandreloaded.png" style="width:700px;height:250px;"></img>
-									<div class="textbox-text" style="margin-top:-5px;">Locked and Reloaded</a><br>
-										<span class="textbox-text-small">Locked and Reloaded is a fan-made TF2 update created by <a href="https://steamcommunity.com/profiles/76561198045651005" target="_blank">Mayor Rev</a>. I collaborated with them to make an explorable webpage out of their conceptual images. You should check it out. It's pretty snazzy.</span>
-									</div>
-								</span>
-								<div id="textbox-4-padding-small"></div>
-							</div>
-							<div id="textbox-4-padding-big"></div>
+				<div id="textboxes">
+					<div id="textbox1" class="textbox">
+						<div class="textboxHeader">
+							<span class="textboxHeaderText">bobatealee.com</span>
+							<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(1);"></button>
+							<button class="pixel windowButton windowButtonInactive windowButtonMax"></button>
+							<button class="pixel windowButton windowButtonClickable windowButtonMin" onclick="textboxMinimize(1);"></button>
 						</div>
-					</span>
-				</center>
-				<center><div id="footer" style="width: 100%; float: left;">© 2022 boba<br><span id="footer-version">v1.0.65</span></div></center>
+						<div class="textboxText">
+							<div id="textbox1Inner1" class="textbox textboxInner">
+								<div class="textboxHeader">
+									<span class="textboxHeaderText">links</span>
+									<button class="pixel windowButton windowButtonInactive windowButtonClose"></button>
+									<button class="pixel windowButton windowButtonClickable windowButtonQuestion"><div class="tooltip" style="width: 130px;">other places you can find me</div></button></button>
+								</div>
+								<div class="textboxText">
+									<li><a href="https://twitter.com/bobatealee" target="_blank">twitter</a></li>
+									<li><a href="https://steamcommunity.com/profiles/76561198865269690" target="_blank">steam</a></li>
+								</div>
+							</div>
+							oh, hey. welcome to my personal website. feel free to look around at my work or play around with some useless junk. thanks for visiting!
+						</div>
+					</div>
+
+					<div id="textbox2" class="textbox">
+						<div class="textboxHeader">
+							<span class="textboxHeaderText">about me</span>
+							<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(2);"></button>
+							<button class="pixel windowButton windowButtonClickable windowButtonMax" onclick="textboxMaximize(2, this);"></button>
+							<button class="pixel windowButton windowButtonClickable windowButtonMin" onclick="textboxMinimize(2);"></button>
+						</div>
+						<div class="textboxText">
+							i'm boba. i do VFX for games, as well as some web development + design every now and then. some of my VFX work has even been shipped in <a href="https://en.wikipedia.org/wiki/Team_Fortress_2" target="_blank">Team Fortress 2</a>!
+						</div>
+					</div>
+
+					<div id="textbox3" class="textbox">
+						<div class="textboxHeader">
+							<span class="textboxHeaderText">observer</span>
+							<button class="pixel windowButton windowButtonInactive windowButtonClose"></button>
+							<button class="pixel windowButton windowButtonClickable windowButtonQuestion"><div class="tooltip" style="width: 200px;">winner of the "Outstanding Achievement in Staring at People" award in 1996</div></button></button>
+						</div>
+						<div class="textboxText" style="padding: 0px;">
+							<a href="observer"><div id="observer"></div></a>
+						</div>
+					</div>
+
+					<div id="textbox4" class="textbox">
+						<div class="textboxHeader">
+							<span class="textboxHeaderText">VFX</span>
+							<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(4);"></button>
+							<button class="pixel windowButton windowButtonClickable windowButtonMax" onclick="textboxMaximize(4, this);"></button>
+							<button class="pixel windowButton windowButtonClickable windowButtonQuestion"><div class="tooltip" style="width: 200px;">a few VFX projects of mine, mainly for Team Fortress 2</div></button></button>
+						</div>
+						<div class="textboxText">
+							<div class="containerOuter">
+								<div class="container containerImage">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2631552221" target="_blank"><img class="containerSmall" src="https://steamuserimages-a.akamaihd.net/ugc/1750203778414479091/8B760F30187615D2A6899838ECCE2637B8328A69/"></img></a>
+								</div>
+								<div class="container containerImage">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2590487711" target="_blank"><img class="containerSmall" src="https://steamuserimages-a.akamaihd.net/ugc/1689401291925892039/456D3843E7A48EAA2269EE019AB61941502A30A3/"></img></a>
+								</div>
+								<div class="container containerImage">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2889831595" target="_blank"><img class="containerSmall" src="https://steamuserimages-a.akamaihd.net/ugc/1931509769358432936/E99B995E6C4DD2ED19E9EFFCE078DC3F0F041287/"></img></a>
+								</div>
+								<div class="container containerImage">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2817495074" target="_blank"><img class="containerSmall" src="https://steamuserimages-a.akamaihd.net/ugc/1841422510938572940/8800497F9F198E1FCD7CAA7C0AB1CB3AA06A6BB2/"></img></a>
+								</div>
+								<div class="container containerImage">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2655178248" target="_blank"><img class="containerSmall" src="https://steamuserimages-a.akamaihd.net/ugc/1798620360813682037/CF9F3E622819181A051098321FE06187B969FA58/"></img></a>
+								</div>
+								<div class="container containerImage">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2595386808" target="_blank"><img class="containerSmall" src="https://steamuserimages-a.akamaihd.net/ugc/1689401550847352627/726C0B95AC1FD22746486709D922408F9466596E/"></img></a>
+								</div>
+								<div class="container containerImage">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2865567431" target="_blank"><img class="containerSmall" src="https://steamuserimages-a.akamaihd.net/ugc/1789640723406258018/77A13D1049837905CFEFCD03EFBFB1B2535A4F17/"></img></a>
+								</div>
+								<div class="container containerImage">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2809453477" target="_blank"><img class="containerSmall" src="https://steamuserimages-a.akamaihd.net/ugc/1817776985804866895/EFAA47E69DE0268269979C612A39C18E07E96F55/"></img></a>
+								</div>
+								<div class="container containerImage">
+									<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2637181162" target="_blank"><img class="containerSmall" src="https://steamuserimages-a.akamaihd.net/ugc/1751330580966970910/56604B8DF4CEEAAF0785BC0453B5C41A99420403/"></img></a>
+								</div>
+							</div>
+							a select few highlights of my VFX work.
+
+							<div class="textboxFooter">(note: items lead to external sites)</div>
+						</div>
+					</div>
+
+					<div id="textbox5" class="textbox">
+						<div class="textboxHeader">
+							<span class="textboxHeaderText">web dev</span>
+							<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(5);"></button>
+							<button class="pixel windowButton windowButtonClickable windowButtonMax" onclick="textboxMaximize(5, this);"></button>
+							<button class="pixel windowButton windowButtonInactive windowButtonMin"></button>
+						</div>
+						<div class="textboxText">
+							<div class="containerOuter">
+								<div class="container containerImage">
+									<a href="https://tf2classic.com/" target="_blank"><img class="containerBig" src="images/tf2classic.png"></img></a>
+								</div>
+								<div class="container containerImage">
+									<a href="lockedandreloaded"><img class="containerBig" src="images/lockedandreloaded.png"></img></a>
+								</div>
+							</div>
+							some examples of my web development and design projects. done with HTML, CSS, JS, and PHP.
+
+							<div class="textboxFooter">(note: some items lead to external sites)</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="footer">© boba 2023<br><span id="footerVersion">v2.0.0</span></div>
 			</div>
 		</div>
-		<div id="mobile-check"></div>
 	</body>
 </html>
