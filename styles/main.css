@@ -157,6 +157,12 @@ button {
 	font-size: 64px;
 }
 
+@media (max-width: 400px) {
+	.titleLetter {
+		font-size: 48px !important;
+	}
+}
+
 .titleSpace {
 	padding-left: 8px;
 	padding-right: 8px;
@@ -572,7 +578,7 @@ button {
 .tooltip {
 	display: none;
 	background: #CCE5FF;
-	padding: 4px 8px 8px;
+	padding: 4px 6px 6px;
 	font-family: 'Alata', monospace;
 	font-size: 16px;
 	color: #000000;
@@ -586,7 +592,7 @@ button {
 
 @media (max-width: 850px) {
 	.tooltip {
-		max-width:125px !important;
+		max-width:110px !important;
 	}
 }
 
