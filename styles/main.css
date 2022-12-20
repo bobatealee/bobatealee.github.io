@@ -450,6 +450,7 @@ button {
 	box-shadow: 4px 4px #60318E;
 	border: solid 2px #60318E;
 	animation-timing-function: ease-in-out;
+	max-width: calc(100% - 44px);
 }
 
 .hidden {
