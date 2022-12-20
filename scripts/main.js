@@ -136,9 +136,9 @@ function toy4Toggle() {
 	document.getElementById("titleLetter4").classList.add("rainbowTemp");
 	for (let i = 0; i < 7; i++) {
 		if (toy9Var == false) {
-			createParticle((getOffset(document.querySelector('#titleLetter4')).left)+15, (getOffset(document.querySelector('#titleLetter4')).top)-15);
+			createParticle((getOffset(document.querySelector('#titleLetter4')).left)+15, (getOffset(document.querySelector('#titleLetter4')).top)+55);
 		} else {
-			createParticle((getOffset(document.querySelector('#titleLetter4')).left)+15, (getOffset(document.querySelector('#titleLetter4')).top)+15);
+			createParticle((getOffset(document.querySelector('#titleLetter4')).left)+15, (getOffset(document.querySelector('#titleLetter4')).top)+25);
 		}
 	}
 	toy4.load();
