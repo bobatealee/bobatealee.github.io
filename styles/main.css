@@ -85,7 +85,6 @@ body {
 	position: relative;
 	background: linear-gradient(to bottom, #FFE4AA 20%, #FFA49E, #936391);
 	margin: auto;
-	overflow: hidden;
 	display:flex;
 	height:100%;
 }
