@@ -61,6 +61,7 @@ body {
 	font-family: 'Alata', monospace;
 	-webkit-text-size-adjust: 100% !important;
 	-webkit-font-smoothing: antialiased !important;
+	-webkit-tap-highlight-color: transparent !important;
 }
 
 #content {
@@ -538,6 +539,7 @@ button {
 
 .windowButtonInactive {
 	background-position-y: -36px;
+	pointer-events:none !important;
 }
 
 .windowButtonClose {
