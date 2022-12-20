@@ -17,7 +17,7 @@ body, html {
 }
 
 html {
-	background:linear-gradient(to bottom, #2E67DB 20%, #557ED5, #B4B7C8, #557ED5, #2E67DB);
+	background:#2E67DB;
 }
 
 #content {
@@ -25,6 +25,7 @@ html {
 	flex-direction:column;
 	width:100%;
 	height:100%;
+	background:linear-gradient(to bottom, #2E67DB 20%, #557ED5, #B4B7C8, #557ED5, #2E67DB);
 }
 
 #header {
