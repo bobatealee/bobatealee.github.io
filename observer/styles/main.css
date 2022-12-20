@@ -152,14 +152,15 @@ html {
 @keyframes quoteFadeIn {
 	0% {
 		opacity:0;
-		filter: blur(10px);
+		filter: blur(10px) brightness(2);
 	}
 	50% {
+		opacity:0.5;
 		filter: blur(5px) brightness(1.5);
 	}
 	100% {
 		opacity:1;
-		filter: blur(0px);
+		filter: blur(0px) brightness(1);
 	}
 }
 
