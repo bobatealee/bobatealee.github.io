@@ -43,6 +43,12 @@ html {
 	animation:headerMoveIn .5s linear;
 }
 
+@media (max-width: 850px) {
+	#header {
+		font-size:4vh !important;
+	}
+}
+
 #contentInner {
 	padding:20px;
 	display:inline-flex;
@@ -53,6 +59,13 @@ html {
 	align-items:center;
 	overflow:hidden;
 	box-sizing: border-box;
+}
+
+@media (max-width: 850px) {
+	#contentInner {
+		flex-direction: column-reverse !important;
+		padding-top:0px !important;
+	}
 }
 
 #quote {
@@ -70,6 +83,13 @@ html {
 	z-index: 1;
 	position: relative;
 	word-wrap: break-word;
+}
+
+@media (max-width: 850px) {
+	#quote {
+		padding-right:unset !important;
+		font-size:4vh !important;
+	}
 }
 
 #quote img {
@@ -131,6 +151,13 @@ html {
 	height:50%;
 	animation:observerMoveIn 2s linear;
 	animation-fill-mode:forwards;
+}
+
+@media (max-width: 850px) {
+	#observerContainer {
+		width:75% !important;
+		height:75% !important;
+	}
 }
 
 #observer {
