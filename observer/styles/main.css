@@ -89,6 +89,8 @@ html {
 	#quote {
 		padding-right:unset !important;
 		font-size:4vh !important;
+		word-wrap: unset !important;
+		width:100% !important;
 	}
 }
 
@@ -104,6 +106,12 @@ html {
 .quoteImage2 {
 	height:75%;
 	white-space:nowrap;
+}
+
+@media (max-width: 850px) {
+	.quoteImage2 {
+		height:unset !important;
+	}
 }
 
 .rainbow {
@@ -144,6 +152,12 @@ html {
 	margin-left: 1vw;
 }
 
+@media (max-width: 850px) {
+	.quoteImage {
+		width:90% !important;
+	}
+}
+
 #observerContainer {
 	position:relative;
 	font-size:0px;
@@ -156,7 +170,7 @@ html {
 @media (max-width: 850px) {
 	#observerContainer {
 		width:75% !important;
-		height:75% !important;
+		height:50% !important;
 	}
 }
 
