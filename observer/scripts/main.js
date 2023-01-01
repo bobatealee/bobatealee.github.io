@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 		// easter eggs
 		if (Math.round(Math.random()*100) == 100) {
-			quote = "<div class=\"quoteImage\"><img src=\"images/trollface.png\"></img></div>"
+			quote = "<img src=\"images/trollface.png\"></img>"
 		}
 
 		// january
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		// december
 		if (month == 12) {
 			if (day == 1) {
-				quote = "<div class=\"quoteImage\"><img src=\"images/birthday.gif\"></img></div>";
+				quote = "<img src=\"images/birthday.gif\"></img>";
 			}
 			if (day == 25) {
 				quote = "Meowy Christmas!";
@@ -86,9 +86,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		}
 
 		document.getElementById("quote").innerHTML = "“"+quote+"”";
-
-		// this prevents wrapping of quotes that are images
-		$("img").parents('#quote').addClass("quoteImage2");
 		
 		countdown();
 	});
