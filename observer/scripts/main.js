@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		// january
 		if (month == 1) {
 			if (day == 1) {
-				quote = "<div class=\"quoteImage\"><img src=\"images/birthday.gif\"></img></div>";
+				quote = "it's a new year. you're all fucked";
 			}
 		}
 
