@@ -1,7 +1,7 @@
 if (triggerFinger === undefined) var triggerFinger = {};
 Game.registerMod("triggerFinger",{
 	init:function(){
-		triggerFinger.version = "2.2";
+		triggerFinger.version = "2.3";
 		triggerFinger.mode = 0;
 		triggerFinger.scrollRate = 0;
 		triggerFinger.clickGains = 0;
@@ -282,7 +282,7 @@ Game.registerMod("triggerFinger",{
 		// ======================================================================================
 
 		// new heavenly upgrades
-		new Game.Upgrade('Warped cookies',loc("Cookie production multiplier <b>+%1% permanently</b>.",10)+'<q>Your meddling with the natural order has caused these cookies to take on an otherworldly appearance that\'s classified as somewhere between "cosmic beauty" and "Lovecraftian horror".</q>',25,[28, 12]);
+		new Game.Upgrade('Warped cookies',loc("Cookie production multiplier <b>+%1% permanently</b>.",10)+'<q>Your meddling with the natural order has caused these cookies to take on an otherworldly appearance that can only be classified as somewhere between "cosmic beauty" and "Lovecraftian horror". Take your pick!</q>',25,[28, 12]);
 		Game.last.pool='prestige';Game.last.parents=[Game.Upgrades['Legacy']];Game.last.posX=-25;Game.last.posY=-145;Game.last.showIf=function(){return (Game.HasAchiev('Till the wheels fall off'));};
 		Game.PrestigeUpgrades.push(Game.last);
 
