@@ -177,7 +177,7 @@ html {
 	position:relative;
 	font-size:0px;
 	width:50%;
-	height:50%;
+	height:90%;
 	animation:observerMoveIn 2s linear;
 	animation-fill-mode:forwards;
 }
