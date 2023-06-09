@@ -1,7 +1,7 @@
 if (clairvoyance === undefined) var clairvoyance = {};
 Game.registerMod("clairvoyance", {
 	init:function(){
-		clairvoyance.version = "2.2";
+		clairvoyance.version = "2.3";
 		clairvoyance.fateLength = 10; // default to 10
 
 		// snippet from ccse, thanks klattmose: https://klattmose.github.io/CookieClicker/CCSE-POCs/
@@ -31,10 +31,11 @@ Game.registerMod("clairvoyance", {
 
 		// localization
 		ModLanguage('*',{
+			"Clairvoyance": "Clairvoyance",
+			"Fate length": "Fate length",
 			"Your fate:": "Your fate:",
 			"Default": "Default",
 			"%1 or %2 only": "%1 or %2 only",
-			"Clairvoyance fate length": "Clairvoyance fate length",
 			// strings already exist, but have stuff tacked on. redefine them
 			"Lucky": "Lucky",
 			"Ruin": "Ruin",
@@ -150,10 +151,20 @@ Game.registerMod("clairvoyance", {
 			Game.UpdateMenu = () => {
 				clairvoyanceUpdateMenu();
 				if (Game.onMenu=='prefs') {
-					let listings = document.getElementsByClassName('listing');
-					listings[listings.length - 1].innerHTML += Game.WriteSlider('clairvoyanceSlider',loc("Clairvoyance fate length"),'[$]',function(){return clairvoyance.fateLength;},'clairvoyance.fateLength = (Math.round(l(\'clairvoyanceSlider\').value));l(\'clairvoyanceSliderRightText\').innerHTML=clairvoyance.fateLength;')+'<br>';	
+					var str='';
+					str+=
+						'<div class="block" style="padding:0px;margin:8px 4px;">'+
+							'<div class="subsection" style="padding:0px;">'+
+							
+								'<div class="title">'+loc("Clairvoyance")+'</div>'+
+								'<div class="listing">'+
+									Game.WriteSlider('clairvoyanceSlider',loc("Fate length"),'[$]',function(){return clairvoyance.fateLength;},'clairvoyance.fateLength = (Math.round(l(\'clairvoyanceSlider\').value));l(\'clairvoyanceSliderRightText\').innerHTML=clairvoyance.fateLength;')+'<br>'
+								'</div>'+
+							'</div>'+
+						'</div>';
+					document.getElementById('menu').children[document.getElementById('menu').children.length-1].insertAdjacentHTML("beforebegin", str);
 					document.getElementById('clairvoyanceSlider').setAttribute('min',1);
-					document.getElementById('clairvoyanceSlider').setAttribute('max',25);
+					document.getElementById('clairvoyanceSlider').setAttribute('max',40);
 				}
 			}
 		}
@@ -163,12 +174,12 @@ Game.registerMod("clairvoyance", {
 				CCSE.AppendCollapsibleOptionsMenu("Clairvoyance", clairvoyance.getMenuString());
 				if (CCSE.collapseMenu["Clairvoyance"] == 0) {
 					document.getElementById('clairvoyanceSlider').setAttribute('min',1);
-					document.getElementById('clairvoyanceSlider').setAttribute('max',25);
+					document.getElementById('clairvoyanceSlider').setAttribute('max',40);
 				}
 			});
 
 			clairvoyance.getMenuString = function(){
-				var str = '<div class="listing">'+Game.WriteSlider('clairvoyanceSlider',loc("Clairvoyance fate length"),'[$]',function(){return clairvoyance.fateLength;},'clairvoyance.fateLength = (Math.round(l(\'clairvoyanceSlider\').value));l(\'clairvoyanceSliderRightText\').innerHTML=clairvoyance.fateLength;')+'<br>';+'</div>';
+				var str = '<div class="listing">'+Game.WriteSlider('clairvoyanceSlider',loc("Fate length"),'[$]',function(){return clairvoyance.fateLength;},'clairvoyance.fateLength = (Math.round(l(\'clairvoyanceSlider\').value));l(\'clairvoyanceSliderRightText\').innerHTML=clairvoyance.fateLength;')+'<br>';+'</div>';
 				return str;
 			}
 		}
