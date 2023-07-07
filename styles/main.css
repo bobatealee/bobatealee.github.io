@@ -652,6 +652,12 @@ button {
 	animation: textbox 3s infinite alternate ease-in-out;
 }
 
+#textbox6 {
+	width: 250px;
+	text-align: center;
+	animation: textbox 1s infinite alternate ease-in-out;
+}
+
 #observer {
 	background-image: url(../images/observer.gif);
 	width: 150px;
@@ -697,6 +703,24 @@ button {
 .containerBig {
 	width: 400px;
 	max-width:100%;
+}
+
+.connect {
+	display: inline-block;
+	width: 146px;
+	padding: 5px;
+	margin-top: 5px;
+	border: solid 2px #60318E;
+	background: #CCE5FF;
+	border-radius: 5px;
+	color: #60318E;
+	box-shadow: 1px 1px transparent;
+	transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.connect:hover {
+	transform: translate(-2px,-2px);
+	box-shadow: 2px 2px #60318E;
 }
 
 /* desktop buttons */
