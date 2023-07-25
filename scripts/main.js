@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 new Image().src = "images/boba.png";
 new Image().src = "images/desktopicons.png";
 new Image().src = "images/windowbuttons2.png";
+new Image().src = "images/backgroundPage.png";
+new Image().src = "images/backgroundSidebar.png";
 
 // preload sounds
 const toy1 = new Audio("sounds/toy1.mp3");
@@ -60,6 +62,8 @@ function toy2Toggle() {
 // title toy 3
 function toy3Toggle() {
 	document.getElementById("titleLetter3").classList.toggle("rainbow");
+	document.getElementById("html").classList.toggle("toy3Html");
+	document.getElementById("content").classList.toggle("toy3Content");
 	document.querySelectorAll("a").forEach((link) => {
 		link.classList.toggle("toy3Link");
 	});
@@ -83,6 +87,9 @@ function toy3Toggle() {
 	});
 	document.querySelectorAll(".container").forEach((container) => {
 		container.classList.toggle("toy3Container");
+	});
+	document.querySelectorAll(".connect").forEach((connect) => {
+		connect.classList.toggle("toy3Connect");
 	});
 	toy3.load();
 	toy3.play();
