@@ -11,10 +11,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // preload images
 new Image().src = "images/boba.png";
-new Image().src = "images/desktopicons.png";
-new Image().src = "images/windowbuttons2.png";
-new Image().src = "images/backgroundPage.png";
-new Image().src = "images/backgroundSidebar.png";
+new Image().src = "images/icons.png";
+new Image().src = "images/buttons.png";
+new Image().src = "images/buttons_old.png";
+new Image().src = "images/background_clouds.png";
+new Image().src = "images/background_marble.png";
 
 // preload sounds
 const toy1 = new Audio("sounds/toy1.mp3");

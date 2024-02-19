@@ -1,5 +1,3 @@
-/* big rework coming soon */
-
 /* general */
 
 @font-face {
@@ -140,7 +138,7 @@ button {
 /* title */
 
 #title {
-	font-size: 0px; /* so there's no whitespaces */
+	font-size: 0px;
 	font-family: 'Quicksand', sans-serif;
 	color: #FFFFFF;
 	padding-top: 10px;
@@ -302,19 +300,19 @@ button {
 }
 
 .toy3Content {
-	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(115, 144, 211, 1) 100%), url(../images/clouds.png) !important;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(115, 144, 211, 1) 100%), url(../images/background_clouds.png) !important;
 }
 
 .toy3Content.toy9Content {
-	background-image: linear-gradient(to bottom, rgba(115, 144, 211, 1) 0%, rgba(0, 0, 0, 0) 100%), url(../images/clouds.png) !important;
+	background-image: linear-gradient(to bottom, rgba(115, 144, 211, 1) 0%, rgba(0, 0, 0, 0) 100%), url(../images/background_clouds.png) !important;
 }
 
 .toy3Content:before {
-	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(37, 49, 93, 1) 100%), url(../images/marble.png) !important;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(37, 49, 93, 1) 100%), url(../images/background_marble.png) !important;
 }
 
 .toy3Content.toy9Content:before {
-	background-image: linear-gradient(to bottom, rgba(37, 49, 93, 1) 0%, rgba(0, 0, 0, 0) 100%), url(../images/marble.png) !important;
+	background-image: linear-gradient(to bottom, rgba(37, 49, 93, 1) 0%, rgba(0, 0, 0, 0) 100%), url(../images/background_marble.png) !important;
 }
 
 .toy3Link {
@@ -357,7 +355,7 @@ button {
 }
 
 .toy3WindowButton {
-	background-image: url(../images/windowbuttons2.png) !important;
+	background-image: url(../images/buttons_old.png) !important;
 	border: solid 1px #404040 !important;
 	margin:1px 3px 0px 1px !important;
 }
@@ -562,7 +560,7 @@ button {
 	border: solid 2px #60318E;
 	transform: translate3d(0,0,0);
 	background-color: transparent;
-	background-image: url(../images/windowbuttons.png);
+	background-image: url(../images/buttons.png);
 }
 
 .windowButtonClickable {
@@ -682,7 +680,7 @@ button {
 }
 
 #textbox5 {
-	width: 450px;
+	width: 575px;
 	text-align: center;
 	animation: textbox 3s infinite alternate ease-in-out;
 }
@@ -742,7 +740,7 @@ button {
 }
 
 .containerBig {
-	width: 400px;
+	width: 250px;
 	max-width:100%;
 }
 
@@ -791,7 +789,7 @@ button {
 	height: 32px;
 	transform: scale(2);
 	margin: 16px;
-	background-image: url(../images/desktopicons.png);
+	background-image: url(../images/icons.png);
 }
 
 .desktopButtonText {
