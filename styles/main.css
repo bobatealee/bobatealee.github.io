@@ -121,7 +121,6 @@ button {
 
 .pixel {
 	image-rendering: pixelated;
-	/* image-rendering: crisp-edges; */
 }
 
 #footer {
@@ -295,19 +294,27 @@ button {
 }
 
 .toy3Html {
-	background: url(../images/backgroundPage.png) #7390D3 !important;
+	background: #7390D3 !important;
 }
 
 .toy3Html:before {
-	background: url(../images/backgroundSidebar.png) #25315D !important;
+	background: #25315D !important;
 }
 
 .toy3Content {
-	background-image: url(../images/backgroundPage.png) !important;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(115, 144, 211, 1) 100%), url(../images/clouds.png) !important;
+}
+
+.toy3Content.toy9Content {
+	background-image: linear-gradient(to bottom, rgba(115, 144, 211, 1) 0%, rgba(0, 0, 0, 0) 100%), url(../images/clouds.png) !important;
 }
 
 .toy3Content:before {
-	background-image: url(../images/backgroundSidebar.png) !important;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(37, 49, 93, 1) 100%), url(../images/marble.png) !important;
+}
+
+.toy3Content.toy9Content:before {
+	background-image: linear-gradient(to bottom, rgba(37, 49, 93, 1) 0%, rgba(0, 0, 0, 0) 100%), url(../images/marble.png) !important;
 }
 
 .toy3Link {
