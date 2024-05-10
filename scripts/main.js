@@ -1,6 +1,6 @@
 // variables
 var year = "2024";
-var version = "2.7.1";
+var version = "2.8.0";
 
 // title outlines and other doodads
 document.addEventListener('DOMContentLoaded', (event) => {

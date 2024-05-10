@@ -1,0 +1,54 @@
+/* textboxes */
+
+#textboxes {
+	display: flex;
+	flex-direction:column;
+}
+
+.textbox {
+	margin: 20px auto 0px;
+	background-color: #FFFFFF;
+	display: inline-flex;
+	position: relative;
+	justify-content: space-evenly;
+	flex-direction: column;
+	box-shadow: 4px 4px #60318E;
+	border: solid 2px #60318E;
+	animation-timing-function: ease-in-out;
+	max-width: calc(100% - 44px);
+}
+
+.textbox:last-of-type {
+	margin: 20px auto;
+}
+
+/* individual textboxes */
+
+@keyframes textbox {
+	0% {
+		transform: translate(0px, 0px);
+	}
+	100% {
+		transform: translate(0px, 4px);
+	}
+}
+
+#textboxGamesNav {
+	width: 200px;
+	text-align: center;
+	animation: textbox 2s infinite alternate ease-in-out;
+	margin: 20px auto 0px;
+}
+
+#textboxGames {
+	width: 800px;
+	text-align: center;
+	animation: textbox 3s infinite alternate ease-in-out;
+}
+
+/* textbox containers */
+
+.containerBig {
+	width: 350px;
+	max-width:100%;
+}
