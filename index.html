@@ -83,17 +83,21 @@
 					</button>
 					<button id="desktopButton3" class="desktopButtonContainer hidden" onclick="textboxToggle(3);">
 						<div class="pixel desktopButton"></div><br>
-						<div class="desktopButtonText">observer</div>
+						<div class="desktopButtonText">games</div>
 					</button>
 					<button id="desktopButton4" class="desktopButtonContainer hidden" onclick="textboxToggle(4);">
 						<div class="pixel desktopButton"></div><br>
-						<div class="desktopButtonText">VFX</div>
+						<div class="desktopButtonText">observer</div>
 					</button>
 					<button id="desktopButton5" class="desktopButtonContainer hidden" onclick="textboxToggle(5);">
 						<div class="pixel desktopButton"></div><br>
-						<div class="desktopButtonText">web dev</div>
+						<div class="desktopButtonText">VFX</div>
 					</button>
 					<button id="desktopButton6" class="desktopButtonContainer hidden" onclick="textboxToggle(6);">
+						<div class="pixel desktopButton"></div><br>
+						<div class="desktopButtonText">web dev</div>
+					</button>
+					<button id="desktopButton7" class="desktopButtonContainer hidden" onclick="textboxToggle(7);">
 						<div class="pixel desktopButton"></div><br>
 						<div class="desktopButtonText">matchaland</div>
 					</button>
@@ -131,11 +135,25 @@
 							<button class="pixel windowButton windowButtonClickable windowButtonMin" onclick="textboxMinimize(2);"></button>
 						</div>
 						<div class="textboxText">
-							i'm boba! i do VFX and web development for games. some of my VFX work has officially shipped in <a href="https://en.wikipedia.org/wiki/Team_Fortress_2" target="_blank">Team Fortress 2</a>, and much of my web dev has gone into the mod <a href="https://en.wikipedia.org/wiki/Team_Fortress_2_Classic" target="_blank">TF2 Classic</a>.
+							i'm boba! i'm a game dev, web dev, VFX artist, and a whole bunch of other things. some of my VFX work has shipped in <a href="https://en.wikipedia.org/wiki/Team_Fortress_2" target="_blank">Team Fortress 2</a>, and much of my web dev has gone into the mod <a href="https://en.wikipedia.org/wiki/Team_Fortress_2_Classic" target="_blank">TF2 Classic</a>.
 						</div>
 					</div>
 
 					<div id="textbox3" class="textbox">
+						<div class="textboxHeader">
+							<span class="textboxHeaderText">games</span>
+							<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(3);"></button>
+							<button class="pixel windowButton windowButtonInactive windowButtonMax"></button>
+							<button class="pixel windowButton windowButtonInactive windowButtonMin"></button>
+						</div>
+						<div class="textboxText">
+							i make games and you can play them!
+							<br>
+							<a class="button" href="games" draggable="false">games</a>
+						</div>
+					</div>
+
+					<div id="textbox4" class="textbox">
 						<div class="textboxHeader">
 							<span class="textboxHeaderText">observer</span>
 							<button class="pixel windowButton windowButtonInactive windowButtonClose"></button>
@@ -146,11 +164,11 @@
 						</div>
 					</div>
 
-					<div id="textbox4" class="textbox">
+					<div id="textbox5" class="textbox">
 						<div class="textboxHeader">
 							<span class="textboxHeaderText">VFX</span>
-							<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(4);"></button>
-							<button class="pixel windowButton windowButtonClickable windowButtonMax" onclick="textboxMaximize(4, this);"></button>
+							<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(5);"></button>
+							<button class="pixel windowButton windowButtonClickable windowButtonMax" onclick="textboxMaximize(5, this);"></button>
 							<button class="pixel windowButton windowButtonClickable windowButtonQuestion"><div class="tooltip" style="width: 200px;">a few VFX projects of mine, mainly for Team Fortress 2</div></button></button>
 						</div>
 						<div class="textboxText">
@@ -189,11 +207,11 @@
 						</div>
 					</div>
 
-					<div id="textbox5" class="textbox">
+					<div id="textbox6" class="textbox">
 						<div class="textboxHeader">
 							<span class="textboxHeaderText">web dev</span>
-							<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(5);"></button>
-							<button class="pixel windowButton windowButtonClickable windowButtonMax" onclick="textboxMaximize(5, this);"></button>
+							<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(6);"></button>
+							<button class="pixel windowButton windowButtonClickable windowButtonMax" onclick="textboxMaximize(6, this);"></button>
 							<button class="pixel windowButton windowButtonInactive windowButtonMin"></button>
 						</div>
 						<div class="textboxText">
@@ -217,24 +235,24 @@
 						</div>
 					</div>
 
-					<div id="textbox6" class="textbox">
+					<div id="textbox7" class="textbox">
 						<div class="textboxHeader">
 							<span class="textboxHeaderText">matchaland</span>
-							<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(6);"></button>
+							<button class="pixel windowButton windowButtonClickable windowButtonClose" onclick="textboxToggle(7);"></button>
 							<button class="pixel windowButton windowButtonInactive windowButtonMax"></button>
 							<button class="pixel windowButton windowButtonInactive windowButtonMin"></button>
 						</div>
 						<div class="textboxText">
 							<a href="https://matchaland.net"><img src="images/button_matchaland.gif" style="margin: 5px 0px -5px;" /></a>
 							<br>
-							i don't just work on games... i host servers for them now, too! check 'em out!
+							i don't just work on games. i host servers for them, too!
 							<br>
-							<a class="connect" href="https://matchaland.net" draggable="false">matchaland.net</a>
+							<a class="button" href="https://matchaland.net" draggable="false">matchaland.net</a>
 						</div>
 					</div>
 				</div>
 
-				<div id="footer">© 2020-2024 boba<br><span id="footerVersion">v2.5.1</span></div>
+				<div id="footer">© boba</div>
 			</div>
 		</div>
 	</body>

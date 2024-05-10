@@ -1,4 +1,8 @@
-// title outlines
+// variables
+var year = "2024";
+var version = "2.6.0";
+
+// title outlines and other doodads
 document.addEventListener('DOMContentLoaded', (event) => {
 	$(function() {
 		$('.titleOutline').attr('letter', function() {return $(this).html();});
@@ -7,6 +11,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	for (let i = 0; i < document.getElementsByClassName("desktopButton").length; i++) {
 		document.getElementsByClassName("desktopButton")[i].style.backgroundPosition = -(i*32)+"px 0px";
 	}
+
+	document.getElementById("footer").innerHTML = '© 2020-'+year+' boba<br><span id="footerVersion">v'+version+'</span>';
 });
 
 // preload images
@@ -89,8 +95,8 @@ function toy3Toggle() {
 	document.querySelectorAll(".container").forEach((container) => {
 		container.classList.toggle("toy3Container");
 	});
-	document.querySelectorAll(".connect").forEach((connect) => {
-		connect.classList.toggle("toy3Connect");
+	document.querySelectorAll(".button").forEach((button) => {
+		button.classList.toggle("toy3Button");
 	});
 	toy3.load();
 	toy3.play();
@@ -235,7 +241,7 @@ function toy8Toggle() {
 	document.getElementById("titleLetter8").classList.remove("rainbowTemp");
 	document.getElementById("titleLetter8").offsetWidth;
 	document.getElementById("titleLetter8").classList.add("rainbowTemp");
-	textboxToggle(3);
+	textboxToggle(4);
 	toy8.load();
 	toy8.play();
 };
