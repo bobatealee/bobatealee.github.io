@@ -1,6 +1,6 @@
 // variables
 var year = "2024";
-var version = "2.8.1";
+var version = "2.8.2";
 
 // title outlines and other doodads
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -16,29 +16,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 // preload images
-new Image().src = "images/boba.png";
-new Image().src = "images/icons.png";
-new Image().src = "images/buttons.png";
-new Image().src = "images/buttons_old.png";
-new Image().src = "images/background_clouds.png";
-new Image().src = "images/background_marble.png";
+new Image().src = "/images/boba.png";
+new Image().src = "/images/icons.png";
+new Image().src = "/images/buttons.png";
+new Image().src = "/images/buttons_old.png";
+new Image().src = "/images/background_clouds.png";
+new Image().src = "/images/background_marble.png";
 
 // preload sounds
-const toy1 = new Audio("sounds/toy1.mp3");
-const toy2 = new Audio("sounds/toy2.mp3");
-const toy3 = new Audio("sounds/toy3.mp3");
-const toy4 = new Audio("sounds/toy4.mp3");
-const toy5 = new Audio("sounds/toy5.mp3");
-const toy6_1 = new Audio("sounds/toy6_1.mp3");
-const toy6_2 = new Audio("sounds/toy6_2.mp3");
-const toy6_3 = new Audio("sounds/toy6_3.mp3");
-const toy6_4 = new Audio("sounds/toy6_4.mp3");
-const toy6_5 = new Audio("sounds/toy6_5.mp3");
-const toy6_6 = new Audio("sounds/toy6_6.mp3");
-const toy6_7 = new Audio("sounds/toy6_7.mp3");
-const toy7 = new Audio("sounds/toy7.mp3");
-const toy8 = new Audio("sounds/toy8.mp3");
-const toy9 = new Audio("sounds/toy9.mp3");
+const toy1 = new Audio("/sounds/toy1.mp3");
+const toy2 = new Audio("/sounds/toy2.mp3");
+const toy3 = new Audio("/sounds/toy3.mp3");
+const toy4 = new Audio("/sounds/toy4.mp3");
+const toy5 = new Audio("/sounds/toy5.mp3");
+const toy6_1 = new Audio("/sounds/toy6_1.mp3");
+const toy6_2 = new Audio("/sounds/toy6_2.mp3");
+const toy6_3 = new Audio("/sounds/toy6_3.mp3");
+const toy6_4 = new Audio("/sounds/toy6_4.mp3");
+const toy6_5 = new Audio("/sounds/toy6_5.mp3");
+const toy6_6 = new Audio("/sounds/toy6_6.mp3");
+const toy6_7 = new Audio("/sounds/toy6_7.mp3");
+const toy7 = new Audio("/sounds/toy7.mp3");
+const toy8 = new Audio("/sounds/toy8.mp3");
+const toy9 = new Audio("/sounds/toy9.mp3");
 
 // title toy 1
 var toy1Var = false;
