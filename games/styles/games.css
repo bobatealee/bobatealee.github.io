@@ -46,6 +46,12 @@
 	animation: textbox 3s infinite alternate ease-in-out;
 }
 
+.buttonGame {
+	width:fit-content !important;
+	padding:5px 8px !important;
+	margin-top:10px !important;
+}
+
 /* textbox containers */
 
 .containerBig {
