@@ -1,5 +1,5 @@
 // variables
-var year = "2025";
+var year = "2026";
 var version = "2.10.0";
 
 // title outlines and other doodads
